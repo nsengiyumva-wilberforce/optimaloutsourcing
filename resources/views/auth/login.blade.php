@@ -31,7 +31,7 @@
                                             <a href="#" class="pxp-modal-link">Forgot password</a>
                                         </div>
                                         <div class="mt-4 text-center pxp-sign-hero-form-small">
-                                            New to Jobster? <a href="{{route('register')}}">Create an account</a>
+                                            New to Optimal Outsourcing? <a href="{{route('register')}}">Create an account</a>
                                         </div>
                                     </form>
                                 </div>
