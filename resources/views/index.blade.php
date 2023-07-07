@@ -232,7 +232,7 @@
 
 <section class="mt-100">
     <div class="pxp-container">
-        <div class="pxp-promo-img pxp-cover pt-100 pb-100 pxp-animate-in pxp-animate-in-top" style="background-image: url({{('assets/images/ph-big.jpg')}});">
+        <div class="pxp-promo-img pxp-cover pt-100 pb-100 pxp-animate-in pxp-animate-in-top" style="background:black">
             <div class="row">
                 <div class="col-sm-7 col-lg-5">
                     <h2 class="pxp-section-h2 text-white">See right away whether candidates are the right fit</h2>
@@ -255,7 +255,7 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/ph-small.jpg')}});"></div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background: black"></div>
                         <div class="pxp-cities-card-1-name">Kampala, Uganda</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
@@ -266,7 +266,7 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/ph-small.jpg')}});"></div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background:black"></div>
                         <div class="pxp-cities-card-1-name">Mbarara, Uganda</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
@@ -277,7 +277,7 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/ph-small.jpg')}});"></div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background:black"></div>
                         <div class="pxp-cities-card-1-name">Lagos, Nigeria</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
@@ -288,7 +288,7 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/ph-small.jpg')}});"></div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background:black"></div>
                         <div class="pxp-cities-card-1-name">Nairobi, Kenya</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
@@ -299,7 +299,7 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/ph-small.jpg')}});"></div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background:black"></div>
                         <div class="pxp-cities-card-1-name">Kinshasha, Congo</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
@@ -310,7 +310,7 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{('assets/images/ph-small.jpg')}});"></div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background:black"></div>
                         <div class="pxp-cities-card-1-name">Kigali, Rwanda</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
@@ -321,7 +321,7 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{('assets/images/ph-small.jpg')}});"></div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background:black"></div>
                         <div class="pxp-cities-card-1-name">Fort Portal, Uganda</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
@@ -332,7 +332,7 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{('assets/images/ph-small.jpg')}});"></div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background:black"></div>
                         <div class="pxp-cities-card-1-name">Adis Ababa, Ethiopia</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
@@ -343,7 +343,7 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{('assets/images/ph-small.jpg')}});"></div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background:black"></div>
                         <div class="pxp-cities-card-1-name">Mombasa, Kenya</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
@@ -354,7 +354,7 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{('assets/images/ph-small.jpg')}});"></div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background:black"></div>
                         <div class="pxp-cities-card-1-name">Ntinda, Uganda</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
@@ -365,7 +365,7 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{('assets/images/ph-small.jpg')}});"></div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background:black"></div>
                         <div class="pxp-cities-card-1-name">Ruhengeri, Rwanda</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
@@ -376,7 +376,7 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{('assets/images/ph-small.jpg')}});"></div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background:black"></div>
                         <div class="pxp-cities-card-1-name">Salt, uganda</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
