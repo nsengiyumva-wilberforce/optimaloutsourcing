@@ -16,11 +16,16 @@ class CandidatesController extends Controller
 
     public function candidateDashbaord()
     {
-        return view('candidates.dashboard');
+        //get all the applications for the logged in user with job details and candidate's details
+        $candidates = auth()->user()->applications()->with('job', 'user.profile')->get();
+        $number_of_candidates = count($candidates);
+        return view('candidates.dashboard', compact('candidates', 'number_of_candidates'));
     }
     //retrieve a single candidate
     public function candidateDetails($id)
     {
-        return view('candidates.candidate-details');
+        //get the candidate details
+        $candidate = User::find($id);
+        return view('candidates.candidate-details', compact('candidate'));
     }
 }

@@ -99,10 +99,10 @@ class User extends Authenticatable
 
     public function applications()
     {
-        return $this->hasMany(Application::class);
+        return $this->hasMany(Application::class, 'user_id');
     }
         public function profile()
     {
-        return $this->hasOne(Profile::class, 'user_id');
+        return $this->hasOne(Profile::class, 'user_id', 'user_id');
     }
 }

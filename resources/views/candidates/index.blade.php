@@ -61,127 +61,28 @@
                 </div>
 
                 <div class="row">
+                    @if(count($candidates)>0)
+                    @foreach($candidates as $candidate)
                     <div class="col-md-6 col-xl-4 col-xxl-3 pxp-candiadates-card-1-container">
                         <div class="pxp-candiadates-card-1 pxp-has-border text-center">
                             <div class="pxp-candiadates-card-1-top">
                                 <div class="pxp-candiadates-card-1-avatar pxp-cover" style="background-image: url({{asset('assets/images/ph-small.jpg')}});"></div>
-                                <div class="pxp-candiadates-card-1-name">Scott Goodwin</div>
+                                <div class="pxp-candiadates-card-1-name">{{$candidate->first_name.$candidate->last_name}}</div>
                                 <div class="pxp-candiadates-card-1-title">UI Designer</div>
-                                <div class="pxp-candiadates-card-1-location"><span class="fa fa-globe"></span>London, UK</div>
+                                <div class="pxp-candiadates-card-1-location"><span class="fa fa-globe"></span>{{$candidate->location}}</div>
                             </div>
                             <div class="pxp-candiadates-card-1-bottom">
                                 <div class="pxp-candiadates-card-1-cta">
-                                    <a href="#">View profile<span class="fa fa-angle-right"></span></a>
+                                    <a href="{{'candidate-details/'.$candidate->user_id}}">View profile<span class="fa fa-angle-right"></span></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-4 col-xxl-3 pxp-candiadates-card-1-container">
-                        <div class="pxp-candiadates-card-1 pxp-has-border text-center">
-                            <div class="pxp-candiadates-card-1-top">
-                                <div class="pxp-candiadates-card-1-avatar pxp-cover" style="background-image: url({{asset('assets/images/ph-small.jpg')}});"></div>
-                                <div class="pxp-candiadates-card-1-name">Kenneth Spiers</div>
-                                <div class="pxp-candiadates-card-1-title">Software Developer</div>
-                                <div class="pxp-candiadates-card-1-location"><span class="fa fa-globe"></span>San Francisco, CA</div>
-                            </div>
-                            <div class="pxp-candiadates-card-1-bottom">
-                                <div class="pxp-candiadates-card-1-cta">
-                                    <a href="single-candidate-1.html">View profile<span class="fa fa-angle-right"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-4 col-xxl-3 pxp-candiadates-card-1-container">
-                        <div class="pxp-candiadates-card-1 pxp-has-border text-center">
-                            <div class="pxp-candiadates-card-1-top">
-                                <div class="pxp-candiadates-card-1-avatar pxp-cover" style="background-image: url({{asset('assets/images/ph-small.jpg')}});"></div>
-                                <div class="pxp-candiadates-card-1-name">Rebecca Eason</div>
-                                <div class="pxp-candiadates-card-1-title">Marketing Expert</div>
-                                <div class="pxp-candiadates-card-1-location"><span class="fa fa-globe"></span>Los Angeles, CA</div>
-                            </div>
-                            <div class="pxp-candiadates-card-1-bottom">
-                                <div class="pxp-candiadates-card-1-cta">
-                                    <a href="single-candidate-1.html">View profile<span class="fa fa-angle-right"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-4 col-xxl-3 pxp-candiadates-card-1-container">
-                        <div class="pxp-candiadates-card-1 pxp-has-border text-center">
-                            <div class="pxp-candiadates-card-1-top">
-                                <div class="pxp-candiadates-card-1-avatar pxp-cover" style="background-image: url({{asset('assets/images/ph-small.jpg')}});"></div>
-                                <div class="pxp-candiadates-card-1-name">Susanne Weil</div>
-                                <div class="pxp-candiadates-card-1-title">Architect</div>
-                                <div class="pxp-candiadates-card-1-location"><span class="fa fa-globe"></span>Paris, France</div>
-                            </div>
-                            <div class="pxp-candiadates-card-1-bottom">
-                                <div class="pxp-candiadates-card-1-cta">
-                                    <a href="single-candidate-1.html">View profile<span class="fa fa-angle-right"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-4 col-xxl-3 pxp-candiadates-card-1-container">
-                        <div class="pxp-candiadates-card-1 pxp-has-border text-center">
-                            <div class="pxp-candiadates-card-1-top">
-                                <div class="pxp-candiadates-card-1-avatar pxp-cover" style="background-image: url({{asset('assets/images/ph-small.jpg')}});"></div>
-                                <div class="pxp-candiadates-card-1-name">Rebecca Eason</div>
-                                <div class="pxp-candiadates-card-1-title">UI Designer</div>
-                                <div class="pxp-candiadates-card-1-location"><span class="fa fa-globe"></span>London, UK</div>
-                            </div>
-                            <div class="pxp-candiadates-card-1-bottom">
-                                <div class="pxp-candiadates-card-1-cta">
-                                    <a href="single-candidate-1.html">View profile<span class="fa fa-angle-right"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-4 col-xxl-3 pxp-candiadates-card-1-container">
-                        <div class="pxp-candiadates-card-1 pxp-has-border text-center">
-                            <div class="pxp-candiadates-card-1-top">
-                                <div class="pxp-candiadates-card-1-avatar pxp-cover" style="background-image: url({{asset('assets/images/ph-small.jpg')}});"></div>
-                                <div class="pxp-candiadates-card-1-name">Susanne Weil</div>
-                                <div class="pxp-candiadates-card-1-title">Software Developer</div>
-                                <div class="pxp-candiadates-card-1-location"><span class="fa fa-globe"></span>San Francisco, CA</div>
-                            </div>
-                            <div class="pxp-candiadates-card-1-bottom">
-                                <div class="pxp-candiadates-card-1-cta">
-                                    <a href="single-candidate-1.html">View profile<span class="fa fa-angle-right"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-4 col-xxl-3 pxp-candiadates-card-1-container">
-                        <div class="pxp-candiadates-card-1 pxp-has-border text-center">
-                            <div class="pxp-candiadates-card-1-top">
-                                <div class="pxp-candiadates-card-1-avatar pxp-cover" style="background-image: url(images/ph-small.jpg);"></div>
-                                <div class="pxp-candiadates-card-1-name">Scott Goodwin</div>
-                                <div class="pxp-candiadates-card-1-title">Marketing Expert</div>
-                                <div class="pxp-candiadates-card-1-location"><span class="fa fa-globe"></span>Los Angeles, CA</div>
-                            </div>
-                            <div class="pxp-candiadates-card-1-bottom">
-                                <div class="pxp-candiadates-card-1-cta">
-                                    <a href="single-candidate-1.html">View profile<span class="fa fa-angle-right"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-4 col-xxl-3 pxp-candiadates-card-1-container">
-                        <div class="pxp-candiadates-card-1 pxp-has-border text-center">
-                            <div class="pxp-candiadates-card-1-top">
-                                <div class="pxp-candiadates-card-1-avatar pxp-cover" style="background-image: url({{asset('assets/images/ph-small.jpg')}});"></div>
-                                <div class="pxp-candiadates-card-1-name">Kenneth Spiers</div>
-                                <div class="pxp-candiadates-card-1-title">Architect</div>
-                                <div class="pxp-candiadates-card-1-location"><span class="fa fa-globe"></span>Paris, France</div>
-                            </div>
-                            <div class="pxp-candiadates-card-1-bottom">
-                                <div class="pxp-candiadates-card-1-cta">
-                                    <a href="single-candidate-1.html">View profile<span class="fa fa-angle-right"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
+                    @else
+
+                    <p>No candidates found</p>
+                    @endif
 
                 <div class="row mt-4 mt-lg-5 justify-content-between align-items-center">
                     <div class="col-auto">

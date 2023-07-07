@@ -7,7 +7,7 @@
                 <div class="pxp-single-candidate-hero-content">
                     <div class="pxp-single-candidate-hero-avatar" style="background-image: url({{asset('assets/images/ph-small.jpg')}});"></div>
                     <div class="pxp-single-candidate-hero-name">
-                        <h1>Rebecca Eason</h1>
+                        <h1>{{$candidate->first_name.' '.$candidate->last_name}}</h1>
                         <div class="pxp-single-candidate-hero-title">UX/UI Designer</div>
                     </div>
                 </div>

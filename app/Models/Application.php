@@ -32,14 +32,14 @@ class Application extends Model
 
             if ($lastApplication) {
                 $lastApplicationId = $lastApplication->application_id;
-                $lastapplicationIdNumber = (int)substr($lastApplicationId, 1); // Extract the numeric part of the last application_id
+                $lastApplicationIdNumber = (int)substr($lastApplicationId, 1); // Extract the numeric part of the last application_id
                 $nextApplicationIdNumber = $lastApplicationIdNumber + 1;
                 $nextApplicationId = 'A' . str_pad($nextApplicationIdNumber, strlen($lastApplicationId) - 1, '0', STR_PAD_LEFT);
             } else {
                 $nextApplicationId = 'A00001'; // If there are no existing Applications, start with A00001
             }
 
-            $model->application_id = $nextJobId;
+            $model->application_id = $nextApplicationId;
 
         });
 
@@ -54,11 +54,11 @@ class Application extends Model
 
     public function job()
     {
-        return $this->belongsTo(Job::class);
+        return $this->belongsTo(Job::class, 'job_id', 'job_id');
     }
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
 }

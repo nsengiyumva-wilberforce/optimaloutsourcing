@@ -37,7 +37,8 @@
                                             <span class="fa fa-pen-o"></span>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <select name="role" id="pxp-signup-page-role" class="form-control">
+                                            <select name="role" id="pxp-signup-page-role" class="form-select">
+                                                <option value="employee">--Select Role---</option>
                                                 <option value="employee">Employee</option>
                                                 <option value="employer">Employer</option>
                                                 <option value="admin">Admin</option>

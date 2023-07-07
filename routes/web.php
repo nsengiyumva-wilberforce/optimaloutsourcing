@@ -47,6 +47,8 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/jobs/manage', [JobsController::class, 'manageJobs'])->name('manageJobs');
     Route::get('/jobs/new', [JobsController::class, 'newJob'])->name('newJob');
     Route::get('/jobs/application', [ApplicationController::class, 'index'])->name('application');
+    Route::get('jobs/apply/{id}', [ApplicationController::class, 'showapplicationForm'])->name('apply');
+    
 
     Route::get('/candidates/dashboard', [CandidatesController::class, 'candidateDashbaord'])->name('candidateDashbaord');
     //candidate details
