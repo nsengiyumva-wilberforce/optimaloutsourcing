@@ -6,7 +6,7 @@
             <div class="row pxp-pl-80 align-items-center justify-content-between">
                 <div class="col-12 col-xl-6 col-xxl-5">
                     <h1>Find the perfect<br><span style="color: var(--pxpMainColor);">job</span> for you</h1>
-                    <div class="pxp-hero-subtitle mt-3 mt-lg-4">Search your career opportunity through <strong>12,800</strong> jobs</div>
+                    <div class="pxp-hero-subtitle mt-3 mt-lg-4">Search your career opportunity through <strong>{{$jobs}}</strong> jobs</div>
 
                     <div class="pxp-hero-form pxp-hero-form-round mt-3 mt-lg-4">
                         <form class="row gx-3 align-items-center" action="jobs-list-1.html">

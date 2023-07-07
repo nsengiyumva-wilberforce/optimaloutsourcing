@@ -111,13 +111,13 @@
                             </div>
                             <div class="pxp-footer-section mt-3 mt-md-4">
                                 <h3>Call us</h3>
-                                <div class="pxp-footer-phone">+256789 566 455</div>
+                                <div class="pxp-footer-phone">+256 200 940 010</div>
                             </div>
                             <div class="mt-3 mt-md-4 pxp-footer-section">
                                 <div class="pxp-footer-text">
                                     90 Fifth Avenue, 3rd Floor<br>
                                     San Francisco, CA 1980<br>
-                                    hello@optimaloutsourcing.com
+                                    hello@optimaloutsourcing.co.ug
                                 </div>
                             </div>
                         </div>

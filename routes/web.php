@@ -5,7 +5,7 @@ use App\Http\Controllers\JobsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CandidatesController;
 use App\Http\Controllers\CompaniesController;
-use App\Http\Controllers\Auth\Logincontroller;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\ProfileController;
@@ -49,6 +49,8 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/jobs/application', [ApplicationController::class, 'index'])->name('application');
 
     Route::get('/candidates/dashboard', [CandidatesController::class, 'candidateDashbaord'])->name('candidateDashbaord');
+    //candidate details
+    Route::get('/candidate-details/{id}', [CandidatesController::class, 'candidateDetails'])->name('candidateDetails');
 
     //show profile form
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
