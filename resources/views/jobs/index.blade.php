@@ -383,7 +383,7 @@
 
                                         <div class="pxp-jobs-tab-pane-content-details mt-4 mt-lg-5">
                                             <h4>Overview</h4>
-                                            <p>{{ $job->description }}</p>
+                                            <p>{!! html_entity_decode($job->description) !!}</p>
                                             <div class="mt-4">
                                                 <h4>Responsabilities</h4>
                                                 <ul>
@@ -585,75 +585,7 @@
 
                                         <div class="pxp-jobs-tab-pane-content-details mt-4 mt-lg-5">
                                             <h4>Overview</h4>
-                                            <p>{{ $job->description }}</p>
-                                            <div class="mt-4">
-                                                <h4>Responsabilities</h4>
-                                                <ul>
-                                                    <li>Be involved in every step of the product design cycle from discovery
-                                                        to
-                                                        developer handoff and user acceptance testing.</li>
-                                                    <li>Work with BAs, product managers and tech teams to lead the Product
-                                                        Design
-                                                    </li>
-                                                    <li>Maintain quality of the design process and ensure that when designs
-                                                        are
-                                                        translated into code they accurately reflect the design
-                                                        specifications.</li>
-                                                    <li>Accurately estimate design tickets during planning sessions.</li>
-                                                    <li>Contribute to sketching sessions involving non-designersCreate,
-                                                        iterate and
-                                                        maintain UI deliverables including sketch files, style guides, high
-                                                        fidelity
-                                                        prototypes, micro interaction specifications and pattern libraries.
-                                                    </li>
-                                                    <li>Ensure design choices are data led by identifying assumptions to
-                                                        test each
-                                                        sprint, and work with the analysts in your team to plan moderated
-                                                        usability
-                                                        test sessions.</li>
-                                                    <li>Design pixel perfect responsive UI’s and understand that adopting
-                                                        common
-                                                        interface patterns is better for UX than reinventing the wheel</li>
-                                                    <li>Present your work to the wider business at Show &amp; Tell sessions.
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="mt-4">
-                                                <h4>Requirements</h4>
-                                                <ul>
-                                                    <li>4+ years of system administration experience with the Microsoft
-                                                        Server
-                                                        platform (2012/2016, Microsoft IIS, Active Directory)</li>
-                                                    <li>3+ years of hands-on system administration experience with AWS (EC2,
-                                                        Elastic
-                                                        Load Balancing, Multi AZ, etc.)</li>
-                                                    <li>4+ years of SQL Server, MySQL</li>
-                                                    <li>Working knowledge of Encryption techniques and protocols,
-                                                        Multi-factor
-                                                        authentication, Data protection, Penetration testing, Security
-                                                        threats</li>
-                                                    <li>Bachelor's Degree, or 4+ years of hands-on IT experience</li>
-                                                </ul>
-                                            </div>
-                                            <div class="mt-4">
-                                                <h4>Skills</h4>
-                                                <ul>
-                                                    <li>Programming experience developing web applications with the
-                                                        Microsoft .NET
-                                                        stack and a basic knowledge of SQL</li>
-                                                    <li>Development experience with Angular, Node.JS, or ColdFusion</li>
-                                                    <li>HTML, CSS, XHTML, XML</li>
-                                                    <li>Hypervisors, SAN’s, load balancers, firewalls, and Web Application
-                                                        Firewall
-                                                        (WAF)</li>
-                                                    <li>Experience with Higher Logic (a collaboration platform)</li>
-                                                    <li>MongoDB, Drupal</li>
-                                                    <li>Mobile App Development (iOS and Android)</li>
-                                                    <li>Episerver CMS</li>
-                                                    <li>Microsoft Team Foundation Server</li>
-                                                    <li>Speaker Management System (Planstone)</li>
-                                                </ul>
-                                            </div>
+                                            <p>{!! html_entity_decode($job->description) !!}</p>
                                             @if (session('error'))
                                                 <div class="alert alert-danger">
                                                     {{ session('error') }}

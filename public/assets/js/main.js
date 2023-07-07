@@ -1,6 +1,5 @@
 (function ($) {
     "use strict";
-
     var animateHTML = function () {
         var elems;
         var windowHeight;
@@ -109,6 +108,12 @@
 
     $(window).on("load", function () {
         handlePreloader();
+        //create the editor for posting job description
+        ClassicEditor.create(
+            document.querySelector("#pxp-company-job-description")
+        ).catch((error) => {
+            console.error(error);
+        });
     });
 
     windowResizeHandler();
@@ -867,7 +872,13 @@
         const end_date = $("#pxp-candidate-end-date").val();
         const job_description = $("#pxp-candidate-work-about").val();
 
-        console.log(job_title, company_name, start_date, end_date, job_description)
+        console.log(
+            job_title,
+            company_name,
+            start_date,
+            end_date,
+            job_description
+        );
         // Push the experience as an object into the array
         experiencesArray.push({
             job_title: job_title,
