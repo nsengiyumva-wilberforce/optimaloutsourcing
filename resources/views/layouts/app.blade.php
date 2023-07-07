@@ -56,6 +56,12 @@
                                             <a class="nav-link" href="/candidates">Candidates</a>
                                         </li>
                                         <li class="nav-item dropdown">
+                                            <a href="/register" class="nav-link">Register</a>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a href="/login" class="nav-link">Login</a>
+                                        </li>
+                                        <li class="nav-item dropdown">
                                             <a href="/aboutus"class="nav-link">About Us</a>
                                         </li>
                                         <li class="nav-item dropdown">
