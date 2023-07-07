@@ -73,7 +73,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="company-dashboard.html">Dashboard</a></li>
                         <li><a class="dropdown-item" href="{{route('profile')}}">Edit profile</a></li>
-                        <li><a class="dropdown-item" href="index.html">Logout</a></li>
+                        <li><a class="dropdown-item" href="{{route('logout')}}">Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -92,8 +92,7 @@
                     id="pxpMobileNav">
                     <div class="offcanvas-header">
                         <div class="pxp-logo">
-                            <a href="index.html" class="pxp-animate"><span
-                                    style="color: var(--pxpMainColor)">j</span>obster</a>
+                            <img src="{{asset('assets/images/logo.png')}}" alt="logo">
                         </div>
                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                             aria-label="Close"></button>
