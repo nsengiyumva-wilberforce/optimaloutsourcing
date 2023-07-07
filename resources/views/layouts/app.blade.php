@@ -50,10 +50,10 @@
                                             <a role="button" href="/">Home</a>
                                         </li>
                                         <li class="nav-item dropdown">
-                                            <a class="nav-link" href="{{route('jobs')}}">Find Jobs</a>
+                                            <a class="nav-link" href="/jobs">Find Jobs</a>
                                         </li>
                                         <li class="nav-item dropdown">
-                                            <a class="nav-link" href="{{route('candidates')}}">Candidates</a>
+                                            <a class="nav-link" href="/candidates">Candidates</a>
                                         </li>
                                         <li class="nav-item dropdown">
                                             <a href="/aboutus"class="nav-link">About Us</a>
