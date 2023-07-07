@@ -14,7 +14,7 @@
                             <div class="col-lg-6 col-xl-7 col-xxl-5">
                                 <div class="pxp-sign-hero-form-content">
                                     <h5 class="text-center">Sign In</h5>
-                                    <form class="mt-4" method="POST" action="{{route('login')}}">
+                                    <form class="mt-4" method="POST" action="/login">
                                         @csrf
                                         <div class="form-floating mb-3">
                                             <input type="email" name="email" class="form-control" id="pxp-signin-page-email" placeholder="Email address">
