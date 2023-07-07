@@ -24,7 +24,7 @@
 
     <div class="pxp-dashboard-side-panel d-none d-lg-block">
         <div class="pxp-logo">
-            <a href="index.html" class="pxp-animate"><span style="color: var(--pxpMainColor)">j</span>obster</a>
+            <img src="{{asset('assets/images/logo.png')}}" alt="logo">
         </div>
 
         <nav class="mt-3 mt-lg-4 d-flex justify-content-between flex-column pb-100">
