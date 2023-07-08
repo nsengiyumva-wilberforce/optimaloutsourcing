@@ -29,6 +29,9 @@ Route::get('/candidates', [CandidatesController::class, 'index'])->name('candida
 
 Route::get('/companies', [CompaniesController::class, 'index'])->name('companies');
 
+//route for cv generator
+Route::get('/cv-generator', [ProfileController::class, 'cvGenerator'])->name('cvGenerator');
+
 //authentication
 // Login routes
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -48,7 +51,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/jobs/new', [JobsController::class, 'newJob'])->name('newJob');
     Route::get('/jobs/application', [ApplicationController::class, 'index'])->name('application');
     Route::get('jobs/apply/{id}', [ApplicationController::class, 'showapplicationForm'])->name('apply');
-    
+
 
     Route::get('/candidates/dashboard', [CandidatesController::class, 'candidateDashbaord'])->name('candidateDashbaord');
     //candidate details
@@ -57,4 +60,7 @@ Route::group(['middleware' => 'auth'], function(){
     //show profile form
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+
+    //create-cv
+    Route::get('/create-cv', [ProfileController::class, 'createCv'])->name('createCv');
 });

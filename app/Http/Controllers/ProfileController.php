@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Profile;
 use App\Models\Skill;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Session;
 
 class ProfileController extends Controller
 {
@@ -43,11 +45,11 @@ class ProfileController extends Controller
         $user = auth()->user();
         $profile = $user->profile;
         //attach the skills to the profile
-        if(count($skills)!=1 && $skills[0]!=null){
+        if (count($skills) != 1 && $skills[0] != null) {
             $profile->skills()->sync($skills);
         }
         //insert experiences into the database
-        if($experiences){
+        if ($experiences) {
             foreach ($experiences as $experience) {
                 $profile->experiences()->create([
                     'job_title' => $experience->job_title,
@@ -60,7 +62,7 @@ class ProfileController extends Controller
         }
 
         //insert trainings into the database
-        if($trainings){
+        if ($trainings) {
             foreach ($trainings as $training) {
                 $profile->trainings()->create([
                     'training_title' => $training->training_title,
@@ -104,4 +106,44 @@ class ProfileController extends Controller
         return redirect()->route('profile.update')->with('success', 'Profile updated successfully.');
     }
 
+    public function cvGenerator()
+    {
+        return view('cvgenerator.index');
+    }
+
+    public function createCV()
+    {
+        //get all the profile info for the user
+        $profile = auth()->user()->profile;
+
+        //get all the skills in skills table
+        $skills = Skill::all();
+
+        //get all the experiences for the user
+        $experiences = $profile->experiences;
+
+        //get all the trainings for the user
+        $trainings = $profile->trainings;
+
+        //get the profile photo
+        $profile_photo = $profile->profile_photo;
+
+        //get the cover photo
+        $cover_photo = $profile->cover_photo;
+        $data = [
+            'profile' => $profile,
+            'skills' => $skills,
+            'experiences' => $experiences,
+            'trainings' => $trainings,
+            'profile_photo' => $profile_photo,
+            'cover_photo' => $cover_photo,
+        ];
+        // Set the success message in the session
+        $pdf = Pdf::loadView('cvgenerator.cv', $data);
+
+        Session::flash('success', 'CV generated successfully.');
+
+        // Return the PDF download response
+        return $pdf->download('cv.pdf');
+    }
 }

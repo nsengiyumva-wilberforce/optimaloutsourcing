@@ -1,6 +1,5 @@
 @extends('layouts.sidebar')
 @section('content')
-
         <div class="pxp-dashboard-content-details">
             <h1>Edit Profile</h1>
             <p class="pxp-text-light">Edit your candidate profile page info.</p>
@@ -278,5 +277,4 @@
             <div class="pxp-footer-copyright pxp-text-light">© 2023 Optimal Outsourcing. All Right Reserved.</div>
         </footer>
     </div>
-
 @endsection

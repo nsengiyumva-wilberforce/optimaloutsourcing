@@ -56,6 +56,9 @@
                                             <a class="nav-link" href="/candidates">Candidates</a>
                                         </li>
                                         <li class="nav-item dropdown">
+                                            <a class="nav-link" href="/cv-generator">CV Generator</a>
+                                        </li>
+                                        <li class="nav-item dropdown">
                                             <a href="/register" class="nav-link">Register</a>
                                         </li>
                                         <li class="nav-item dropdown">
@@ -85,7 +88,9 @@
                             <li class="dropdown">
                                 <a href="{{route('candidates')}}">Candidates</a>
                             </li>
-
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="/cv-generator">CV Generator</a>
+                            </li>
                             <li class="dropdown">
                                 <a href="/about-us">About Us</a>
                             </li>
@@ -184,7 +189,7 @@
                 <div class="pxp-container">
                     <div class="row justify-content-between align-items-center">
                         <div class="col-lg-auto">
-                            <div class="pxp-footer-copyright pxp-text-light">© 2021 Jobster. All Right Reserved.</div>
+                            <div class="pxp-footer-copyright pxp-text-light">© 2023 Optmal Outsourcing. All Right Reserved.</div>
                         </div>
                         <div class="col-lg-auto">
                             <div class="pxp-footer-social mt-3 mt-lg-0">
