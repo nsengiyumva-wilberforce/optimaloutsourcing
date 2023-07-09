@@ -41,12 +41,10 @@
             background-position: center;
             background-repeat: no-repeat;
             display: flex;
-            /* Added */
             align-items: center;
-            /* Added */
             justify-content: center;
-            /* Added */
         }
+
 
         .profile_pic img {
             max-height: 70px;
@@ -62,7 +60,7 @@
 <body>
     <div class="top_section">
         @if ($cover_photo)
-            <div class="profile_pic text_center" style="background-image:url({{ asset('storage/' . $cover_photo) }})">
+            <div class="profile_pic" style="background-image:url({{ asset('storage/' . $cover_photo) }})">
                 {{-- check if the profile photo exists and display the profile image else display an avatar  --}}
                 @if ($profile->profile_photo)
                     <img src="{{ asset('storage/' . $profile->profile_photo) }}" alt="Avatar" height="120px"
@@ -85,6 +83,7 @@
             </div>
         @endif
     </div>
+
     <div class="profile_info">
         <h1>{{ $profile->first_name . ' ' . $profile->last_name }}</h1>
         <p>{{ $profile->location }}</p>
