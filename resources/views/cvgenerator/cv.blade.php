@@ -52,6 +52,11 @@
             border-radius: 50%;
         }
     </style>
+        <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -86,9 +91,9 @@
 
     <div class="profile_info">
         <h1>{{ $profile->first_name . ' ' . $profile->last_name }}</h1>
-        <p>{{ $profile->location }}</p>
-        <p>Email: {{ $profile->email }}</p>
-        <p>Phone: {{ $profile->phone_number }}</p>
+        <p><strong>Location:</strong> {{ $profile->location }}</p>
+        <p><strong>Email:</strong>{{ $profile->email }}</p>
+        <p><strong>Phone:</strong> {{ $profile->phone_number }}</p>
     </div>
 
     <div class="about">
@@ -97,38 +102,95 @@
     </div>
 
 
-    <h2>Education and Training</h2>
+    <div class="mt-4 mt-lg-5">
+        <h2>Education & Training</h2>
+        <div class="table-responsive">
+            <table class="table align-middle" id="training-table">
+                <tbody>
+                    @if ($trainings)
+                        @foreach ($trainings as $training)
+                            <tr data-id="{{ $training->training_id }}">
+                                <td style="width: 30%;">
+                                    <div class="pxp-candidate-dashboard-experience-title">
+                                        {{ $training->training_title }}</div>
+                                </td>
+                                <td style="width: 25%;">
+                                    <div class="pxp-candidate-dashboard-experience-company">
+                                        {{ $training->training_institution }}</div>
+                                </td>
+                                <td style="width: 25%;">
+                                    <div class="pxp-candidate-dashboard-experience-time">
+                                        {{ $training->start_date }} - {{ $training->end_date }}</div>
+                                </td>
+                                <td>
+                                    <div class="pxp-dashboard-table-options">
+                                        <ul class="list-unstyled">
+                                            <li><button title="Edit" class="edit-btn"><span
+                                                        class="fa fa-pencil"></span></button></li>
+                                            <li><button title="Delete" class="delete-btn"><span
+                                                        class="fa fa-trash-o"></span></button></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
+                </tbody>
+            </table>
+        </div>
+    </div>
 
+    <div class="mt-4 mt-lg-5">
+        <h2>Work Experience</h2>
+        <div class="table-responsive">
+            <table class="table align-middle" id="experience-table">
+                <tbody>
+                    @if ($experiences)
+                        @foreach ($experiences as $experience)
+                            <tr data-id="{{ $experience->experience_id }}">
+                                <td style="width: 30%;">
+                                    <div class="pxp-candidate-dashboard-experience-title">
+                                        {{ $experience->job_title }}</div>
+                                </td>
+                                <td style="width: 25%;">
+                                    <div class="pxp-candidate-dashboard-experience-company">
+                                        {{ $experience->company_name }}</div>
+                                </td>
+                                <td style="width: 25%;">
+                                    <div class="pxp-candidate-dashboard-experience-time">
+                                        {{ $experience->start_date }} - {{ $experience->end_date }}</div>
+                                </td>
+                                <td>
+                                    <div class="pxp-dashboard-table-options">
+                                        <ul class="list-unstyled">
+                                            <li><button title="Edit" class="edit-btn"><span
+                                                        class="fa fa-pencil"></span></button></li>
+                                            <li><button title="Delete" class="delete-btn"><span
+                                                        class="fa fa-trash-o"></span></button></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-
-    <h2>Work Experience</h2>
-    <ul>
-        <li>
-            <strong>Job Title</strong><br>
-            Company/Organization Name<br>
-            Location<br>
-            Start Date - End Date<br>
-            Description of your responsibilities and achievements in the role.
-        </li>
-        <!-- Add more work experience entries if necessary -->
-    </ul>
-
-    <h2>Skills</h2>
-    <ul>
-        <li>Skill 1</li>
-        <li>Skill 2</li>
-        <li>Skill 3</li>
-        <!-- Add more skills if necessary -->
-    </ul>
-
-    <h2>Languages</h2>
-    <ul>
-        <li>Language 1 - Proficiency Level</li>
-        <li>Language 2 - Proficiency Level</li>
-        <li>Language 3 - Proficiency Level</li>
-        <!-- Add more languages if necessary -->
-    </ul>
-
+    <div class="mt-4 mt-lg-5">
+        <h2>Skills</h2>
+        <div class="pxp-candidate-dashboard-skills mb-3">
+            <ul id="selectedSkillsList" class="list-unstyled">
+                @if ($skills)
+                    @foreach ($skills as $skill)
+                        <li data-id="{{ $skill->skill_id }}">{{ $skill->skill_name }}<span
+                                class="fa fa-trash-o"></span></li>
+                    @endforeach
+                @endif
+            </ul>
+        </div>
+    </div>
     <h2>References</h2>
     <p>Available upon request.</p>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('company_name');
             $table->date('start_date');
             $table->date('end_date');
-            $table->string('job_description');
+            $table->text('job_description');
             $table->timestamps();
         });
     }

@@ -144,6 +144,7 @@ class ProfileController extends Controller
         //Session::flash('success', 'CV generated successfully.');
 
         // Return the PDF download response
-        return $pdf->download();
+        //return $pdf->download();
+        return view('cvgenerator.cv', $data);
     }
 }

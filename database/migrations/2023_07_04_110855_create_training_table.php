@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('training_institution');
             $table->date('training_start_date');
             $table->date('training_end_date');
-            $table->string('training_description');
+            $table->text('training_description');
             $table->timestamps();
         });
     }
