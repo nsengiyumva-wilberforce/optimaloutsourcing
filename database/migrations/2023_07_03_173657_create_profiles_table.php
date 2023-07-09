@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('location')->nullable();
             $table->string('email');
             $table->string('phone_number');
-            $table->string('about_you')->nullable();
+            $table->text('about_you')->nullable();
             $table->timestamps();
         });
     }
