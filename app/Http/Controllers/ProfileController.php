@@ -141,9 +141,9 @@ class ProfileController extends Controller
         // Set the success message in the session
         $pdf = Pdf::loadView('cvgenerator.cv', $data);
 
-        Session::flash('success', 'CV generated successfully.');
+        //Session::flash('success', 'CV generated successfully.');
 
         // Return the PDF download response
-        return $pdf->output();
+        return $pdf->download();
     }
 }
