@@ -91,7 +91,7 @@
         </div>
 
         <div class="pxp-categories-carousel owl-carousel mt-4 mt-md-5 pxp-animate-in pxp-animate-in-top">
-            <a href="jobs-list-1.html" class="pxp-categories-card-2">
+            <a href="/jobs" class="pxp-categories-card-2">
                 <div class="pxp-categories-card-2-icon-container">
                     <div class="pxp-categories-card-2-icon">
                         <span class="fa fa-pie-chart"></span>
@@ -100,7 +100,7 @@
                 <div class="pxp-categories-card-2-title">Business Development</div>
                 <div class="pxp-categories-card-2-subtitle">139 open positions</div>
             </a>
-            <a href="jobs-list-1.html" class="pxp-categories-card-2">
+            <a href="/jobs" class="pxp-categories-card-2">
                 <div class="pxp-categories-card-2-icon-container">
                     <div class="pxp-categories-card-2-icon">
                         <span class="fa fa-bullhorn"></span>
@@ -109,7 +109,7 @@
                 <div class="pxp-categories-card-2-title">Marketing & Communication</div>
                 <div class="pxp-categories-card-2-subtitle">366 open positions</div>
             </a>
-            <a href="jobs-list-1.html" class="pxp-categories-card-2">
+            <a href="/jobs" class="pxp-categories-card-2">
                 <div class="pxp-categories-card-2-icon-container">
                     <div class="pxp-categories-card-2-icon">
                         <span class="fa fa-address-card-o"></span>
@@ -118,7 +118,7 @@
                 <div class="pxp-categories-card-2-title">Human Resources</div>
                 <div class="pxp-categories-card-2-subtitle">435 open positions</div>
             </a>
-            <a href="jobs-list-1.html" class="pxp-categories-card-2">
+            <a href="/jobs" class="pxp-categories-card-2">
                 <div class="pxp-categories-card-2-icon-container">
                     <div class="pxp-categories-card-2-icon">
                         <span class="fa fa-calendar-o"></span>
@@ -127,7 +127,7 @@
                 <div class="pxp-categories-card-2-title">Project Management</div>
                 <div class="pxp-categories-card-2-subtitle">324 open positions</div>
             </a>
-            <a href="jobs-list-1.html" class="pxp-categories-card-2">
+            <a href="/jobs" class="pxp-categories-card-2">
                 <div class="pxp-categories-card-2-icon-container">
                     <div class="pxp-categories-card-2-icon">
                         <span class="fa fa-comments-o"></span>
@@ -136,7 +136,7 @@
                 <div class="pxp-categories-card-2-title">Customer Service</div>
                 <div class="pxp-categories-card-2-subtitle">39 open positions</div>
             </a>
-            <a href="jobs-list-1.html" class="pxp-categories-card-2">
+            <a href="/jobs" class="pxp-categories-card-2">
                 <div class="pxp-categories-card-2-icon-container">
                     <div class="pxp-categories-card-2-icon">
                         <span class="fa fa-terminal"></span>
@@ -145,7 +145,7 @@
                 <div class="pxp-categories-card-2-title">Software Engineering</div>
                 <div class="pxp-categories-card-2-subtitle">439 open positions</div>
             </a>
-            <a href="jobs-list-1.html" class="pxp-categories-card-2">
+            <a href="/jobs" class="pxp-categories-card-2">
                 <div class="pxp-categories-card-2-icon-container">
                     <div class="pxp-categories-card-2-icon">
                         <span class="fa fa-bank"></span>
@@ -154,7 +154,7 @@
                 <div class="pxp-categories-card-2-title">Finance</div>
                 <div class="pxp-categories-card-2-subtitle">139 open positions</div>
             </a>
-            <a href="jobs-list-1.html" class="pxp-categories-card-2">
+            <a href="/jobs" class="pxp-categories-card-2">
                 <div class="pxp-categories-card-2-icon-container">
                     <div class="pxp-categories-card-2-icon">
                         <span class="fa fa-building-o"></span>
@@ -163,7 +163,7 @@
                 <div class="pxp-categories-card-2-title">Construction</div>
                 <div class="pxp-categories-card-2-subtitle">366 open positions</div>
             </a>
-            <a href="jobs-list-1.html" class="pxp-categories-card-2">
+            <a href="/jobs" class="pxp-categories-card-2">
                 <div class="pxp-categories-card-2-icon-container">
                     <div class="pxp-categories-card-2-icon">
                         <span class="fa fa-stethoscope"></span>
@@ -172,7 +172,7 @@
                 <div class="pxp-categories-card-2-title">Healtcare</div>
                 <div class="pxp-categories-card-2-subtitle">435 open positions</div>
             </a>
-            <a href="jobs-list-1.html" class="pxp-categories-card-2">
+            <a href="/jobs" class="pxp-categories-card-2">
                 <div class="pxp-categories-card-2-icon-container">
                     <div class="pxp-categories-card-2-icon">
                         <span class="fa fa-pie-chart"></span>
@@ -181,7 +181,7 @@
                 <div class="pxp-categories-card-2-title">Business Development</div>
                 <div class="pxp-categories-card-2-subtitle">139 open positions</div>
             </a>
-            <a href="jobs-list-1.html" class="pxp-categories-card-2">
+            <a href="/jobs" class="pxp-categories-card-2">
                 <div class="pxp-categories-card-2-icon-container">
                     <div class="pxp-categories-card-2-icon">
                         <span class="fa fa-bullhorn"></span>
@@ -190,7 +190,7 @@
                 <div class="pxp-categories-card-2-title">Marketing & Communication</div>
                 <div class="pxp-categories-card-2-subtitle">366 open positions</div>
             </a>
-            <a href="jobs-list-1.html" class="pxp-categories-card-2">
+            <a href="/jobs" class="pxp-categories-card-2">
                 <div class="pxp-categories-card-2-icon-container">
                     <div class="pxp-categories-card-2-icon">
                         <span class="fa fa-address-card-o"></span>
@@ -199,7 +199,7 @@
                 <div class="pxp-categories-card-2-title">Human Resources</div>
                 <div class="pxp-categories-card-2-subtitle">435 open positions</div>
             </a>
-            <a href="jobs-list-1.html" class="pxp-categories-card-2">
+            <a href="/jobs" class="pxp-categories-card-2">
                 <div class="pxp-categories-card-2-icon-container">
                     <div class="pxp-categories-card-2-icon">
                         <span class="fa fa-calendar-o"></span>
@@ -208,7 +208,7 @@
                 <div class="pxp-categories-card-2-title">Project Management</div>
                 <div class="pxp-categories-card-2-subtitle">324 open positions</div>
             </a>
-            <a href="jobs-list-1.html" class="pxp-categories-card-2">
+            <a href="/jobs" class="pxp-categories-card-2">
                 <div class="pxp-categories-card-2-icon-container">
                     <div class="pxp-categories-card-2-icon">
                         <span class="fa fa-comments-o"></span>
@@ -217,7 +217,7 @@
                 <div class="pxp-categories-card-2-title">Customer Service</div>
                 <div class="pxp-categories-card-2-subtitle">39 open positions</div>
             </a>
-            <a href="jobs-list-1.html" class="pxp-categories-card-2">
+            <a href="/jobs" class="pxp-categories-card-2">
                 <div class="pxp-categories-card-2-icon-container">
                     <div class="pxp-categories-card-2-icon">
                         <span class="fa fa-terminal"></span>
@@ -256,7 +256,7 @@
 
         <div class="row mt-4 mt-md-5 pxp-animate-in pxp-animate-in-top">
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
-                <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
+                <a href="/jobs" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
                         <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/uganda.png')}});"></div>
                         <div class="pxp-cities-card-1-name">Kampala, Uganda</div>
@@ -267,7 +267,7 @@
                 </a>
             </div>
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
-                <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
+                <a href="/jobs" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
                         <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/kenya.png')}});"></div>
                         <div class="pxp-cities-card-1-name">Eldoret, Kenya</div>
@@ -278,7 +278,7 @@
                 </a>
             </div>
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
-                <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
+                <a href="/jobs" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
                         <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/burundi.png')}});"></div>
                         <div class="pxp-cities-card-1-name">Bujumbura, Burundi</div>
@@ -289,7 +289,7 @@
                 </a>
             </div>
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
-                <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
+                <a href="/jobs" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
                         <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/kenya.png')}});"></div>
                         <div class="pxp-cities-card-1-name">Nairobi, Kenya</div>
@@ -300,7 +300,7 @@
                 </a>
             </div>
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
-                <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
+                <a href="/jobs" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
                         <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/congo.png')}});"></div>
                         <div class="pxp-cities-card-1-name">Kinshasha, Congo</div>
@@ -311,7 +311,7 @@
                 </a>
             </div>
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
-                <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
+                <a href="/jobs" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
                         <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/rwanda.png')}});"></div>
                         <div class="pxp-cities-card-1-name">Kigali, Rwanda</div>
@@ -322,7 +322,7 @@
                 </a>
             </div>
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
-                <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
+                <a href="/jobs" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
                         <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/uganda.png')}});"></div>
                         <div class="pxp-cities-card-1-name">Fort Portal, Uganda</div>
@@ -333,7 +333,7 @@
                 </a>
             </div>
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
-                <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
+                <a href="/jobs" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
                         <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/congo.png')}});"></div>
                         <div class="pxp-cities-card-1-name">Bukavu, Congo</div>
@@ -344,7 +344,7 @@
                 </a>
             </div>
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
-                <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
+                <a href="/jobs" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
                         <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/sudan.png')}});"></div>
                         <div class="pxp-cities-card-1-name">Juba, South Sudan</div>
@@ -355,7 +355,7 @@
                 </a>
             </div>
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
-                <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
+                <a href="/jobs" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
                         <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/congo.png')}});"></div>
                         <div class="pxp-cities-card-1-name">Kananga, Congo</div>
@@ -366,7 +366,7 @@
                 </a>
             </div>
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
-                <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
+                <a href="/jobs" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
                         <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/tanzania.png')}});"></div>
                         <div class="pxp-cities-card-1-name">Dar es Salaam, Tanzania</div>
@@ -377,7 +377,7 @@
                 </a>
             </div>
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
-                <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
+                <a href="/jobs" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
                         <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/uganda.png')}});"></div>
                         <div class="pxp-cities-card-1-name">Gulu, uganda</div>
@@ -401,16 +401,16 @@
                 <div class="pxp-list mt-3 mt-md-4">
                     <h3>Popular Job Categories</h3>
                     <ul class="list-unstyled">
-                        <li><a href="jobs-list-1.html">Business Development</a></li>
-                        <li><a href="jobs-list-1.html">Marketing & Communication</a></li>
-                        <li><a href="jobs-list-1.html">Human Resources</a></li>
-                        <li><a href="jobs-list-1.html">Project Management</a></li>
-                        <li><a href="jobs-list-1.html">Customer Service</a></li>
-                        <li><a href="jobs-list-1.html">Software Engineering</a></li>
-                        <li><a href="jobs-list-1.html">Finance</a></li>
-                        <li><a href="jobs-list-1.html">Construction</a></li>
-                        <li><a href="jobs-list-1.html">Healthcare</a></li>
-                        <li><a href="jobs-list-1.html">Transportation</a></li>
+                        <li><a href="/jobs">Business Development</a></li>
+                        <li><a href="/jobs">Marketing & Communication</a></li>
+                        <li><a href="/jobs">Human Resources</a></li>
+                        <li><a href="/jobs">Project Management</a></li>
+                        <li><a href="/jobs">Customer Service</a></li>
+                        <li><a href="/jobs">Software Engineering</a></li>
+                        <li><a href="/jobs">Finance</a></li>
+                        <li><a href="/jobs">Construction</a></li>
+                        <li><a href="/jobs">Healthcare</a></li>
+                        <li><a href="/jobs">Transportation</a></li>
                     </ul>
                 </div>
             </div>
@@ -418,16 +418,16 @@
                 <div class="pxp-list mt-3 mt-md-4">
                     <h3>Popular Job Titles</h3>
                     <ul class="list-unstyled">
-                        <li><a href="jobs-list-1.html">Senior Editor</a></li>
-                        <li><a href="jobs-list-1.html">Software Engineering Team Leader</a></li>
-                        <li><a href="jobs-list-1.html">Techincal Support Engineer</a></li>
-                        <li><a href="jobs-list-1.html">Javascript Developer</a></li>
-                        <li><a href="jobs-list-1.html">Technical Writer</a></li>
-                        <li><a href="jobs-list-1.html">Human Resources Coordinator</a></li>
-                        <li><a href="jobs-list-1.html">Fullstack Web Developer</a></li>
-                        <li><a href="jobs-list-1.html">Social Media Expert</a></li>
-                        <li><a href="jobs-list-1.html">Senior Editor</a></li>
-                        <li><a href="jobs-list-1.html">Team Leader</a></li>
+                        <li><a href="/jobs">Senior Editor</a></li>
+                        <li><a href="/jobs">Software Engineering Team Leader</a></li>
+                        <li><a href="/jobs">Techincal Support Engineer</a></li>
+                        <li><a href="/jobs">Javascript Developer</a></li>
+                        <li><a href="/jobs">Technical Writer</a></li>
+                        <li><a href="/jobs">Human Resources Coordinator</a></li>
+                        <li><a href="/jobs">Fullstack Web Developer</a></li>
+                        <li><a href="/jobs">Social Media Expert</a></li>
+                        <li><a href="/jobs">Senior Editor</a></li>
+                        <li><a href="/jobs">Team Leader</a></li>
                     </ul>
                 </div>
             </div>
@@ -435,16 +435,16 @@
                 <div class="pxp-list mt-3 mt-md-4">
                     <h3>Popular Job Locations</h3>
                     <ul class="list-unstyled">
-                        <li><a href="jobs-list-1.html">jobs in Kampala</a></li>
-                        <li><a href="jobs-list-1.html">Jobs in Ibadan</a></li>
-                        <li><a href="jobs-list-1.html">Jobs in Enugu</a></li>
-                        <li><a href="jobs-list-1.html">Jobs in Abuja</a></li>
-                        <li><a href="jobs-list-1.html">Jobs in Portharcourt</a></li>
-                        <li><a href="jobs-list-1.html">Jobs in Embu</a></li>
-                        <li><a href="jobs-list-1.html">Jobs in Nakuru</a></li>
-                        <li><a href="jobs-list-1.html">Jobs in Oyo</a></li>
-                        <li><a href="jobs-list-1.html">Jobs in Meru</a></li>
-                        <li><a href="jobs-list-1.html">Jobs in Kaduna</a></li>
+                        <li><a href="/jobs">jobs in Kampala</a></li>
+                        <li><a href="/jobs">Jobs in Ibadan</a></li>
+                        <li><a href="/jobs">Jobs in Enugu</a></li>
+                        <li><a href="/jobs">Jobs in Abuja</a></li>
+                        <li><a href="/jobs">Jobs in Portharcourt</a></li>
+                        <li><a href="/jobs">Jobs in Embu</a></li>
+                        <li><a href="/jobs">Jobs in Nakuru</a></li>
+                        <li><a href="/jobs">Jobs in Oyo</a></li>
+                        <li><a href="/jobs">Jobs in Meru</a></li>
+                        <li><a href="/jobs">Jobs in Kaduna</a></li>
                     </ul>
                 </div>
             </div>
@@ -452,16 +452,16 @@
                 <div class="pxp-list mt-3 mt-md-4">
                     <h3>Popular Job Searches</h3>
                     <ul class="list-unstyled">
-                        <li><a href="jobs-list-1.html">Work from home</a></li>
-                        <li><a href="jobs-list-1.html">Part-time</a></li>
-                        <li><a href="jobs-list-1.html">Administration</a></li>
-                        <li><a href="jobs-list-1.html">Finance</a></li>
-                        <li><a href="jobs-list-1.html">Retail</a></li>
-                        <li><a href="jobs-list-1.html">IT</a></li>
-                        <li><a href="jobs-list-1.html">Engineering</a></li>
-                        <li><a href="jobs-list-1.html">Sales</a></li>
-                        <li><a href="jobs-list-1.html">Manufacturing</a></li>
-                        <li><a href="jobs-list-1.html">Work from home</a></li>
+                        <li><a href="/jobs">Work from home</a></li>
+                        <li><a href="/jobs">Part-time</a></li>
+                        <li><a href="/jobs">Administration</a></li>
+                        <li><a href="/jobs">Finance</a></li>
+                        <li><a href="/jobs">Retail</a></li>
+                        <li><a href="/jobs">IT</a></li>
+                        <li><a href="/jobs">Engineering</a></li>
+                        <li><a href="/jobs">Sales</a></li>
+                        <li><a href="/jobs">Manufacturing</a></li>
+                        <li><a href="/jobs">Work from home</a></li>
                     </ul>
                 </div>
             </div>

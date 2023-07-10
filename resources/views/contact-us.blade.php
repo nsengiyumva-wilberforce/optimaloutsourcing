@@ -13,7 +13,7 @@
                                     <span class="fa fa-globe"></span>
                                 </div>
                             </div>
-                            <div class="pxp-contact-card-1-title">San Francisco, CA</div>
+                            <div class="pxp-contact-card-1-title">Kampala, Uganda</div>
                         </a>
                     </div>
                     <div class="col-lg-4 col-xxl-3 pxp-contact-card-1-container">
@@ -23,7 +23,7 @@
                                     <span class="fa fa-phone"></span>
                                 </div>
                             </div>
-                            <div class="pxp-contact-card-1-title">(0124) - 456 - 789</div>
+                            <div class="pxp-contact-card-1-title">+256 200 940 010</div>
                         </a>
                     </div>
                     <div class="col-lg-4 col-xxl-3 pxp-contact-card-1-container">
@@ -33,7 +33,7 @@
                                     <span class="fa fa-envelope-o"></span>
                                 </div>
                             </div>
-                            <div class="pxp-contact-card-1-title">office@jobster.com</div>
+                            <div class="pxp-contact-card-1-title">hello@optimaloutsourcing.co.ug</div>
                         </a>
                     </div>
                 </div>

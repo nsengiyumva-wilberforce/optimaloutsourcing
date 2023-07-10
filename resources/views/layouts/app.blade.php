@@ -126,8 +126,8 @@
                             </div>
                             <div class="mt-3 mt-md-4 pxp-footer-section">
                                 <div class="pxp-footer-text">
-                                    90 Fifth Avenue, 3rd Floor<br>
-                                    San Francisco, CA 1980<br>
+                                    Plot 3 Bata Close,<br>
+                                    5th Street Industrial Area, UG, Kampala<br>
                                     hello@optimaloutsourcing.co.ug
                                 </div>
                             </div>
@@ -173,8 +173,7 @@
                                         <ul class="pxp-footer-list">
                                             <li><a href="/faqs">FAQs</a></li>
                                             <li><a href="{{route('login')}}">Sign In</a></li>
-                                            <li><a href="sign-up.html">Sign Up</a></li>
-                                            <li><a href="404.html">404 Page</a></li>
+                                            <li><a href="{{route('register')}}">Sign Up</a></li>
                                         </ul>
                                     </div>
                                 </div>

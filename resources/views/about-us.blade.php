@@ -18,19 +18,24 @@
             <div class="row justify-content-center">
                 <div class="col-xl-7 col-xxl-6">
                     <h2 class="pxp-section-h2 text-center">About Us</h2>
-                    <p class="pxp-text-light text-center">We help employers and candidates find the right fit</p>
+                    <p class="pxp-text-light text-center">Together, we can achieve greatness.</p>
 
                     <div class="mt-4 mt-md-5 text-center">
-                        <p>Jobster, Inc. is an American multinational corporation that is engaged in the design,
-                            development, manufacturing, and worldwide marketing and sales of footwear, apparel, equipment,
-                            accessories, and services.</p>
-                        <p>The company is headquartered near Beaverton, Oregon, in the Portland metropolitan area.[3] It is
-                            the world's largest supplier of athletic shoes and apparel and a major manufacturer of sports
-                            equipment, with revenue in excess of US$37.4 billion in its fiscal year 2020 (ending May 31,
-                            2020).[4] As of 2020, it employed 76,700 people worldwide.[5] In 2020 the brand alone was valued
-                            in excess of $32 billion, making it the most valuable brand among sports businesses.[6]
-                            Previously, in 2017, the Jobster brand was valued at $29.6 billion.[7] Jobster ranked 89th in
-                            the 2018 Fortune 500 list of the largest United States corporations by total revenue.[8]</p>
+                        <p>At OPTIMAL OUTSOURCING, we are passionate about empowering
+                            organizations to unlock their true potential by providing a comprehensive
+                            range of top-notch business solutions. With a proven track record in
+                            recruitment services, workforce management, training, PR management,
+                            Sales & Marketing and call center set up and management, we are your
+                            trusted partner in driving success and achieving excellence.</p>
+                        <p>As experts in the Recruitment industry, we leverage our extensive network and cutting-edge methodologies
+                            to connect businesses with the brightest talent. Our seasoned recruitment specialists employ a meticulous
+                            selection process, ensuring that every candidate recommended aligns perfectly with your organizational
+                            culture and requirements.Under our Workforce Management services, we know that efficiently managing a workforce is vital for
+                            sustainable growth. We provide comprehensive solutions tailored to your unique needs, including
+                            resource planning, performance management, workforce analytics, and compliance assurance. By
+                            optimizing productivity, reducing costs, and enhancing employee engagement, we help you achieve
+                            operational excellence.
+                            </p>
                     </div>
                 </div>
             </div>
@@ -52,7 +57,7 @@
                         <div class="pxp-services-1-item-text pxp-text-light">You don’t want just any job, you want the right
                             fit. Find it here.</div>
                         <div class="pxp-services-1-item-cta">
-                            <a href="about-us.html">Read more<span class="fa fa-angle-right"></span></a>
+                            <a href="/jobs">Read more<span class="fa fa-angle-right"></span></a>
                         </div>
                     </div>
                 </div>
@@ -65,7 +70,7 @@
                         <div class="pxp-services-1-item-text pxp-text-light">You don’t want just any candidate, you want the
                             right fit.</div>
                         <div class="pxp-services-1-item-cta">
-                            <a href="about-us.html">Read more<span class="fa fa-angle-right"></span></a>
+                            <a href="/candidates">Read more<span class="fa fa-angle-right"></span></a>
                         </div>
                     </div>
                 </div>
@@ -75,9 +80,9 @@
                             <img src="{{asset('assets/images/service-3-icon.png')}}" alt="Press">
                         </div>
                         <div class="pxp-services-1-item-title">I am a member of the press</div>
-                        <div class="pxp-services-1-item-text pxp-text-light">See what is happening at Jobster.</div>
+                        <div class="pxp-services-1-item-text pxp-text-light">See what is happening at optimal outsourcing.</div>
                         <div class="pxp-services-1-item-cta">
-                            <a href="about-us.html">Read more<span class="fa fa-angle-right"></span></a>
+                            <a href="/about-us">Read more<span class="fa fa-angle-right"></span></a>
                         </div>
                     </div>
                 </div>
@@ -167,7 +172,7 @@
                                 <div id="pxpTestimonials1Carousel" class="carousel slide" data-bs-ride="carousel">
                                     <div class="carousel-inner">
                                         <div class="carousel-item text-center active">
-                                            <div class="pxp-testimonials-1-carousel-item-text">Jobster is an ever-changing
+                                            <div class="pxp-testimonials-1-carousel-item-text">optimal outsourcing is an ever-changing
                                                 workplace, striving to innovate by bringing employers and candidates
                                                 together. We are dedicated to improving our clients’ lives as well as our
                                                 own employees.</div>
@@ -176,13 +181,13 @@
                                         </div>
                                         <div class="carousel-item text-center">
                                             <div class="pxp-testimonials-1-carousel-item-text">Each day, I’m inspired by my
-                                                colleagues to drive innovation that accomplishes this. Jobster fosters an
+                                                colleagues to drive innovation that accomplishes this. optimal outsourcing fosters an
                                                 environment of trust and support where I can drive customer success.</div>
                                             <div class="pxp-testimonials-1-carousel-item-name">Kenneth Spiers</div>
                                             <div class="pxp-testimonials-1-carousel-item-company">Syspresoft</div>
                                         </div>
                                         <div class="carousel-item text-center">
-                                            <div class="pxp-testimonials-1-carousel-item-text">Jobster is an ever-changing
+                                            <div class="pxp-testimonials-1-carousel-item-text">optimal outsourcing is an ever-changing
                                                 workplace, striving to innovate by bringing employers and candidates
                                                 together. We are dedicated to improving our clients’ lives as well as our
                                                 own employees.</div>
