@@ -85,7 +85,7 @@
             </div>
             <div class="col-auto">
                 <div class="text-right">
-                    <a href="jobs-list-1.html" class="btn pxp-section-cta-o">All Categories<span class="fa fa-angle-right"></span></a>
+                    <a href="/" class="btn pxp-section-cta-o">All Categories<span class="fa fa-angle-right"></span></a>
                 </div>
             </div>
         </div>

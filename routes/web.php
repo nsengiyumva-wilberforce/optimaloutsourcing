@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,18 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 
 // Logout route
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+//about us route
+Route::get('/about-us', [HomeController::class, 'about_us'])->name('about_us');
+
+//contact us route
+Route::get('/contact-us', [HomeController::class, 'contact_us'])->name('contact_us');
+
+//faqs route
+Route::get('/faqs', [HomeController::class, 'faq'])->name('faq');
+
+//define settings route
+Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
 
 //only logged in users to access
 Route::group(['middleware' => 'auth'], function(){

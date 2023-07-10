@@ -13,4 +13,22 @@ class HomeController extends Controller
         $jobs = Job::count();
         return view('index', compact('jobs'));
     }
+
+    //add about us page
+    public function about_us()
+    {
+        return view('about-us');
+    }
+
+    //add contact us page
+    public function contact_us()
+    {
+        return view('contact-us');
+    }
+
+    //add faqs page
+    public function faq()
+    {
+        return view('faqs');
+    }
 }

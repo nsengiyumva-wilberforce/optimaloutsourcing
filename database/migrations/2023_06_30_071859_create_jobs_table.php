@@ -19,10 +19,10 @@ return new class extends Migration
             $table->string('location');
             $table->string('category');
             $table->text('description');
-            $table->string('experience');
+            $table->string('experience_level_id')->references('experience_level_id')->on('experience_levels');
             $table->string('career_level');
-            $table->string('employment_type');
-            $table->string('salary_range');
+            $table->string('employment_type_id')->references('employment_type_id')->on('employment_types');
+            $table->string('salary_range_id')->references('salary_range_id')->on('salary_levels');
             $table->unsignedInteger('application_count')->default(0);
             $table->boolean('published');
             $table->timestamps();

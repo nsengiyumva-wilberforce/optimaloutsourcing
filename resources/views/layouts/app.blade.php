@@ -68,7 +68,7 @@
                                             <a href="/aboutus"class="nav-link">About Us</a>
                                         </li>
                                         <li class="nav-item dropdown">
-                                            <a href="/contactus" class="nav-link">Contact Us</a>
+                                            <a href="/contact-us" class="nav-link">Contact Us</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -95,7 +95,7 @@
                                 <a href="/about-us">About Us</a>
                             </li>
                             <li class="dropdown">
-                                <a href="/contact us">Contact Us</a>
+                                <a href="/contact-us">Contact Us</a>
                             </li>
                             <li class="dropdown">
                                 <a href="/faqs">FAQs</a>
@@ -165,7 +165,7 @@
                                             <li><a href="about-us.html">About Us</a></li>
                                             <li><a href="pricing.html">Pricing</a></li>
                                             <li><a href="blog-list-1.html">Blog</a></li>
-                                            <li><a href="blog-list-1.html">Contact Us</a></li>
+                                            <li><a href="/contact-us">Contact Us</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -173,7 +173,7 @@
                                     <div class="pxp-footer-section">
                                         <h3>Helpful Resources</h3>
                                         <ul class="pxp-footer-list">
-                                            <li><a href="faqs.html">FAQs</a></li>
+                                            <li><a href="/faqs">FAQs</a></li>
                                             <li><a href="{{route('login')}}">Sign In</a></li>
                                             <li><a href="sign-up.html">Sign Up</a></li>
                                             <li><a href="404.html">404 Page</a></li>

@@ -30,10 +30,9 @@
         <nav class="mt-3 mt-lg-4 d-flex justify-content-between flex-column pb-100">
             <div class="pxp-dashboard-side-label">Admin tools</div>
             <ul class="list-unstyled">
-                {{-- <li><a href="company-dashboard.html"><span class="fa fa-home"></span>Dashboard</a></li> --}}
                 <li class="{{ request()->is('profile') ? 'pxp-active' : '' }}"><a href="{{ route('profile') }}"><span
                             class="fa fa-pencil"></span>Edit Profile</a></li>
-                @if (auth()->user()->role === 'employer')
+                @if (auth()->user()->role === 'employer' || auth()->user()->role === 'admin')
                     <li class="{{ request()->is('jobs/new') ? 'pxp-active' : '' }}"><a
                             href="{{ route('newJob') }}"><span class="fa fa-file-text-o"></span>New Job Offer</a></li>
                     <li class="{{ request()->is('jobs/manage') ? 'pxp-active' : '' }}"><a
@@ -43,28 +42,18 @@
                             href="/candidates/dashboard"><span class="fa fa-user-circle-o"></span>Candidates</a></li>
                     </li>
                 @endif
-                @if (auth()->user()->role === 'employee')
+                @if (auth()->user()->role === 'employee' || auth()->user()->role === 'admin')
                     <li class="{{ request()->is('jobs/application') ? 'pxp-active' : '' }}"><a
                             href="{{ route('application') }}"><span class="fa fa-briefcase"></span>Applications</a>
                     </li>
                 @endif
+
+                @if (auth()->user()->role === 'admin')
+                    <li class="{{ request()->is('settings') ? 'pxp-active' : '' }}"><a
+                            href="{{ route('settings') }}"><span class="fa fa-briefcase"></span>Settings</a>
+                    </li>
+                @endif
             </ul>
-            {{-- <div class="pxp-dashboard-side-label mt-3 mt-lg-4">Insights</div>
-            <ul class="list-unstyled">
-                <li>
-                    <a href="#" class="d-flex justify-content-between align-items-center">
-                        <div><span class="fa fa-envelope-o"></span>Inbox</div>
-                        <span class="badge rounded-pill">14</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"
-                        class="d-flex justify-content-between align-items-center">
-                        <div><span class="fa fa-bell-o"></span>Notifications</div>
-                        <span class="badge rounded-pill">5</span>
-                    </a>
-                </li>
-            </ul> --}}
         </nav>
 
         <nav class="pxp-dashboard-side-user-nav-container">
@@ -108,11 +97,9 @@
                         <nav class="pxp-nav-mobile">
                             <ul class="navbar-nav justify-content-end flex-grow-1">
                                 <li class="pxp-dropdown-header">Admin tools</li>
-                                {{-- <li class="nav-item"><a href="company-dashboard.html"><span
-                                            class="fa fa-home"></span>Dashboard</a></li> --}}
                                 <li class="nav-item"><a href="{{ route('profile') }}"><span
                                             class="fa fa-pencil"></span>Edit Profile</a></li>
-                                @if (auth()->user()->role === 'employer')
+                                @if (auth()->user()->role === 'employer' || auth()->user()->role === 'admin')
                                     <li class="nav-item"><a href="{{ route('newJob') }}"><span
                                                 class="fa fa-file-text-o"></span>New Job Offer</a></li>
                                     <li class="nav-item"><a href="/jobs/manage"><span
@@ -121,37 +108,17 @@
                                     <li class="nav-item"><a href="/candidates/dashboard"><span
                                                 class="fa fa-user-circle-o"></span>Candidates</a></li>
                                 @endif
-                                @if (auth()->user()->role === 'employee')
+                                @if (auth()->user()->role === 'employee' || auth()->user()->role === 'admin')
                                     <li class="nav-item"><a href="{{ route('application') }}"><span
                                                 class="fa fa-briefcase"></span>Applications</a></li>
                                 @endif
-                                {{-- <li class="pxp-dropdown-header mt-4">Insights</li>
-                                <li class="nav-item">
-                                    <a href="company-dashboard-inbox.html"
-                                        class="d-flex justify-content-between align-items-center">
-                                        <div><span class="fa fa-envelope-o"></span>Inbox</div>
-                                        <span class="badge rounded-pill">14</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="company-dashboard-notifications.html"
-                                        class="d-flex justify-content-between align-items-center">
-                                        <div><span class="fa fa-bell-o"></span>Notifications</div>
-                                        <span class="badge rounded-pill">5</span>
-                                    </a>
-                                </li> --}}
                             </ul>
                         </nav>
                     </div>
                 </div>
             </div>
             <nav class="pxp-user-nav pxp-on-light">
-                {{-- <a href="/jobs/new" class="btn rounded-pill pxp-nav-btn">Post a Job</a> --}}
                 <div class="dropdown pxp-user-nav-dropdown pxp-user-notifications">
-                    {{-- <a role="button" class="dropdown-toggle" data-bs-toggle="dropdown">
-                        <span class="fa fa-bell-o"></span>
-                        <div class="pxp-user-notifications-counter">5</div>
-                    </a> --}}
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="company-dashboard-notifications.html"><strong>Scott
                                     Goodwin</strong> applied for <strong>Software Engineer</strong>. <span
@@ -184,7 +151,6 @@
                             {{ auth()->user()->first_name . ' ' . auth()->user()->last_name }}</div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        {{-- <li><a class="dropdown-item" href="company-dashboard.html">Dashboard</a></li> --}}
                         <li><a class="dropdown-item" href="{{ route('profile') }}">Edit profile</a></li>
                         <li>
                             <form action="{{ route('logout') }}" method="POST">
