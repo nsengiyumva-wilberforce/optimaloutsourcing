@@ -54,11 +54,11 @@ Route::get('/contact-us', [HomeController::class, 'contact_us'])->name('contact_
 //faqs route
 Route::get('/faqs', [HomeController::class, 'faq'])->name('faq');
 
-//define settings route
-Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
+//get jobs by location or keyword
+Route::post('/jobs/search', [JobsController::class, 'search'])->name('search');
 
 //only logged in users to access
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => 'auth'], function () {
     Route::post('/job/add', [JobsController::class, 'store'])->name('storeJob');
     Route::get('/jobs/manage', [JobsController::class, 'manageJobs'])->name('manageJobs');
     Route::get('/jobs/new', [JobsController::class, 'newJob'])->name('newJob');
@@ -76,4 +76,13 @@ Route::group(['middleware' => 'auth'], function(){
 
     //create-cv
     Route::get('/create-cv', [ProfileController::class, 'createCv'])->name('createCv');
+
+    //define settings route
+    Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
+
+    //settings routes
+    Route::post('/settings/employment-type', [SettingsController::class, 'createEmploymentType'])->name('createEmploymentType');
+    Route::post('/settings/experience-level', [SettingsController::class, 'createExperienceLevel'])->name('createExperienceLevel');
+    Route::post('/settings/salary-range', [SettingsController::class, 'createSalaryRange'])->name('createSalaryRange');
+    Route::post('/settings/job-category', [SettingsController::class, 'createJobCategory'])->name('createJobCategory');
 });

@@ -1,51 +1,50 @@
 @extends('layouts.app')
 @section('content')
-<section class="pxp-hero vh-100" style="background-color: var(--pxpMainColorLight);">
-    <div class="pxp-hero-caption">
-        <div class="pxp-container">
-            <div class="row pxp-pl-80 align-items-center justify-content-between">
-                <div class="col-12 col-xl-6 col-xxl-5">
-                    <h1>Find the perfect<br><span style="color: var(--pxpMainColor);">job</span> for you</h1>
-                    <div class="pxp-hero-subtitle mt-3 mt-lg-4">Search your career opportunity through <strong>{{$jobs}}</strong> jobs</div>
+    <section class="pxp-hero vh-100" style="background-color: var(--pxpMainColorLight);">
+        <div class="pxp-hero-caption">
+            <div class="pxp-container">
+                <div class="row pxp-pl-80 align-items-center justify-content-between">
+                    <div class="col-12 col-xl-6 col-xxl-5">
+                        <h1>Find the perfect<br><span style="color: var(--pxpMainColor);">job</span> for you</h1>
+                        <div class="pxp-hero-subtitle mt-3 mt-lg-4">Search your career opportunity through
+                            <strong>{{ $jobs }}</strong> jobs
+                        </div>
 
-                    <div class="pxp-hero-form pxp-hero-form-round mt-3 mt-lg-4">
-                        <form class="row gx-3 align-items-center" action="jobs-list-1.html">
-                            <div class="col-12 col-sm">
-                                <div class="mb-3 mb-sm-0">
-                                    <input type="text" class="form-control" placeholder="Job Title or Keyword">
+                        <div class="pxp-hero-form pxp-hero-form-round mt-3 mt-lg-4">
+                            <form class="row gx-3 align-items-center" action="/jobs">
+                                <div class="col-12 col-sm">
+                                    <div class="mb-3 mb-sm-0">
+                                        <input type="text" name="key_word" class="form-control" placeholder="Job Title or Keyword" name="keyword">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-12 col-sm pxp-has-left-border">
-                                <div class="mb-3 mb-sm-0">
-                                    <input type="text" class="form-control" placeholder="Location">
+                                <div class="col-12 col-sm pxp-has-left-border">
+                                    <div class="mb-3 mb-sm-0">
+                                        <input type="text" class="form-control" placeholder="Location" name="location">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-12 col-sm-auto">
-                                <button><span class="fa fa-search"></span></button>
-                            </div>
-                        </form>
-                    </div>
+                                <div class="col-12 col-sm-auto">
+                                    <button type="submit"><span class="fa fa-search"></span></button>
+                                </div>
+                            </form>
+                        </div>
 
-                    <div class="pxp-hero-searches-container">
-                        <div class="pxp-hero-searches-label">Popular Searches</div>
-                        <div class="pxp-hero-searches">
-                            <div class="pxp-hero-searches-items">
-                                <a href="jobs-list-1.html">Work from home</a>
-                                <a href="jobs-list-1.html">Part-time</a>
-                                <a href="jobs-list-1.html">Administration</a>
-                                <a href="jobs-list-1.html">Finance</a>
-                                <a href="jobs-list-1.html">Retail</a>
-                                <a href="jobs-list-1.html">IT</a>
-                                <a href="jobs-list-1.html">Engineering</a>
-                                <a href="jobs-list-1.html">Sales</a>
-                                <a href="jobs-list-1.html">Manufacturing</a>
+                        <div class="pxp-hero-searches-container">
+                            <div class="pxp-hero-searches-label">Popular Searches</div>
+                            <div class="pxp-hero-searches">
+                                <div class="pxp-hero-searches-items">
+                                    @foreach ($employmentTypes as $key => $employmentType)
+                                        @if ($key<=9)
+                                            <a href="#">{{ $employmentType->name }}</a>
+                                    @endif
+                                    @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="d-none d-xl-block col-xl-5 position-relative">
                     <div class="pxp-header-side-image pxp-has-animation">
-                        <img src="{{asset('assets/images/hero-illustration.png')}}" alt="Find the perfect job for you">
+                        <img src="{{ asset('assets/images/hero-illustration.png') }}"
+                            alt="Find the perfect job for you">
                     </div>
                 </div>
             </div>
@@ -85,7 +84,8 @@
             </div>
             <div class="col-auto">
                 <div class="text-right">
-                    <a href="/" class="btn pxp-section-cta-o">All Categories<span class="fa fa-angle-right"></span></a>
+                    <a href="/" class="btn pxp-section-cta-o">All Categories<span
+                            class="fa fa-angle-right"></span></a>
                 </div>
             </div>
         </div>
@@ -232,13 +232,16 @@
 
 <section class="mt-100">
     <div class="pxp-container">
-        <div class="pxp-promo-img pxp-cover pt-100 pb-100 pxp-animate-in pxp-animate-in-top" style="background:black">
+        <div class="pxp-promo-img pxp-cover pt-100 pb-100 pxp-animate-in pxp-animate-in-top" style="background:#c4d5f3">
             <div class="row">
                 <div class="col-sm-7 col-lg-5">
                     <h2 class="pxp-section-h2 text-white">See right away whether candidates are the right fit</h2>
-                    <p class="pxp-text-light text-white">We help candidates know whether they’re qualified for a job – and allow you to see their match potential – giving you a better pool of qualified candidates to choose from.</p>
+                    <p class="pxp-text-light text-white">We help candidates know whether they’re qualified for a job –
+                        and allow you to see their match potential – giving you a better pool of qualified candidates to
+                        choose from.</p>
                     <div class="mt-4 mt-md-5">
-                        <a href="/jobs" class="btn rounded-pill pxp-section-cta">All Job Offers<span class="fa fa-angle-right"></span></a>
+                        <a href="/jobs" class="btn rounded-pill pxp-section-cta">All Job Offers<span
+                                class="fa fa-angle-right"></span></a>
                     </div>
                 </div>
             </div>
@@ -255,7 +258,7 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background: black"></div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/uganda.png')}});"></div>
                         <div class="pxp-cities-card-1-name">Kampala, Uganda</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
@@ -266,8 +269,8 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background:black"></div>
-                        <div class="pxp-cities-card-1-name">Mbarara, Uganda</div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/kenya.png')}});"></div>
+                        <div class="pxp-cities-card-1-name">Eldoret, Kenya</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
                         <div class="pxp-cities-card-1-jobs">288 open positions</div>
@@ -277,8 +280,8 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background:black"></div>
-                        <div class="pxp-cities-card-1-name">Lagos, Nigeria</div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/burundi.png')}});"></div>
+                        <div class="pxp-cities-card-1-name">Bujumbura, Burundi</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
                         <div class="pxp-cities-card-1-jobs">452 open positions</div>
@@ -288,7 +291,7 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background:black"></div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/kenya.png')}});"></div>
                         <div class="pxp-cities-card-1-name">Nairobi, Kenya</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
@@ -299,7 +302,7 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background:black"></div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/congo.png')}});"></div>
                         <div class="pxp-cities-card-1-name">Kinshasha, Congo</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
@@ -310,7 +313,7 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background:black"></div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/rwanda.png')}});"></div>
                         <div class="pxp-cities-card-1-name">Kigali, Rwanda</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
@@ -321,7 +324,7 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background:black"></div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/uganda.png')}});"></div>
                         <div class="pxp-cities-card-1-name">Fort Portal, Uganda</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
@@ -332,8 +335,8 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background:black"></div>
-                        <div class="pxp-cities-card-1-name">Adis Ababa, Ethiopia</div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/congo.png')}});"></div>
+                        <div class="pxp-cities-card-1-name">Bukavu, Congo</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
                         <div class="pxp-cities-card-1-jobs">423 open positions</div>
@@ -343,8 +346,8 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background:black"></div>
-                        <div class="pxp-cities-card-1-name">Mombasa, Kenya</div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/sudan.png')}});"></div>
+                        <div class="pxp-cities-card-1-name">Juba, South Sudan</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
                         <div class="pxp-cities-card-1-jobs">1245 open positions</div>
@@ -354,8 +357,8 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background:black"></div>
-                        <div class="pxp-cities-card-1-name">Ntinda, Uganda</div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/congo.png')}});"></div>
+                        <div class="pxp-cities-card-1-name">Kananga, Congo</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
                         <div class="pxp-cities-card-1-jobs">366 open positions</div>
@@ -365,8 +368,8 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background:black"></div>
-                        <div class="pxp-cities-card-1-name">Ruhengeri, Rwanda</div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/tanzania.png')}});"></div>
+                        <div class="pxp-cities-card-1-name">Dar es Salaam, Tanzania</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
                         <div class="pxp-cities-card-1-jobs">288 open positions</div>
@@ -376,8 +379,8 @@
             <div class="col-12 col-md-4 col-lg-3 col-xxl-2 pxp-cities-card-1-container">
                 <a href="jobs-list-1.html" class="pxp-cities-card-1 text-center">
                     <div class="pxp-cities-card-1-top">
-                        <div class="pxp-cities-card-1-image pxp-cover" style="background:black"></div>
-                        <div class="pxp-cities-card-1-name">Salt, uganda</div>
+                        <div class="pxp-cities-card-1-image pxp-cover" style="background-image: url({{asset('assets/images/uganda.png')}});"></div>
+                        <div class="pxp-cities-card-1-name">Gulu, uganda</div>
                     </div>
                     <div class="pxp-cities-card-1-bottom">
                         <div class="pxp-cities-card-1-jobs">452 open positions</div>
@@ -385,16 +388,12 @@
                 </a>
             </div>
         </div>
-
-        <div class="mt-4 mt-md-5 pxp-animate-in pxp-animate-in-top">
-            <a href="jobs-list-1.html" class="btn rounded-pill pxp-section-cta">More Locations<span class="fa fa-angle-right"></span></a>
-        </div>
     </div>
 </section>
 
 <section class="mt-100">
     <div class="pxp-container">
-        <h2 class="pxp-section-h2">Popular in USA</h2>
+        <h2 class="pxp-section-h2">Popular in East Africa</h2>
         <p class="pxp-text-light">Popular job categoris, titles, locations, and searches</p>
 
         <div class="row mt-4 mt-md-5 pxp-animate-in pxp-animate-in-top">

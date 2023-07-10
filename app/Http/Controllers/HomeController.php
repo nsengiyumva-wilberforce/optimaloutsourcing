@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employment_type;
 use Illuminate\Http\Request;
 use App\Models\Job;
 
@@ -11,7 +12,10 @@ class HomeController extends Controller
     {
         //number of available jobs
         $jobs = Job::count();
-        return view('index', compact('jobs'));
+
+        //get all the employment types
+        $employmentTypes = Employment_type::all();
+        return view('index', compact('jobs', 'employmentTypes'));
     }
 
     //add about us page

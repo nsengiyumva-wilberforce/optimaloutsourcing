@@ -21,22 +21,18 @@ class Employment_type extends Model
     public static function booted()
     {
         static::creating(function ($model) {
-            $lastEmploymentType = Job::orderBy('employment_type_id', 'desc')->first();
+            $lastEmploymentType = Employment_type::orderBy('employment_type_id', 'desc')->first();
 
             if ($lastEmploymentType) {
-                $lastEmploymentTypeId = $lastEmploymentType->employment_type_id;
-                $lastEmploymentTypeIdNumber = (int) substr($lastEmploymentTypeId, 1); // Extract the numeric part of the last job_id
-                $nextEmploymentTypeIdNumber = $lastEmploymentTypeIdNumber + 1;
-                $nextEmploymentTypeId = 'et' . str_pad($nextEmploymentTypeIdNumber, strlen($lastEmploymentTypeId) - 1, '0', STR_PAD_LEFT);
+                $model->employment_type_id = 'emp' . str_pad(substr($lastEmploymentType->employment_type_id, 3) + 1, 5, '0', STR_PAD_LEFT);
             } else {
-                $nextEmploymentTypeId = 'et00001'; // If there are no existing jobs, start with J00001
+                $model->employment_type_id = 'emp00001';
             }
-
-            $model->job_id = $nextEmploymentTypeId;
-
         });
-
     }
 
-
+    public function jobs()
+    {
+        return $this->hasMany(Job::class, 'employment_type_id', 'employment_type_id');
+    }
 }

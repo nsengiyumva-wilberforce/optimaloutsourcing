@@ -31,12 +31,12 @@ class Job extends Model
         'job_user_id',
         'job_title',
         'location',
-        'category',
+        'category_id',
         'description',
         'experience',
-        'career_level',
-        'employment_type',
-        'salary_range',
+        'experience_level_id',
+        'employment_type_id',
+        'salary_range_id',
         'published',
     ];
 
@@ -82,4 +82,27 @@ class Job extends Model
         return $this->belongsTo(User::class, 'job_user_id');
     }
 
+    //every job belongs to a category
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    //every job belongs to an employment type
+    public function employment_type()
+    {
+        return $this->belongsTo(Employment_type::class, 'employment_type_id');
+    }
+
+    //every job belongs to an experience level
+    public function experience_level()
+    {
+        return $this->belongsTo(Experience_level::class, 'experience_level_id');
+    }
+
+    //every job belongs to a salary level
+    public function salary_range()
+    {
+        return $this->belongsTo(Salary_level::class, 'salary_range_id', 'salary_range_id');
+    }
 }

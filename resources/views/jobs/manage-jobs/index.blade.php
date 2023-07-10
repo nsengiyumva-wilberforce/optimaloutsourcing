@@ -55,7 +55,7 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <div class="pxp-company-dashboard-job-category">{{ $job->category }}</div>
+                                            <div class="pxp-company-dashboard-job-category">{{ $job->category->name }}</div>
                                         </td>
                                         <td>
                                             <div class="pxp-company-dashboard-job-type">{{ $job->experience }}</div>

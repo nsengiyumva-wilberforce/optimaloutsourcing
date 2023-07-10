@@ -141,8 +141,6 @@
                                             <li><a href="{{route('jobs')}}">Find Jobs</a></li>
                                             <li><a href="{{route('manageJobs')}}">Candidate Dashboard</a></li>
                                             <li><a href="{{route('application')}}">My Applications</a></li>
-                                            <li><a href="candidate-dashboard-fav-jobs.html">Favourite Jobs</a></li>
-                                            <li><a href="candidate-dashboard-inbox.html">My inbox</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -150,11 +148,11 @@
                                     <div class="pxp-footer-section">
                                         <h3>For Employers</h3>
                                         <ul class="pxp-footer-list">
-                                            <li><a href="candidates-list-1.html">Find Candidates</a></li>
-                                            <li><a href="company-dashboard.html">Company Dashboard</a></li>
+                                            <li><a href="/candidates">Find Candidates</a></li>
+                                            <li><a href="/jobs/manage">Company Dashboard</a></li>
                                             <li><a href="/jobs/new">Post a Job</a></li>
-                                            <li><a href="company-dashboard-jobs.html">Manage Jobs</a></li>
-                                            <li><a href="company-dashboard-candidates.html">Candidates</a></li>
+                                            <li><a href="/jobs/manage">Manage Jobs</a></li>
+                                            <li><a href="/candidates/dashboard">Candidates</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -162,9 +160,9 @@
                                     <div class="pxp-footer-section">
                                         <h3>About Us</h3>
                                         <ul class="pxp-footer-list">
-                                            <li><a href="about-us.html">About Us</a></li>
-                                            <li><a href="pricing.html">Pricing</a></li>
-                                            <li><a href="blog-list-1.html">Blog</a></li>
+                                            <li><a href="/about-us">About Us</a></li>
+                                            {{-- <li><a href="pricing.html">Pricing</a></li> --}}
+                                            {{-- <li><a href="blog-list-1.html">Blog</a></li> --}}
                                             <li><a href="/contact-us">Contact Us</a></li>
                                         </ul>
                                     </div>

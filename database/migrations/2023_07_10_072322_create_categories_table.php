@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('salary_levels', function (Blueprint $table) {
-            $table->string('salary_range_id')->primary();
-            $table->integer('starting_salary');
-            $table->integer('ending_salary');
+        Schema::create('categories', function (Blueprint $table) {
+            $table->string('category_id')->primary();
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('salary_levels');
+        Schema::dropIfExists('categories');
     }
 };

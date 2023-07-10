@@ -7,38 +7,33 @@
                 jobs</div>
 
             <div class="pxp-hero-form pxp-hero-form-round pxp-large pxp-has-border mt-3 mt-lg-4">
-                <form class="row gx-3 align-items-center">
+                <form class="row gx-3 align-items-center" action="/jobs" method="GET">
+                    @csrf
                     <div class="col-12 col-lg">
                         <div class="input-group mb-3 mb-lg-0">
                             <span class="input-group-text"><span class="fa fa-search"></span></span>
-                            <input type="text" class="form-control" placeholder="Job Title or Keyword">
+                            <input type="text" class="form-control" name="key_word" placeholder="Job Title or Keyword">
                         </div>
                     </div>
-                    <div class="col-12 col-lg pxp-has-left-border">
+                    <div class="col-12 col-lg">
                         <div class="input-group mb-3 mb-lg-0">
                             <span class="input-group-text"><span class="fa fa-globe"></span></span>
-                            <input type="text" class="form-control" placeholder="Location">
+                            <input type="text" class="form-control" name="location" placeholder="Location">
                         </div>
                     </div>
                     <div class="col-12 col-lg pxp-has-left-border">
                         <div class="input-group mb-3 mb-lg-0">
                             <span class="input-group-text"><span class="fa fa-folder-o"></span></span>
-                            <select class="form-select">
+                            <select class="form-select" name="category">
                                 <option selected="">All categories</option>
-                                <option>Business Development</option>
-                                <option>Construction</option>
-                                <option>Customer Service</option>
-                                <option>Finance</option>
-                                <option>Healthcare</option>
-                                <option>Human Resources</option>
-                                <option>Marketing &amp; Communication</option>
-                                <option>Project Management</option>
-                                <option>Software Engineering</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{$category->category_id}}">{{ $category->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="col-12 col-lg-auto">
-                        <button>Find Jobs</button>
+                        <button type="submit">Find Jobs</button>
                     </div>
                 </form>
             </div>
@@ -59,143 +54,49 @@
                                 <div class="mt-4 mt-xxl-0 d-xxl-block pxp-list-side-filter-panel">
                                     <h3>Type of Employment</h3>
                                     <div class="list-group mt-2 mt-lg-3">
-                                        <label
-                                            class="list-group-item d-flex justify-content-between align-items-center pxp-checked">
-                                            <span class="d-flex">
-                                                <input class="form-check-input me-2" type="checkbox" value="" checked>
-                                                Full Time
-                                            </span>
-                                            <span class="badge rounded-pill">56</span>
-                                        </label>
-                                        <label
-                                            class="list-group-item d-flex justify-content-between align-items-center mt-2 mt-lg-3">
-                                            <span class="d-flex">
-                                                <input class="form-check-input me-2" type="checkbox" value="">
-                                                Part Time
-                                            </span>
-                                            <span class="badge rounded-pill">34</span>
-                                        </label>
-                                        <label
-                                            class="list-group-item d-flex justify-content-between align-items-center mt-2 mt-lg-3">
-                                            <span class="d-flex">
-                                                <input class="form-check-input me-2" type="checkbox" value="">
-                                                Remote
-                                            </span>
-                                            <span class="badge rounded-pill">24</span>
-                                        </label>
-                                        <label
-                                            class="list-group-item d-flex justify-content-between align-items-center mt-2 mt-lg-3">
-                                            <span class="d-flex">
-                                                <input class="form-check-input me-2" type="checkbox" value="">
-                                                Internship
-                                            </span>
-                                            <span class="badge rounded-pill">27</span>
-                                        </label>
-                                        <label
-                                            class="list-group-item d-flex justify-content-between align-items-center mt-2 mt-lg-3">
-                                            <span class="d-flex">
-                                                <input class="form-check-input me-2" type="checkbox" value="">
-                                                Contract
-                                            </span>
-                                            <span class="badge rounded-pill">76</span>
-                                        </label>
-                                        <label
-                                            class="list-group-item d-flex justify-content-between align-items-center mt-2 mt-lg-3">
-                                            <span class="d-flex">
-                                                <input class="form-check-input me-2" type="checkbox" value="">
-                                                Training
-                                            </span>
-                                            <span class="badge rounded-pill">28</span>
-                                        </label>
+                                        @foreach ($employmentTypes as $employmentType)
+                                            <label
+                                                class="list-group-item d-flex justify-content-between align-items-center mt-2 mt-lg-3">
+                                                <span class="d-flex">
+                                                    <input class="form-check-input me-2" type="checkbox"
+                                                        value="{{ $employmentType->employment_type_id }}">
+                                                    {{ $employmentType->name }}
+                                                </span>
+                                                <span class="badge rounded-pill">{{ $employmentType->jobs->count() }}</span>
+                                            </label>
+                                        @endforeach
                                     </div>
 
                                     <h3 class="mt-3 mt-lg-4">Experience Level</h3>
                                     <div class="list-group mt-2 mt-lg-3">
-                                        <label class="list-group-item d-flex justify-content-between align-items-center">
-                                            <span class="d-flex">
-                                                <input class="form-check-input me-2" type="checkbox" value="">
-                                                No Experience
-                                            </span>
-                                            <span class="badge rounded-pill">98</span>
-                                        </label>
-                                        <label
-                                            class="list-group-item d-flex justify-content-between align-items-center mt-2 mt-lg-3 pxp-checked">
-                                            <span class="d-flex">
-                                                <input class="form-check-input me-2" type="checkbox" value="" checked>
-                                                Entry-Level
-                                            </span>
-                                            <span class="badge rounded-pill">44</span>
-                                        </label>
-                                        <label
-                                            class="list-group-item d-flex justify-content-between align-items-center mt-2 mt-lg-3 pxp-checked">
-                                            <span class="d-flex">
-                                                <input class="form-check-input me-2" type="checkbox" value="" checked>
-                                                Mid-Level
-                                            </span>
-                                            <span class="badge rounded-pill">35</span>
-                                        </label>
-                                        <label
-                                            class="list-group-item d-flex justify-content-between align-items-center mt-2 mt-lg-3">
-                                            <span class="d-flex">
-                                                <input class="form-check-input me-2" type="checkbox" value="">
-                                                Senior-Level
-                                            </span>
-                                            <span class="badge rounded-pill">45</span>
-                                        </label>
-                                        <label
-                                            class="list-group-item d-flex justify-content-between align-items-center mt-2 mt-lg-3">
-                                            <span class="d-flex">
-                                                <input class="form-check-input me-2" type="checkbox" value="">
-                                                Manager / Executive
-                                            </span>
-                                            <span class="badge rounded-pill">21</span>
-                                        </label>
+                                        @foreach ($experienceLevels as $experienceLevel)
+                                            <label
+                                                class="list-group-item d-flex justify-content-between align-items-center">
+                                                <span class="d-flex">
+                                                    <input class="form-check-input me-2" type="checkbox"
+                                                        value="{{ $experienceLevel->experience_level_id }}">
+                                                    {{ $experienceLevel->name }}
+                                                </span>
+                                                <span
+                                                    class="badge rounded-pill">{{ $experienceLevel->jobs->count() }}</span>
+                                            </label>
+                                        @endforeach
                                     </div>
 
                                     <h3 class="mt-3 mt-lg-4">Salary Range</h3>
                                     <div class="list-group mt-2 mt-lg-3">
-                                        <label
-                                            class="list-group-item d-flex justify-content-between align-items-center pxp-checked">
-                                            <span class="d-flex">
-                                                <input class="form-check-input me-2" type="checkbox" value=""
-                                                    checked>
-                                                UGx700 - UGx1000
-                                            </span>
-                                            <span class="badge rounded-pill">34</span>
-                                        </label>
-                                        <label
-                                            class="list-group-item d-flex justify-content-between align-items-center mt-2 mt-lg-3 pxp-checked">
-                                            <span class="d-flex">
-                                                <input class="form-check-input me-2" type="checkbox" value=""
-                                                    checked>
-                                                UGx1000 - UGx1200
-                                            </span>
-                                            <span class="badge rounded-pill">22</span>
-                                        </label>
-                                        <label
-                                            class="list-group-item d-flex justify-content-between align-items-center mt-2 mt-lg-3">
-                                            <span class="d-flex">
-                                                <input class="form-check-input me-2" type="checkbox" value="">
-                                                UGx1200 - UGx1400
-                                            </span>
-                                            <span class="badge rounded-pill">67</span>
-                                        </label>
-                                        <label
-                                            class="list-group-item d-flex justify-content-between align-items-center mt-2 mt-lg-3">
-                                            <span class="d-flex">
-                                                <input class="form-check-input me-2" type="checkbox" value="">
-                                                UGx1500 - UGx1800
-                                            </span>
-                                            <span class="badge rounded-pill">12</span>
-                                        </label>
-                                        <label
-                                            class="list-group-item d-flex justify-content-between align-items-center mt-2 mt-lg-3">
-                                            <span class="d-flex">
-                                                <input class="form-check-input me-2" type="checkbox" value="">
-                                                UGx2000 - UGx3000
-                                            </span>
-                                            <span class="badge rounded-pill">26</span>
-                                        </label>
+                                        @foreach ($salaryRanges as $salaryRange)
+                                            <label
+                                                class="list-group-item d-flex justify-content-between align-items-center mt-2 mt-lg-3">
+                                                <span class="d-flex">
+                                                    <input class="form-check-input me-2" type="checkbox"
+                                                        value="{{ $salaryRange->salary_range_id }}">
+                                                    {{ 'UGX' . $salaryRange->starting_salary }} -
+                                                    {{ 'UGX' . $salaryRange->ending_salary }}
+                                                </span>
+                                                <span class="badge rounded-pill">{{ $salaryRange->jobs->count() }}</span>
+                                            </label>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -218,7 +119,8 @@
                                                         <div class="pxp-jobs-card-4-location pxp-text-light">
                                                             <span class="fa fa-globe"></span>{{ $job->location }}
                                                         </div>
-                                                        <div class="pxp-jobs-card-4-type">{{ $job->employment_type }}</div>
+                                                        <div class="pxp-jobs-card-4-type">{{ $job->employment_type->name }}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -248,7 +150,7 @@
                                                         <div class="pxp-jobs-card-4-location pxp-text-light">
                                                             <span class="fa fa-globe"></span>{{ $job->location }}
                                                         </div>
-                                                        <div class="pxp-jobs-card-4-type">{{ $job->employment_type }}
+                                                        <div class="pxp-jobs-card-4-type">{{ $job->employment_type->name }}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -333,7 +235,8 @@
                                                 <a href="jobs-list-1.html" class="pxp-jobs-tab-pane-category">
                                                     <div class="pxp-jobs-tab-pane-category-icon"><span
                                                             class="fa fa-bullhorn"></span></div>
-                                                    <div class="pxp-jobs-tab-pane-category-label">{{ $job->category }}
+                                                    <div class="pxp-jobs-tab-pane-category-label">
+                                                        {{ $job->category->name }}
                                                     </div>
                                                 </a>
                                             </div>
@@ -368,7 +271,7 @@
                                                         Employment
                                                         Type</div>
                                                     <div class="pxp-jobs-tab-pane-content-info-data">
-                                                        {{ $job->employment_type }}</div>
+                                                        {{ $job->employment_type->name }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-6">
@@ -376,7 +279,8 @@
                                                     <div class="pxp-jobs-tab-pane-content-info-label pxp-text-light">Salary
                                                     </div>
                                                     <div class="pxp-jobs-tab-pane-content-info-data">
-                                                        {{ $job->salary_range }} / year</div>
+                                                        {{ $job->salary_range->starting_salary . '-' . $job->salary_range->ending_salary }}
+                                                        / year</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -384,75 +288,6 @@
                                         <div class="pxp-jobs-tab-pane-content-details mt-4 mt-lg-5">
                                             <h4>Overview</h4>
                                             <p>{!! html_entity_decode($job->description) !!}</p>
-                                            <div class="mt-4">
-                                                <h4>Responsabilities</h4>
-                                                <ul>
-                                                    <li>Be involved in every step of the product design cycle from discovery
-                                                        to
-                                                        developer handoff and user acceptance testing.</li>
-                                                    <li>Work with BAs, product managers and tech teams to lead the Product
-                                                        Design
-                                                    </li>
-                                                    <li>Maintain quality of the design process and ensure that when designs
-                                                        are
-                                                        translated into code they accurately reflect the design
-                                                        specifications.</li>
-                                                    <li>Accurately estimate design tickets during planning sessions.</li>
-                                                    <li>Contribute to sketching sessions involving non-designersCreate,
-                                                        iterate and
-                                                        maintain UI deliverables including sketch files, style guides, high
-                                                        fidelity
-                                                        prototypes, micro interaction specifications and pattern libraries.
-                                                    </li>
-                                                    <li>Ensure design choices are data led by identifying assumptions to
-                                                        test each
-                                                        sprint, and work with the analysts in your team to plan moderated
-                                                        usability
-                                                        test sessions.</li>
-                                                    <li>Design pixel perfect responsive UI’s and understand that adopting
-                                                        common
-                                                        interface patterns is better for UX than reinventing the wheel</li>
-                                                    <li>Present your work to the wider business at Show &amp; Tell sessions.
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="mt-4">
-                                                <h4>Requirements</h4>
-                                                <ul>
-                                                    <li>4+ years of system administration experience with the Microsoft
-                                                        Server
-                                                        platform (2012/2016, Microsoft IIS, Active Directory)</li>
-                                                    <li>3+ years of hands-on system administration experience with AWS (EC2,
-                                                        Elastic
-                                                        Load Balancing, Multi AZ, etc.)</li>
-                                                    <li>4+ years of SQL Server, MySQL</li>
-                                                    <li>Working knowledge of Encryption techniques and protocols,
-                                                        Multi-factor
-                                                        authentication, Data protection, Penetration testing, Security
-                                                        threats</li>
-                                                    <li>Bachelor's Degree, or 4+ years of hands-on IT experience</li>
-                                                </ul>
-                                            </div>
-                                            <div class="mt-4">
-                                                <h4>Skills</h4>
-                                                <ul>
-                                                    <li>Programming experience developing web applications with the
-                                                        Microsoft .NET
-                                                        stack and a basic knowledge of SQL</li>
-                                                    <li>Development experience with Angular, Node.JS, or ColdFusion</li>
-                                                    <li>HTML, CSS, XHTML, XML</li>
-                                                    <li>Hypervisors, SAN’s, load balancers, firewalls, and Web Application
-                                                        Firewall
-                                                        (WAF)
-                                                    </li>
-                                                    <li>Experience with Higher Logic (a collaboration platform)</li>
-                                                    <li>MongoDB, Drupal</li>
-                                                    <li>Mobile App Development (iOS and Android)</li>
-                                                    <li>Episerver CMS</li>
-                                                    <li>Microsoft Team Foundation Server</li>
-                                                    <li>Speaker Management System (Planstone)</li>
-                                                </ul>
-                                            </div>
                                             @if (session('error'))
                                                 <div class="alert alert-danger">
                                                     {{ session('error') }}
@@ -535,7 +370,8 @@
                                                 <a href="jobs-list-1.html" class="pxp-jobs-tab-pane-category">
                                                     <div class="pxp-jobs-tab-pane-category-icon"><span
                                                             class="fa fa-calendar-o"></span></div>
-                                                    <div class="pxp-jobs-tab-pane-category-label">{{ $job->category }}
+                                                    <div class="pxp-jobs-tab-pane-category-label">
+                                                        {{ $job->category->name }}
                                                     </div>
                                                 </a>
                                             </div>
@@ -570,7 +406,7 @@
                                                         Employment
                                                         Type</div>
                                                     <div class="pxp-jobs-tab-pane-content-info-data">
-                                                        {{ $job->employment_type }}</div>
+                                                        {{ $job->employment_type->name }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
@@ -578,7 +414,8 @@
                                                     <div class="pxp-jobs-tab-pane-content-info-label pxp-text-light">Salary
                                                     </div>
                                                     <div class="pxp-jobs-tab-pane-content-info-data">
-                                                        {{ $job->salary_range }} / year</div>
+                                                        {{ $job->salary_range->starting_salary . '-' . $job->salary_range->ending_salary }}/
+                                                        year</div>
                                                 </div>
                                             </div>
                                         </div>
