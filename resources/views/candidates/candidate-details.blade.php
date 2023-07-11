@@ -2,7 +2,7 @@
 @section('content')
     @if (!$candidate->profile->cover_photo)
         <section class="pxp-single-candidate-hero pxp-cover"
-            style="background-image: url({{ asset('assets/images/ph-big.jpg') }});">
+            style="background-image: url({{ asset('assets/images/cover_vatar.png') }});">
         @else
             <section class="pxp-single-candidate-hero pxp-cover"
                 style="background-image: url({{ asset('storage/' . $candidate->profile->cover_photo) }});">
@@ -13,7 +13,7 @@
             <div class="pxp-single-candidate-hero-content">
                 @if (!$candidate->profile->profile_photo)
                     <div class="pxp-single-candidate-hero-avatar"
-                        style="background-image: url({{ asset('assets/images/ph-small.jpg') }});"></div>
+                        style="background:black;"></div>
                 @else
                     <div class="pxp-single-candidate-hero-avatar"
                         style="background-image: url({{ asset('storage/' . $candidate->profile->profile_photo) }});"></div>

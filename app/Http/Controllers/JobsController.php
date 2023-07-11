@@ -32,7 +32,7 @@ class JobsController extends Controller
             $query->where('location', 'like', "%$location%");
         }
 
-        // Retrieve the jobs with the associated users
+        // Retrieve the jobs with the associated users together with their profile
         $jobs = $query->with('user')->get();
 
         // Get all the experience levels

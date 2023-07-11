@@ -178,7 +178,7 @@
                                 <div class="tab-pane active" id="{{ 'job-details-' . $job->job_id }}" role="tabpanel"
                                     aria-labelledby="{{ 'job-' . $job->job_id }}">
                                     <div class="pxp-jobs-tab-pane-cover pxp-cover"
-                                        style="background-image: url({{ asset('assets/images/ph-big.jpg') }});"></div>
+                                        style="background:black"></div>
                                     <div class="pxp-jobs-tab-pane-logo"
                                         style="background-image: url({{ asset('assets/images/company-logo-1.png') }});">
                                     </div>
@@ -314,7 +314,7 @@
                                 <div class="tab-pane" id="{{ 'job-details-' . $job->job_id }}" role="tabpanel"
                                     aria-labelledby="{{ 'job-' . $job->job_id }}">
                                     <div class="pxp-jobs-tab-pane-cover pxp-cover"
-                                        style="background-image: url({{ asset('assets/images/ph-big.jpg') }});"></div>
+                                        style="background: black;"></div>
                                     <div class="pxp-jobs-tab-pane-logo"
                                         style="background-image: url({{ asset('assets/images/company-logo-2.png') }});">
                                     </div>
