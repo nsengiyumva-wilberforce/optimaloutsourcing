@@ -114,17 +114,7 @@
                                 </td>
                                 <td style="width: 25%;">
                                     <div class="pxp-candidate-dashboard-experience-time">
-                                        {{ $training->start_date }} - {{ $training->end_date }}</div>
-                                </td>
-                                <td>
-                                    <div class="pxp-dashboard-table-options">
-                                        <ul class="list-unstyled">
-                                            <li><button title="Edit" class="edit-btn"><span
-                                                        class="fa fa-pencil"></span></button></li>
-                                            <li><button title="Delete" class="delete-btn"><span
-                                                        class="fa fa-trash-o"></span></button></li>
-                                        </ul>
-                                    </div>
+                                        {{ $training->training_start_date }} - {{ $training->training_end_date }}</div>
                                 </td>
                             </tr>
                         @endforeach
@@ -153,16 +143,6 @@
                                 <td style="width: 25%;">
                                     <div class="pxp-candidate-dashboard-experience-time">
                                         {{ $experience->start_date }} - {{ $experience->end_date }}</div>
-                                </td>
-                                <td>
-                                    <div class="pxp-dashboard-table-options">
-                                        <ul class="list-unstyled">
-                                            <li><button title="Edit" class="edit-btn"><span
-                                                        class="fa fa-pencil"></span></button></li>
-                                            <li><button title="Delete" class="delete-btn"><span
-                                                        class="fa fa-trash-o"></span></button></li>
-                                        </ul>
-                                    </div>
                                 </td>
                             </tr>
                         @endforeach
