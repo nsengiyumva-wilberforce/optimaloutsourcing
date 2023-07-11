@@ -21,7 +21,7 @@
                     <p class="pxp-text-light text-center">Together, we can achieve greatness.</p>
 
                     <div class="mt-4 mt-md-5 text-center row">
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <img src="{{ asset('assets/images/about-us.jpg') }}" alt="">
                         </div>
                         <div class="col-md-6 d-flex align-items-center">
@@ -34,18 +34,18 @@
                         </div>
                     </div>
                     <div class="mt-4 mt-md-5 text-center row">
+                        <div class="col-md-3">
+                            <img src="{{ asset('assets/images/vision.png') }}" alt="">
+                        </div>
                         <div class="col-md-6 d-flex align-items-center">
                             <p><strong>Our Vision</strong> is To become the leading provider of innovative and tailored
                                 business solutions,
                                 revolutionizing the way organizations attract, develop, and retain talent while enhancing
                                 overall operational efficiency and brand reputation.</p>
                         </div>
-                        <div class="col-md-6">
-                            <img src="{{ asset('assets/images/vision.png') }}" alt="">
-                        </div>
                     </div>
                     <div class="mt-4 mt-md-5 text-center row">
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <img src="{{ asset('assets/images/mission.png') }}" alt="">
                         </div>
                         <div class="col-md-6 d-flex align-items-center">
@@ -56,7 +56,7 @@
                         </div>
                     </div>
                     <div class="mt-4 mt-md-5 text-center row">
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <img src="{{ asset('assets/images/core-values.jpg') }}" alt="">
                         </div>
                         <div class="col-md-6 d-flex align-items-center">
@@ -71,6 +71,9 @@
                         </div>
                     </div>
                     <div class="mt-4 mt-md-5 text-center row">
+                        <div class="col-md-3">
+                            <img src="{{ asset('assets/images/recruitment.jpg') }}" alt="">
+                        </div>
                         <div class="col-md-6 d-flex align-items-center">
                             <p>As experts in the <strong>Recruitment</strong> industry, we leverage our extensive network
                                 and cutting-edge
@@ -78,12 +81,9 @@
                                 specialists employ a meticulous selection process, ensuring that every candidate recommended
                                 aligns perfectly with your organizational culture and requirement</p>
                         </div>
-                        <div class="col-md-6">
-                            <img src="{{ asset('assets/images/recruitment.jpg') }}" alt="">
-                        </div>
                     </div>
                     <div class="mt-4 mt-md-5 text-center row">
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <img src="{{ asset('assets/images/work-force.jpg') }}" alt="">
                         </div>
                         <div class="col-md-6 d-flex align-items-center">
@@ -96,6 +96,9 @@
                         </div>
                     </div>
                     <div class="mt-4 mt-md-5 text-center row">
+                        <div class="col-md-3">
+                            <img src="{{ asset('assets/images/training.png') }}" alt="">
+                        </div>
                         <div class="col-md-6 d-flex align-items-center">
                             <p>Investing in employee development is investing in the future of your organization. Our
                                 <strong>Training Services</strong> are designed to equip your workforce with the skills,
@@ -105,12 +108,9 @@
                                 a culture of continuous learning
                             </p>
                         </div>
-                        <div class="col-md-6">
-                            <img src="{{ asset('assets/images/training.png') }}" alt="">
-                        </div>
                     </div>
                     <div class="mt-4 mt-md-5 text-center row">
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <img src="{{ asset('assets/images/pr-management.png') }}" alt="">
                         </div>
                         <div class="col-md-6 d-flex align-items-center">
@@ -123,6 +123,9 @@
                         </div>
                     </div>
                     <div class="mt-4 mt-md-5 text-center row">
+                        <div class="col-md-3">
+                            <img src="{{ asset('assets/images/call-center-solutions.jpg') }}" alt="">
+                        </div>
                         <div class="col-md-6 d-flex align-items-center">
                             <p>Delivering exceptional customer experiences is at the core of our <strong>Call Center
                                     Solutions</strong>. We
@@ -131,29 +134,16 @@
                                 monitoring, quality assurance, technology integration, and customer relationship management,
                                 enabling you to optimize customer satisfaction and drive business growth</p>
                         </div>
-                        <div class="col-md-6">
-                            <img src="{{ asset('assets/images/call-center.png') }}" alt="">
-                        </div>
                     </div>
                     <div class="mt-4 mt-md-5 text-center row">
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <img src="{{ asset('assets/images/sales-and-marketing.png') }}" alt="">
                         </div>
                         <div class="col-md-6 d-flex align-items-center">
-                            <p>Unlock the full potential of your sales revenue with our specialized <strong>Sales And Marketing
-                                Services</strong>. Our team of experts works closely with you to develop effective sales strategies,
-                                customer acquisition and retention plans, digital marketing campaigns, brand positioning,
-                                market research, and competitor analysis. We help you maximize your market share and achieve
-                                sustainable growt</p>
-                        </div>
-                    </div>
-                    <div class="mt-4 mt-md-5 text-center row">
-                        <div class="col-md-6">
-                            <img src="{{ asset('assets/images/sales-and-marketing.png') }}" alt="">
-                        </div>
-                        <div class="col-md-6 d-flex align-items-center">
-                            <p>Unlock the full potential of your sales revenue with our specialized <strong>Sales And Marketing
-                                Services</strong>. Our team of experts works closely with you to develop effective sales strategies,
+                            <p>Unlock the full potential of your sales revenue with our specialized <strong>Sales And
+                                    Marketing
+                                    Services</strong>. Our team of experts works closely with you to develop effective sales
+                                strategies,
                                 customer acquisition and retention plans, digital marketing campaigns, brand positioning,
                                 market research, and competitor analysis. We help you maximize your market share and achieve
                                 sustainable growt</p>
