@@ -143,7 +143,7 @@ class ProfileController extends Controller
             'cover_photo' => $cover_photo,
         ];
         // Set the success message in the session
-        $pdf = Pdf::loadView('cvgenerator.cv', $data);
+        $pdf = Pdf::loadView('cvgenerator.cv', $data)->setOption(['defaultFont' => 'sans-serif']);
 
         //Session::flash('success', 'CV generated successfully.');
 
