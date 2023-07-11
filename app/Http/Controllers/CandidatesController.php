@@ -24,8 +24,18 @@ class CandidatesController extends Controller
     //retrieve a single candidate
     public function candidateDetails($id)
     {
-        //get the candidate details
-        $candidate = User::find($id);
-        return view('candidates.candidate-details', compact('candidate'));
+        //get the candidate details with their profile
+        $candidate = User::where('user_id', $id)->with('profile')->first();
+
+        //get candidate's skills from the profile_skills table
+        $skills = $candidate->profile->skills()->get();
+
+        //get the user's work experience
+        $experiences = $candidate->profile->experiences()->get();
+
+        //get the user's trainings
+        $trainings = $candidate->profile->trainings()->get();
+
+        return view('candidates.candidate-details', compact('candidate', 'skills', 'experiences', 'trainings'));
     }
 }

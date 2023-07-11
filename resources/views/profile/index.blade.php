@@ -96,7 +96,7 @@
                     <div class="pxp-candidate-dashboard-skills mb-3">
                         <ul id="selectedSkillsList" class="list-unstyled">
                             @if ($skills)
-                                @foreach ($skills as $skill)
+                                @foreach ($user_skills as $skill)
                                     <li data-id="{{ $skill->skill_id }}">{{ $skill->skill_name }}<span
                                             class="fa fa-trash-o"></span></li>
                                 @endforeach

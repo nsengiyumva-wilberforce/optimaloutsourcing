@@ -18,6 +18,10 @@ class ProfileController extends Controller
         //get all the skills in skills table
         $skills = Skill::all();
 
+        //get all the skills for the user
+        $user_skills = $profile->skills;
+
+
         //get all the experiences for the user
         $experiences = $profile->experiences;
 
@@ -29,7 +33,7 @@ class ProfileController extends Controller
 
         //get the cover photo
         $cover_photo = $profile->cover_photo;
-        return view('profile.index', compact('profile', 'skills', 'experiences', 'trainings', 'profile_photo', 'cover_photo'));
+        return view('profile.index', compact('profile', 'skills', 'experiences', 'trainings', 'profile_photo', 'cover_photo', 'user_skills'));
     }
 
     public function update(Request $request)
@@ -45,7 +49,7 @@ class ProfileController extends Controller
         $user = auth()->user();
         $profile = $user->profile;
         //attach the skills to the profile
-        if (count($skills) != 1 && $skills[0] != null) {
+        if (count($skills) > 0) {
             $profile->skills()->sync($skills);
         }
         //insert experiences into the database
