@@ -3,87 +3,36 @@
 
 <head>
     <title>{{ $profile->first_name . ' ' . $profile->last_name }} - Curriculum Vitae</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        h2 {
-            font-size: 20px;
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-
-        p {
-            margin-top: 0;
-        }
-
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        li {
-            margin-bottom: 5px;
-        }
-
-        .profile_pic {
-            height: 200px;
-            width: 100%;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-
-        .profile_pic img {
-            max-height: 70px;
-            max-width: 80px;
-            border-radius: 50%;
-        }
-    </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 </head>
 
-<body>
+<body class="container">
     <div class="top_section">
         @if ($cover_photo)
-            <div class="profile_pic" style="background-image:url({{ asset('storage/' . $cover_photo) }})">
+            <div class="profile_pic row justify-content-center"
+                style="background-image:url({{ asset('storage/' . $cover_photo) }})">
                 {{-- check if the profile photo exists and display the profile image else display an avatar  --}}
                 @if ($profile->profile_photo)
-                    <img src="{{ asset('storage/' . $profile->profile_photo) }}" alt="Avatar" height="120px"
-                        width="110px" class="rounded">
+                    <img src="{{ asset('storage/' . $profile->profile_photo) }}" alt="Avatar" class="rounded img-fluid w-25">
                 @else
-                    <img src="{{ asset('assets/images/profile_avatar.jpg') }}" alt="Avatar" height="120px"
-                        width="110px" class="rounded">
+                    <img src="{{ asset('assets/images/profile_avatar.jpg') }}" alt="Avatar" class="rounded img-fluid w-25">
                 @endif
             </div>
         @else
             <div class="profile_pic" style="background-image:url({{ asset('assets/images/cover_avatar.jpg') }})">
                 {{-- check if the profile photo exists and display the profile image else display an avatar  --}}
                 @if ($profile->profile_photo)
-                    <img src="{{ asset('storage/' . $profile->profile_photo) }}" alt="Avatar" height="120px"
-                        width="110px" class="rounded">
+                    <img src="{{ asset('storage/' . $profile->profile_photo) }}" alt="Avatar" class="rounded img-fluid w-25">
                 @else
-                    <img src="{{ asset('assets/images/profile_avatar.png') }}" alt="Avatar" height="120px"
-                        width="110px" class="rounded">
+                    <img src="{{ asset('assets/images/profile_avatar.png') }}" alt="Avatar" class="rounded img-fluid w-25">
                 @endif
             </div>
         @endif
     </div>
 
-    <div class="profile_info">
+    <div class="profile_info card card-body">
         <h1>{{ $profile->first_name . ' ' . $profile->last_name }}</h1>
         <p><strong>Location:</strong> {{ $profile->location }}</p>
         <p><strong>Email:</strong>{{ $profile->email }}</p>
@@ -114,7 +63,8 @@
                                 </td>
                                 <td style="width: 25%;">
                                     <div class="pxp-candidate-dashboard-experience-time">
-                                        {{ $training->training_start_date }} - {{ $training->training_end_date }}</div>
+                                        {{ $training->training_start_date }} - {{ $training->training_end_date }}
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

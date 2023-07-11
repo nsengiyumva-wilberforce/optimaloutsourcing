@@ -143,7 +143,7 @@ class ProfileController extends Controller
             'cover_photo' => $cover_photo,
         ];
         // Set the success message in the session
-        $pdf = Pdf::loadView('cvgenerator.cv', $data);
+        $pdf = Pdf::loadView('cvgenerator.cv', $data)->setOption(['defaultFont' => 'sans-serif']);
 
         //Session::flash('success', 'CV generated successfully.');
 
@@ -151,7 +151,7 @@ class ProfileController extends Controller
         $full_name = auth()->user()->profile->first_name.' '.auth()->user()->profile->last_name;
 
         // Return the PDF download response
-        return $pdf->download($full_name.' CV.pdf');
-        //return view('cvgenerator.cv', $data);
+        //return $pdf->download($full_name.' CV.pdf');
+        return view('cvgenerator.cv', $data);
     }
 }
