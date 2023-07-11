@@ -151,7 +151,7 @@ class ProfileController extends Controller
         $full_name = auth()->user()->profile->first_name.' '.auth()->user()->profile->last_name;
 
         // Return the PDF download response
-        return $pdf->download($full_name.'.pdf');
+        return $pdf->download('cv.pdf');
         //return view('cvgenerator.cv', $data);
     }
 }
