@@ -42,20 +42,21 @@
                     <div class="col-lg-6 col-xxl-4">
                         <div class="pxp-contact-us-form pxp-has-animation pxp-animate">
                             <h2 class="pxp-section-h2 text-center">Contact Us</h2>
-                            <form class="mt-4">
+                            <form class="mt-4" method="POST" action="{{ route('contact.submit') }}">
+                                @csrf
                                 <div class="mb-3">
                                     <label for="contact-us-name" class="form-label">Name</label>
-                                    <input type="text" class="form-control" id="contact-us-name" placeholder="Enter your name">
+                                    <input type="text" name="name" class="form-control" id="contact-us-name" placeholder="Enter your name">
                                 </div>
                                 <div class="mb-3">
                                     <label for="contact-us-email" class="form-label">Email</label>
-                                    <input type="text" class="form-control" id="contact-us-email" placeholder="Enter your email address">
+                                    <input type="text" name="email" class="form-control" id="contact-us-email" placeholder="Enter your email address">
                                 </div>
                                 <div class="mb-3">
                                     <label for="contact-us-message" class="form-label">Message</label>
-                                    <textarea class="form-control" id="contact-us-message" placeholder="Type your message here..."></textarea>
+                                    <textarea class="form-control" name="message" id="contact-us-message" placeholder="Type your message here..."></textarea>
                                 </div>
-                                <a href="#" class="btn rounded-pill pxp-section-cta d-block">Send Message</a>
+                                <button type="submit" class="btn rounded-pill pxp-section-cta d-block">Send Message</button>
                             </form>
                         </div>
                     </div>

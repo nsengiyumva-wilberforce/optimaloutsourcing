@@ -57,6 +57,9 @@ Route::get('/faqs', [HomeController::class, 'faq'])->name('faq');
 //get jobs by location or keyword
 Route::post('/jobs/search', [JobsController::class, 'search'])->name('search');
 
+//contact us form
+Route::post('/contact-us', [HomeController::class, 'submitContactForm'])->name('contact.submit');
+
 //only logged in users to access
 Route::group(['middleware' => 'auth'], function () {
     Route::post('/job/add', [JobsController::class, 'store'])->name('storeJob');

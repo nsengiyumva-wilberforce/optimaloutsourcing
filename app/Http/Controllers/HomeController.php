@@ -35,4 +35,28 @@ class HomeController extends Controller
     {
         return view('faqs');
     }
+
+    //add conta us page
+    public function submitContactForm(Request $request)
+    {
+        // Validate the form data
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required',
+        ]);
+
+        // Send the email
+        $to = "nsengiyumvawilberforce@gmail.com";
+        $subject = "Contact Us Form";
+        $message = "Name: " . $request->name . "\n";
+        $message .= "Email: " . $request->email . "\n";
+        $message .= "Message: " . $request->message . "\n";
+        $headers = "From: " . $request->email . "\r\n" .
+            "CC: ";
+        mail($to, $subject, $message, $headers);
+
+
+        return view('contact-us');
+    }
 }
