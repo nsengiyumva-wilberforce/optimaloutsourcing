@@ -147,8 +147,11 @@ class ProfileController extends Controller
 
         //Session::flash('success', 'CV generated successfully.');
 
+        //get the logeed in user first_name and last_name
+        $full_name = auth()->user()->profile->first_name.' '.auth()->user()->profile->last_name;
+
         // Return the PDF download response
-        return $pdf->download();
+        return $pdf->download($full_name.'.pdf');
         //return view('cvgenerator.cv', $data);
     }
 }
