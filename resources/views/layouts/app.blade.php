@@ -65,7 +65,7 @@
                                             <a href="/login" class="nav-link">Login</a>
                                         </li>
                                         <li class="nav-item dropdown">
-                                            <a href="/aboutus"class="nav-link">About Us</a>
+                                            <a href="/about-us"class="nav-link">About Us</a>
                                         </li>
                                         <li class="nav-item dropdown">
                                             <a href="/contact-us" class="nav-link">Contact Us</a>
