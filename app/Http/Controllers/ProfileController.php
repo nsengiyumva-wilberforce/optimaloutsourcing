@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Profile;
 use App\Models\Skill;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Support\Facades\Session;
 
 class ProfileController extends Controller
 {
@@ -54,22 +52,38 @@ class ProfileController extends Controller
         }
 
         //handle form information in case it was not added to the DOM for job expereince and training
-        if ($request->input('job_title')) {
+        if ($request->input('job_title') && count($experiences)==0) {
             $experiences[] = new \stdClass();
             $experiences[0]->job_title = $request->input('job_title');
             $experiences[0]->company_name = $request->input('company_name');
             $experiences[0]->start_date = $request->input('start_date');
             $experiences[0]->end_date = $request->input('end_date');
             $experiences[0]->job_description = $request->input('job_description');
+        } else {
+            $experienceIndex = count($experiences);
+            $experiences[$experienceIndex] = new \stdClass();
+            $experiences[$experienceIndex]->job_title = $request->input('job_title');
+            $experiences[$experienceIndex]->company_name = $request->input('company_name');
+            $experiences[$experienceIndex]->start_date = $request->input('start_date');
+            $experiences[$experienceIndex]->end_date = $request->input('end_date');
+            $experiences[$experienceIndex]->job_description = $request->input('job_description');
         }
 
-        if ($request->input('training_title')) {
+        if ($request->input('training_title') && count($trainings)==0) {
             $trainings[] = new \stdClass();
             $trainings[0]->training_title = $request->input('training_title');
             $trainings[0]->training_institution = $request->input('training_institution');
             $trainings[0]->training_start_date = $request->input('training_start_date');
             $trainings[0]->training_end_date = $request->input('training_end_date');
             $trainings[0]->training_description = $request->input('training_description');
+        } else {
+            $trainingIndex = count($trainings);
+            $trainings[$trainingIndex] = new \stdClass();
+            $trainings[$trainingIndex]->training_title = $request->input('training_title');
+            $trainings[$trainingIndex]->training_institution = $request->input('training_institution');
+            $trainings[$trainingIndex]->training_start_date = $request->input('training_start_date');
+            $trainings[$trainingIndex]->training_end_date = $request->input('training_end_date');
+            $trainings[$trainingIndex]->training_description = $request->input('training_description');
         }
 
         //insert experiences into the database

@@ -59,25 +59,13 @@
                     </div>
                     <div class="col-xxl-4">
                         <div class="form-label">&nbsp;</div>
-                        <div class="pxp-candidate-cover mb-3">
-                            <input type="file" name="cover_photo" id="pxp-candidate-cover-choose-file"
-                                accept="image/*">
-                            <label for="pxp-candidate-cover-choose-file" class="pxp-cover">
-                                @if ($profile_photo)
-                                    <img src="{{ asset('storage/' . $cover_photo) }}" alt="Cover Photo" height="100%" width="100%">
-                                @else
-                                    <span>Upload Cover
-                                        Image</span>
-                                @endif
-                            </label>
-                        </div>
                         <div class="pxp-candidate-photo mb-3">
                             <input type="file" name="profile_photo" id="pxp-candidate-photo-choose-file"
                                 accept="image/*">
                             <label for="pxp-candidate-photo-choose-file"
                                 class="pxp-cover">
                                 @if ($profile_photo)
-                                    <img src="{{ asset('storage/' . $profile_photo) }}" alt="Cover Photo" height="100%" width="100%">
+                                    <img src="{{ asset('storage/' . $profile_photo) }}" alt="Profile Photo" height="100%" width="100%">
                                 @else
                                 <span>Upload<br>Photo</span>
                                 @endif
