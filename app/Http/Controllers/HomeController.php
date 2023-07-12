@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\ContactMail;
 use App\Models\Employment_type;
 use Illuminate\Http\Request;
 use App\Models\Job;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -48,14 +47,10 @@ class HomeController extends Controller
             'message' => 'required',
         ]);
 
-        //Send mailnot use a view
-        Mail::to(
-            'nwilberforce256@gmail.com'
-        )->send(
-                new ContactMail()
-            );
+        //send the email using contactmail mailable
+        Mail::to('nsengiyumvawilberforce@gmail.com')->send(new \App\Mail\ContactMail($validatedData));
 
-
-        return view('contact-us');
-    }
+        //redirect to the contact us page with a success message
+        return redirect()->back()->with('success', 'Thank you for contacting us!');
+        }
 }

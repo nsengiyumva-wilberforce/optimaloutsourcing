@@ -120,7 +120,7 @@
                                             </td>
                                             <td style="width: 25%;">
                                                 <div class="pxp-candidate-dashboard-experience-time">
-                                                    {{ $experience->start_date }} - {{ $experience->end_date }}</div>
+                                                    {{ date('Y', strtotime($experience->start_date)) }} - {{ date('Y', strtotime($experience->end_date)) }}</div>
                                             </td>
                                             <td>
                                                 <div class="pxp-dashboard-table-options">

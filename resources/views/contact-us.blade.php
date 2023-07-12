@@ -41,6 +41,11 @@
                 <div class="row mt-100 justify-content-center pxp-animate-in pxp-animate-in-top">
                     <div class="col-lg-6 col-xxl-4">
                         <div class="pxp-contact-us-form pxp-has-animation pxp-animate">
+                            @if (session('success'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('success') }}
+                                </div>
+                                @endif
                             <h2 class="pxp-section-h2 text-center">Contact Us</h2>
                             <form class="mt-4" method="POST" action="{{ route('contact.submit') }}">
                                 @csrf
