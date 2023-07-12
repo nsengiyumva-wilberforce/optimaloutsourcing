@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
 use App\Models\Employment_type;
 use Illuminate\Http\Request;
 use App\Models\Job;
+use Mail;
 
 class HomeController extends Controller
 {
@@ -46,15 +48,12 @@ class HomeController extends Controller
             'message' => 'required',
         ]);
 
-        // Send the email
-        $to = "nsengiyumvawilberforce@gmail.com";
-        $subject = "Contact Us Form";
-        $message = "Name: " . $request->name . "\n";
-        $message .= "Email: " . $request->email . "\n";
-        $message .= "Message: " . $request->message . "\n";
-        $headers = "From: " . $request->email . "\r\n" .
-            "CC: ";
-        mail($to, $subject, $message, $headers);
+        //Send mailnot use a view
+        Mail::to(
+            'nwilberforce256@gmail.com'
+        )->send(
+                new ContactMail()
+            );
 
 
         return view('contact-us');
