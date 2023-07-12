@@ -11,7 +11,7 @@ class CandidatesController extends Controller
     {
         //get all users whose role is employee
         $candidates = User::where('role', 'employee')->get();
-        dd($candidates[0]->profile->profile_photo)
+        dd($candidates[0]->profile->profile_photo);
         return view('candidates.index', compact('candidates'));
     }
 
