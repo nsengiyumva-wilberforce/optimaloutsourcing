@@ -52,6 +52,26 @@ class ProfileController extends Controller
         if (count($skills) > 0 && $skills[0] != "") {
             $profile->skills()->sync($skills);
         }
+
+        //handle form information in case it was not added to the DOM for job expereince and training
+        if ($request->input('job_title')) {
+            $experiences[] = new \stdClass();
+            $experiences[0]->job_title = $request->input('job_title');
+            $experiences[0]->company_name = $request->input('company_name');
+            $experiences[0]->start_date = $request->input('start_date');
+            $experiences[0]->end_date = $request->input('end_date');
+            $experiences[0]->job_description = $request->input('job_description');
+        }
+
+        if ($request->input('training_title')) {
+            $trainings[] = new \stdClass();
+            $trainings[0]->training_title = $request->input('training_title');
+            $trainings[0]->training_institution = $request->input('training_institution');
+            $trainings[0]->training_start_date = $request->input('training_start_date');
+            $trainings[0]->training_end_date = $request->input('training_end_date');
+            $trainings[0]->training_description = $request->input('training_description');
+        }
+
         //insert experiences into the database
         if ($experiences) {
             foreach ($experiences as $experience) {
@@ -148,10 +168,10 @@ class ProfileController extends Controller
         //Session::flash('success', 'CV generated successfully.');
 
         //get the logeed in user first_name and last_name
-        $full_name = auth()->user()->profile->first_name.' '.auth()->user()->profile->last_name;
+        $full_name = auth()->user()->profile->first_name . ' ' . auth()->user()->profile->last_name;
 
         // Return the PDF download response
-        return $pdf->download($full_name.' CV.pdf');
+        return $pdf->download($full_name . ' CV.pdf');
         //return view('cvgenerator.cv', $data);
     }
 }

@@ -272,9 +272,5 @@
                 </div>
             </form>
         </div>
-
-        <footer>
-            <div class="pxp-footer-copyright pxp-text-light">© 2023 Optimal Outsourcing. All Right Reserved.</div>
-        </footer>
     </div>
 @endsection
