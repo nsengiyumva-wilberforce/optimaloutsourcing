@@ -24,7 +24,10 @@ class Handler extends ExceptionHandler
     public function register(): void
     {
         $this->reportable(function (Throwable $e) {
-            //
+            //handle page not found to redirect to home
+            if ($e instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
+                return redirect()->route('home');
+            }
         });
     }
 }
