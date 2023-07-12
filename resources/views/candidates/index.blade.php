@@ -67,7 +67,7 @@
                         <div class="col-md-6 col-xl-4 col-xxl-3 pxp-candiadates-card-1-container">
                             <div class="pxp-candiadates-card-1 pxp-has-border text-center">
                                 <div class="pxp-candiadates-card-1-top">
-                                    @if($candidate->profile->profile_photo == null)
+                                    @if (!$candidate->profile->profile_photo)
                                         <div class="pxp-candiadates-card-1-avatar pxp-cover"
                                             style="background-image: url({{ asset('assets/images/profile_avatar.png') }});">
                                         </div>
