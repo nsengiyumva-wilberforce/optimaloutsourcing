@@ -49,7 +49,7 @@ class ProfileController extends Controller
         $user = auth()->user();
         $profile = $user->profile;
         //attach the skills to the profile
-        if (count($skills) > 0) {
+        if (count($skills) > 0 && $skills[0] != "") {
             $profile->skills()->sync($skills);
         }
         //insert experiences into the database
