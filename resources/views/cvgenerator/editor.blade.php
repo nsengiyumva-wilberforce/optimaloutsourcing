@@ -2,6 +2,7 @@
 @section('content')
 <section class="pxp-page-header-simple">
     <div class="pxp-container text-center">
+        <a href="/create-cv" class="btn">Download Your CV</a>
     <!-- The toolbar will be rendered in this container. -->
     <div id="toolbar-container"></div>
 
