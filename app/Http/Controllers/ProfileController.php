@@ -220,6 +220,6 @@ class ProfileController extends Controller
             'profile_photo' => $profile_photo,
             'cover_photo' => $cover_photo,
         ];
-        return view('cvgenerator.editor' , compact('data'));
+        return view('cvgenerator.editor' , $data);
     }
 }
