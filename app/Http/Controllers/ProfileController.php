@@ -159,7 +159,7 @@ class ProfileController extends Controller
         $profile = auth()->user()->profile;
 
         //get all the skills in skills table
-        $skills = Skill::all();
+        $skills = $profile->skills;
 
         //get all the experiences for the user
         $experiences = $profile->experiences;
@@ -199,7 +199,7 @@ class ProfileController extends Controller
         $profile = auth()->user()->profile;
 
         //get all the skills in skills table
-        $skills = Skill::all();
+        $skills = $profile->skills;
 
         //get all the experiences for the user
         $experiences = $profile->experiences;
