@@ -79,6 +79,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     //create-cv
     Route::get('/create-cv', [ProfileController::class, 'createCv'])->name('createCv');
+    //add cv-editor
+    Route::get('/cv-editor', [ProfileController::class, 'cvEditor'])->name('cvEditor');
 
     //define settings route
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings');

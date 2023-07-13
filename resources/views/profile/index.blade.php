@@ -1,8 +1,18 @@
 @extends('layouts.sidebar')
 @section('content')
         <div class="pxp-dashboard-content-details">
-            <h1>Edit Profile</h1>
-            <p class="pxp-text-light">Edit your candidate profile page info.</p>
+            <div class="row">
+                <div class="col-md-9">
+                    <h1>Edit Profile</h1>
+                    <p class="pxp-text-light">Edit your candidate profile page info.</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="card card-body">
+                        <h6>Turn your profile into a professional CV</h6>
+                        <a href="/cv-generator" class="btn btn-primary">Download CV</a>
+                    </div>
+                </div>
+            </div>
 
             <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
                 @csrf

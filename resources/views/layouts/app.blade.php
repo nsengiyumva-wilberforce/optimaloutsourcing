@@ -275,6 +275,7 @@
         <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
         <script src="{{ asset('assets/js/nav.js') }}"></script>
         <script src="{{ asset('assets/js/main.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
         <script src="{{ asset('assets/ckeditor/ckeditor.js') }}"></script>
     </body>
 </html>

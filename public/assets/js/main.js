@@ -108,12 +108,27 @@
 
     $(window).on("load", function () {
         handlePreloader();
-        //create the editor for posting job description
-        ClassicEditor.create(
-            document.querySelector("#pxp-company-job-description")
-        ).catch((error) => {
+
+        DecoupledEditor.create(document.querySelector("#pxp-company-job-description"))
+        .then((editor) => {
+            const toolbarContainer =
+                document.querySelector("#pxp-company-job-description-toolbar");
+            toolbarContainer.appendChild(editor.ui.view.toolbar.element);
+        })
+        .catch((error) => {
             console.error(error);
         });
+
+        DecoupledEditor.create(document.querySelector("#editor"))
+            .then((editor) => {
+                const toolbarContainer =
+                    document.querySelector("#toolbar-container");
+
+                toolbarContainer.appendChild(editor.ui.view.toolbar.element);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     });
 
     windowResizeHandler();
@@ -1086,4 +1101,16 @@
         // Update the hidden field value
         updateTrainingHiddenField();
     });
+
+    $('#add-new-job').submit(function(event) {
+
+        // Get the content of the div
+        var divContent = $('#pxp-company-job-description').html();
+
+        // Assign the div content to the hidden input field
+        $('#pxp-company-job-description-input').val(divContent);
+
+        // Submit the form
+        $(this).submit();
+      });
 })(jQuery);

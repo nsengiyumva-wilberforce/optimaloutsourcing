@@ -192,4 +192,34 @@ class ProfileController extends Controller
         return $pdf->download($full_name . ' CV.pdf');
         //return view('cvgenerator.cv', $data);
     }
+
+    public function cvEditor()
+    {
+        //get all the profile info for the user
+        $profile = auth()->user()->profile;
+
+        //get all the skills in skills table
+        $skills = Skill::all();
+
+        //get all the experiences for the user
+        $experiences = $profile->experiences;
+
+        //get all the trainings for the user
+        $trainings = $profile->trainings;
+
+        //get the profile photo
+        $profile_photo = $profile->profile_photo;
+
+        //get the cover photo
+        $cover_photo = $profile->cover_photo;
+        $data = [
+            'profile' => $profile,
+            'skills' => $skills,
+            'experiences' => $experiences,
+            'trainings' => $trainings,
+            'profile_photo' => $profile_photo,
+            'cover_photo' => $cover_photo,
+        ];
+        return view('cvgenerator.editor' , compact('data'));
+    }
 }

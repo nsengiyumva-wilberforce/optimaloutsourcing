@@ -2,18 +2,68 @@
 @section('content')
     <section class="pxp-page-header-simple">
         <div class="pxp-container text-center">
-            <h1>Ensure that your profile information is complete and correct</h1>
-            <p>It is important that you provide all the information requested in the profile section. This will help us to
-                process your CV faster.</p>
-            <div class="btn btn-primary">
-                <a href="/create-cv" class="btn btn-primary btn-lg btn-block text-center">Generate CV</a>
+            <div class="container card card-body text-start">
+                <h2>Resume templates</h2>
+                <p>Land your dream job with captivativating CVs you can professionally customize to reflect your true
+                    potential with our free resume templates and easy-to-use design editor</p>
             </div>
-            @if (session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="/cv-editor">
+                        <img src="{{ asset('assets/images/cv2.png') }}" alt="cv2 placeholder" class="img-fluid">
+                    </a>
                 </div>
-            @endif
-
+                <div class="col-md-3">
+                    <a href="/cv-editor">
+                        <img src="{{ asset('assets/images/cv3.png') }}" alt="cv3 placeholder" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="/cv-editor">
+                        <img src="{{ asset('assets/images/cv4.png') }}" alt="cv4 placeholder" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="/cv-editor">
+                        <img src="{{ asset('assets/images/cv5.png') }}" alt="cv5 placeholder" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="/cv-editor">
+                        <img src="{{ asset('assets/images/cv6.png') }}" alt="cv6 placeholder" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="/cv-editor">
+                        <img src="{{ asset('assets/images/cv7.png') }}" alt="cv7 placeholder" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="/cv-editor">
+                        <img src="{{ asset('assets/images/cv3.png') }}" alt="cv3 placeholder" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="/cv-editor">
+                        <img src="{{ asset('assets/images/cv4.png') }}" alt="cv4 placeholder" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="/cv-editor">
+                        <img src="{{ asset('assets/images/cv5.png') }}" alt="cv5 placeholder" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="/cv-editor">
+                        <img src="{{ asset('assets/images/cv6.png') }}" alt="cv6 placeholder" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="/cv-editor">
+                        <img src="{{ asset('assets/images/cv7.png') }}" alt="cv7 placeholder" class="img-fluid">
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 @endsection

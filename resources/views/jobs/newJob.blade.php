@@ -11,7 +11,7 @@
         @endif
 
 
-        <form method="POST" action="{{ route('storeJob') }}">
+        <form method="POST" action="{{ route('storeJob') }}" id="add-new-job">
             @csrf
             <div class="row mt-4 mt-lg-5">
                 <div class="col-xxl-6">
@@ -41,8 +41,10 @@
 
             <div class="mb-3">
                 <label for="pxp-company-job-description" class="form-label">Job description</label>
-                <textarea class="form-control" name="description" id="pxp-company-job-description"
-                    placeholder="Type the description here..."></textarea>
+                <div id="pxp-company-job-description-toolbar"></div>
+                <div class="form-control" id="pxp-company-job-description"
+                    placeholder="Type the description here..."></div>
+                    <input type="hidden" name="description" id="pxp-company-job-description-input">
             </div>
 
             <div class="row">
