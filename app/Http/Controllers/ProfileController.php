@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Skill;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -193,33 +194,8 @@ class ProfileController extends Controller
         //return view('cvgenerator.cv', $data);
     }
 
-    public function cvEditor()
+    public function editCv()
     {
-        //get all the profile info for the user
-        $profile = auth()->user()->profile;
-
-        //get all the skills in skills table
-        $skills = $profile->skills;
-
-        //get all the experiences for the user
-        $experiences = $profile->experiences;
-
-        //get all the trainings for the user
-        $trainings = $profile->trainings;
-
-        //get the profile photo
-        $profile_photo = $profile->profile_photo;
-
-        //get the cover photo
-        $cover_photo = $profile->cover_photo;
-        $data = [
-            'profile' => $profile,
-            'skills' => $skills,
-            'experiences' => $experiences,
-            'trainings' => $trainings,
-            'profile_photo' => $profile_photo,
-            'cover_photo' => $cover_photo,
-        ];
-        return view('cvgenerator.editor' , $data);
+        return view('cvgenerator.edit-cv');
     }
 }

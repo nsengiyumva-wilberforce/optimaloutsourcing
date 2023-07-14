@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use App\Models\Application;
 use App\Models\Profile;
 use App\Models\Job;
+use App\Models\CV;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable

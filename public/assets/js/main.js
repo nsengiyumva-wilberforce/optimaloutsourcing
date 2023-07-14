@@ -1113,4 +1113,13 @@
         // Submit the form
         $(this).submit();
       });
+
+      $('#cv-store-form').submit(function(event) {
+        var cv_contents = $('#editor').html();
+
+        $('#hidden-cv-state').val(cv_contents)
+
+        //submit the form
+        $(this).submit();
+      })
 })(jQuery);
