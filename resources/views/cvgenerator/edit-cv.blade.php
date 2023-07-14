@@ -141,7 +141,6 @@
             </div>
 
             <div class="col-9 document_area card card-body">
-                <h1>s,d,d</h1>
                 <iframe src="{{asset('assets/cvs/test.pdf')}}" frameborder="0"  height="100%"></iframe>
             </div>
 
