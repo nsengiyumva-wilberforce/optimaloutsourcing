@@ -109,18 +109,15 @@
     $(window).on("load", function () {
         handlePreloader();
 
-        DecoupledEditor.create(
-            document.querySelector("#pxp-company-job-description")
-        )
-            .then((editor) => {
-                const toolbarContainer = document.querySelector(
-                    "#pxp-company-job-description-toolbar"
-                );
-                toolbarContainer.appendChild(editor.ui.view.toolbar.element);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+        DecoupledEditor.create(document.querySelector("#pxp-company-job-description"))
+        .then((editor) => {
+            const toolbarContainer =
+                document.querySelector("#pxp-company-job-description-toolbar");
+            toolbarContainer.appendChild(editor.ui.view.toolbar.element);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
 
         DecoupledEditor.create(document.querySelector("#editor"))
             .then((editor) => {
@@ -132,13 +129,6 @@
             .catch((error) => {
                 console.error(error);
             });
-
-        var pdfIframe = document.querySelector("#pdfContainer iframe");
-
-        // Disable context menu on the PDF iframe
-        pdfIframe.addEventListener("contextmenu", function (event) {
-            event.preventDefault();
-        });
     });
 
     windowResizeHandler();
@@ -1112,23 +1102,25 @@
         updateTrainingHiddenField();
     });
 
-    $("#add-new-job").submit(function (event) {
+    $('#add-new-job').submit(function(event) {
+
         // Get the content of the div
-        var divContent = $("#pxp-company-job-description").html();
+        var divContent = $('#pxp-company-job-description').html();
 
         // Assign the div content to the hidden input field
-        $("#pxp-company-job-description-input").val(divContent);
+        $('#pxp-company-job-description-input').val(divContent);
 
         // Submit the form
         $(this).submit();
-    });
+      });
 
-    $("#cv-store-form").submit(function (event) {
-        var cv_contents = $("#editor").html();
+      $('#cv-store-form').submit(function(event) {
+        var cv_contents = $('#editor').html();
 
-        $("#hidden-cv-state").val(cv_contents);
+        $('#hidden-cv-state').val(cv_contents)
 
         //submit the form
         $(this).submit();
-    });
+      })
+
 })(jQuery);

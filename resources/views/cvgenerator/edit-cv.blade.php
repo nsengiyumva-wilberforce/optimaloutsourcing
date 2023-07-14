@@ -140,7 +140,7 @@
                 </div>
             </div>
 
-            <div class="col-9 document_area card card-body" id="pdfContainer">
+            <div class="col-9 document_area card card-body" oncontextmenu="return false;">
                 <iframe src="{{asset('assets/cvs/test.pdf#toolbar=0')}}" frameborder="0"  height="100%" ></iframe>
             </div>
 
