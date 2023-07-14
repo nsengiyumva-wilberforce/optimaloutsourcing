@@ -1122,9 +1122,5 @@
         //submit the form
         $(this).submit();
       })
-
-      $('iframe').on('contextmenu', function(event) {
-        console.log("pdf clicked")
-        event.preventDefault();
-    });
+      
 })(jQuery);

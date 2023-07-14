@@ -141,6 +141,7 @@
             </div>
 
             <div class="col-9 document_area card card-body">
+                <div id="pdfCover"></div>
                 <iframe src="{{asset('assets/cvs/test.pdf#toolbar=0')}}" frameborder="0"  height="100%" ></iframe>
             </div>
 
