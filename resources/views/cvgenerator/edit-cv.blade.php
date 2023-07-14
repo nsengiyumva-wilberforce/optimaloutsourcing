@@ -13,7 +13,7 @@
 
 <body>
     <div class="w-100">
-        <div class="toolbar card card-body">
+        <div class="toolbar card card-body container">
             <h1 class="text-center">Optimal outsourcing CV Editor</h1>
             <hr>
             <div class="row">
@@ -69,7 +69,7 @@
 
         </div>
 
-        <div class="side_bar_doc_area row">
+        <div class="side_bar_doc_area row container">
             <div class="col-md-3 sidebar card card-body">
                 <h4>What information do you want to show?</h4>
                 <div class="form-check">
@@ -142,9 +142,8 @@
 
             <div class="col-md-9 document_area card card-body pdf-body">
                 <div id="pdfCover"></div>
-                <iframe src="{{asset('assets/cvs/test.pdf#toolbar=0')}}" frameborder="0"  height="100%" ></iframe>
+                <iframe src="{{ asset('assets/cvs/test.pdf#toolbar=0') }}" frameborder="0" height="100%"></iframe>
             </div>
-
         </div>
     </div>
 
