@@ -140,9 +140,12 @@
                 </div>
             </div>
 
-            <div class="col-9 document_area card card-body">
+            <div class="col-9 document_area card card-body pdf-body">
                 <div id="pdfCover"></div>
-                <iframe src="{{asset('assets/cvs/test.pdf#toolbar=0')}}" frameborder="0"  height="100%" ></iframe>
+                <div class="pdf-div">
+                    <iframe src="{{ asset('assets/cvs/test.pdf#toolbar=0') }}" frameborder="0"
+                        height="100%"></iframe>
+                </div>
             </div>
 
         </div>
