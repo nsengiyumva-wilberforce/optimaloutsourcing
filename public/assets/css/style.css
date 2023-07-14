@@ -6357,27 +6357,4 @@ ol.pxp-comments-list {
 fieldset, legend {
     all: revert;
  }
- .pdf-body {
-    position: relative;
-}
-
-.pdf-div {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: blue;
-    width: 200px;
-    height: 200px;
-    z-index: 1;
-}
-
-.pdfCover {
-    position: absolute;
-    top: 50px;
-    left: 50px;
-    background-color: red;
-    width: 200px;
-    height: 200px;
-    z-index: 2;
-}
 
