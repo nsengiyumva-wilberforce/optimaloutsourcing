@@ -70,7 +70,7 @@
         </div>
 
         <div class="side_bar_doc_area row">
-            <div class="col-3 sidebar card card-body">
+            <div class="col col-sm-12 sidebar card card-body">
                 <h4>What information do you want to show?</h4>
                 <div class="form-check">
                     <input type="checkbox" name="cv_info" id="contact_details" class="form-check-input">
@@ -140,7 +140,7 @@
                 </div>
             </div>
 
-            <div class="col-9 document_area card card-body pdf-body">
+            <div class="col document_area card card-body pdf-body">
                 <div id="pdfCover"></div>
                 <iframe src="{{asset('assets/cvs/test.pdf#toolbar=0')}}" frameborder="0"  height="100%" ></iframe>
             </div>
