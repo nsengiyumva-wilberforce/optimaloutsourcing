@@ -1122,5 +1122,4 @@
         //submit the form
         $(this).submit();
       })
-      
 })(jQuery);
