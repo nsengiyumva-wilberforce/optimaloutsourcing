@@ -127,20 +127,20 @@
 
                 <h4>Which work Experience(s) do you want to show?</h4>
                 <div class="form-check">
-                    <input type="text" id="experience_1" class="form-check-input">
+                    <input type="checkbox" id="experience_1" class="form-check-input">
                     <label for="experience_1" class="form-check-label">Experience_1</label>
                 </div>
                 <div class="form-check">
-                    <input type="text" id="experience_2" class="form-check-input">
+                    <input type="checkbox" id="experience_2" class="form-check-input">
                     <label for="experience_2" class="form-check-label">Experience_2</label>
                 </div>
                 <div class="form-check">
-                    <input type="text" id="experience_3" class="form-check-input">
+                    <input type="checkbox" id="experience_3" class="form-check-input">
                     <label for="experience_3" class="form-check-label">Experience_3</label>
                 </div>
             </div>
 
-            <div class="col-9 document_area card card-body" oncontextmenu="return false;">
+            <div class="col-9 document_area card card-body">
                 <iframe src="{{asset('assets/cvs/test.pdf#toolbar=0')}}" frameborder="0"  height="100%" ></iframe>
             </div>
 
