@@ -12,8 +12,8 @@
 </head>
 
 <body>
-    <div class="w-100">
-        <div class="toolbar card card-body container">
+    <div class="w-100 ms-2">
+        <div class="toolbar card card-body">
             <h1 class="text-center">Optimal outsourcing CV Editor</h1>
             <hr>
             <div class="row">
@@ -69,7 +69,7 @@
 
         </div>
 
-        <div class="side_bar_doc_area row container">
+        <div class="side_bar_doc_area row">
             <div class="col-md-3 sidebar card card-body">
                 <h4>What information do you want to show?</h4>
                 <div class="form-check">
