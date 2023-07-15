@@ -72,44 +72,44 @@
                     <label for="contact_details" class="form-check-label">Contact Details</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" name="cv_info" id="contact_details" class="form-check-input">
-                    <label for="contact_details" class="form-check-label">Intro</label>
+                    <input type="checkbox" name="cv_info" id="intro" class="form-check-input">
+                    <label for="intro" class="form-check-label">Intro</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" name="cv_info" id="contact_details" class="form-check-input">
-                    <label for="contact_details" class="form-check-label">Work Experience</label>
+                    <input type="checkbox" name="cv_info" id="work_experience" class="form-check-input">
+                    <label for="work_experience" class="form-check-label">Work Experience</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" name="cv_info" id="contact_details" class="form-check-input">
-                    <label for="contact_details" class="form-check-label">Education</label>
+                    <input type="checkbox" name="cv_info" id="education" class="form-check-input">
+                    <label for="education" class="form-check-label">Education</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" name="cv_info" id="contact_details" class="form-check-input">
-                    <label for="contact_details" class="form-check-label">Skills</label>
+                    <input type="checkbox" name="cv_info" id="skills" class="form-check-input">
+                    <label for="skills" class="form-check-label">Skills</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" name="cv_info" id="contact_details" class="form-check-input">
-                    <label for="contact_details" class="form-check-label">Languages</label>
+                    <input type="checkbox" name="cv_info" id="languages" class="form-check-input">
+                    <label for="languages" class="form-check-label">Languages</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" name="cv_info" id="contact_details" class="form-check-input">
-                    <label for="contact_details" class="form-check-label">Certificates</label>
+                    <input type="checkbox" name="cv_info" id="certificates" class="form-check-input">
+                    <label for="certificates" class="form-check-label">Certificates</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" name="cv_info" id="contact_details" class="form-check-input">
-                    <label for="contact_details" class="form-check-label">Associations</label>
+                    <input type="checkbox" name="cv_info" id="associations" class="form-check-input">
+                    <label for="associations" class="form-check-label">Associations</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" name="cv_info" id="contact_details" class="form-check-input">
-                    <label for="contact_details" class="form-check-label">Hobbies</label>
+                    <input type="checkbox" name="cv_info" id="hobbies" class="form-check-input">
+                    <label for="hobbies" class="form-check-label">Hobbies</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" name="cv_info" id="contact_details" class="form-check-input">
-                    <label for="contact_details" class="form-check-label">Links</label>
+                    <input type="checkbox" name="cv_info" id="links" class="form-check-input">
+                    <label for="links" class="form-check-label">Links</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" name="cv_info" id="contact_details" class="form-check-input">
-                    <label for="contact_details" class="form-check-label">References</label>
+                    <input type="checkbox" name="cv_info" id="references" class="form-check-input">
+                    <label for="references" class="form-check-label">References</label>
                 </div>
 
                 <h4>Select the Design</h4>

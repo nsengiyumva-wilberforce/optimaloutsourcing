@@ -194,6 +194,9 @@ class ProfileController extends Controller
 
         $full_name = auth()->user()->profile->first_name . ' ' . auth()->user()->profile->last_name;
 
+        // Save the PDF to the assets folder in the public directory
+        $pdf->save(public_path('assets/cvs/' . $full_name . '-CV.pdf'));
+
         return $pdf->download($full_name . '-CV.pdf');
     }
 

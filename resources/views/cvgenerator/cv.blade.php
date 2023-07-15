@@ -3,7 +3,7 @@
 
 <head>
     <title>{{ $profile->first_name . ' ' . $profile->last_name }} - Curriculum Vitae</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -11,26 +11,17 @@
 
 <body class="container">
     <div class="top_section">
-        @if ($cover_photo)
-            <div class="profile_pic row justify-content-center"
-                style="background-image:url({{ asset('storage/' . $cover_photo) }})">
-                {{-- check if the profile photo exists and display the profile image else display an avatar  --}}
-                @if ($profile->profile_photo)
-                    <img src="{{ asset('storage/' . $profile->profile_photo) }}" alt="Avatar" class="rounded img-fluid w-25">
-                @else
-                    <img src="{{ asset('assets/images/profile_avatar.jpg') }}" alt="Avatar" class="rounded img-fluid w-25">
-                @endif
-            </div>
-        @else
-            <div class="profile_pic" style="background-image:url({{ asset('assets/images/cover_avatar.jpg') }})">
-                {{-- check if the profile photo exists and display the profile image else display an avatar  --}}
-                @if ($profile->profile_photo)
-                    <img src="{{ asset('storage/' . $profile->profile_photo) }}" alt="Avatar" class="rounded img-fluid w-25">
-                @else
-                    <img src="{{ asset('assets/images/profile_avatar.png') }}" alt="Avatar" class="rounded img-fluid w-25">
-                @endif
-            </div>
-        @endif
+        <div class="profile_pic row justify-content-center"
+            style="background-image:url({{ asset('storage/' . $cover_photo) }})">
+            {{-- check if the profile photo exists and display the profile image else display an avatar  --}}
+            @if ($profile->profile_photo)
+                <img src="{{ asset('storage/' . $profile->profile_photo) }}" alt="Avatar"
+                    class="rounded img-fluid w-25">
+            @else
+                <img src="{{ asset('assets/images/profile_avatar.jpg') }}" alt="Avatar"
+                    class="rounded img-fluid w-25">
+            @endif
+        </div>
     </div>
 
     <div class="profile_info card card-body">
@@ -64,7 +55,8 @@
                                 </td>
                                 <td style="width: 25%;">
                                     <div class="pxp-candidate-dashboard-experience-time">
-                                        {{ date('Y', strtotime($training->training_start_date)) }} - {{ date('Y', strtotime($training->training_end_date)) }}
+                                        {{ date('Y', strtotime($training->training_start_date)) }} -
+                                        {{ date('Y', strtotime($training->training_end_date)) }}
                                     </div>
                                 </td>
                             </tr>
@@ -93,7 +85,8 @@
                                 </td>
                                 <td style="width: 25%;">
                                     <div class="pxp-candidate-dashboard-experience-time">
-                                        {{ date('Y', strtotime($experience->start_date)) }} - {{ date('Y', strtotime($experience->training_start_date)) }}</div>
+                                        {{ date('Y', strtotime($experience->start_date)) }} -
+                                        {{ date('Y', strtotime($experience->training_start_date)) }}</div>
                                 </td>
                             </tr>
                         @endforeach
