@@ -154,8 +154,9 @@ class ProfileController extends Controller
         return view('cvgenerator.index');
     }
 
-    public function createCV()
+    public function createCV(Request $request)
     {
+        $design = $request->input('design');
         //get all the profile info for the user
         $profile = auth()->user()->profile;
 
@@ -181,17 +182,19 @@ class ProfileController extends Controller
             'profile_photo' => $profile_photo,
             'cover_photo' => $cover_photo,
         ];
-        // Set the success message in the session
-        $pdf = Pdf::loadView('cvgenerator.cv', $data)->setOption(['defaultFont' => 'sans-serif']);
+        if ($design == 'plain')
+            $pdf = Pdf::loadView('cvgenerator.cv', $data)->setOption(['defaultFont' => 'sans-serif']);
 
-        //Session::flash('success', 'CV generated successfully.');
+        if ($design == 'classic')
+            $pdf = Pdf::loadView('cvgenerator.classic', $data)->setOption(['defaultFont' => 'sans-serif']);
 
-        //get the logeed in user first_name and last_name
+        if ($design == 'international')
+            $pdf = Pdf::loadView('cvgenerator.international', $data)->setOption(['defaultFont' => 'sans-serif']);
+
+
         $full_name = auth()->user()->profile->first_name . ' ' . auth()->user()->profile->last_name;
 
-        // Return the PDF download response
-        return $pdf->download($full_name . ' CV.pdf');
-        //return view('cvgenerator.cv', $data);
+        return $pdf->download($full_name . '-CV.pdf');
     }
 
     public function editCv()

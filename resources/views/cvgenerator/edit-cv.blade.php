@@ -6,17 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Optimal Outsourcing-CV Editor</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
-
 <body>
     <div class="w-100 ms-2">
         <div class="toolbar card card-body">
             <h1 class="text-center">Optimal outsourcing CV Editor</h1>
             <hr>
-            <a href="/create-cv" class="btn btn-primary">Create CV</a>
             <div class="row">
                 <div class="col-md-3">
                     <div class="row">
@@ -66,8 +62,6 @@
                     </select>
                 </div>
             </div>
-
-
         </div>
 
         <div class="side_bar_doc_area row">
@@ -119,11 +113,11 @@
                 </div>
 
                 <h4>Select the Design</h4>
-                <select name="color" id="" class="form-select" aria-label="Select font">
-                    <option value="modern" selected>modern</option>
+                <select name="color" id="design" class="form-select" aria-label="Select font">
+                    <option value="modern">modern</option>
                     <option value="classic">Classic</option>
                     <option value="international">International</option>
-                    <option value="plain">Plain</option>
+                    <option value="plain" selected>Plain</option>
                 </select>
 
                 <h4>Which work Experience(s) do you want to show?</h4>
@@ -139,19 +133,24 @@
                     <input type="checkbox" id="experience_3" class="form-check-input">
                     <label for="experience_3" class="form-check-label">Experience_3</label>
                 </div>
+                <a href="/create-cv" class="btn btn-primary">Apply Changes</a>
             </div>
 
             <div class="col-md-9 document_area card card-body pdf-body">
                 <div id="pdfCover"></div>
                 <iframe src="{{ asset('assets/cvs/test.pdf#toolbar=0') }}" frameborder="0" height="100%"></iframe>
+                <div class="m-2">
+                    <button class="btn btn-primary" id="download-cv">Download Your CV</button>
+                </div>
             </div>
+
         </div>
 
     </div>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ asset('assets/js/cv.js') }}"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
-    </script>
 </body>
 
 </html>

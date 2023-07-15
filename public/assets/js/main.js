@@ -1114,12 +1114,20 @@
         $(this).submit();
       });
 
-      $('#cv-store-form').submit(function(event) {
-        var cv_contents = $('#editor').html();
+      $('#download-cv').click(function() {
+        console.log('Button clicked!');
+        let design = $('#design').val()
 
-        $('#hidden-cv-state').val(cv_contents)
-
-        //submit the form
-        $(this).submit();
-      })
+        $.ajax({
+            url: '/create-cv',
+            type: 'GET',
+            data: { design: design },
+            success: function(response){
+                console.log('GET request successful!')
+            },
+            error: function(xhr, status, error) {
+                console.log('GET request error:', error)
+            }
+        })
+      });
 })(jQuery);
