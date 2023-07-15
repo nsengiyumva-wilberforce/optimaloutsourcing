@@ -16,6 +16,7 @@
         <div class="toolbar card card-body">
             <h1 class="text-center">Optimal outsourcing CV Editor</h1>
             <hr>
+            <a href="/create-cv" class="btn btn-primary">Create CV</a>
             <div class="row">
                 <div class="col-md-3">
                     <div class="row">
@@ -145,6 +146,7 @@
                 <iframe src="{{ asset('assets/cvs/test.pdf#toolbar=0') }}" frameborder="0" height="100%"></iframe>
             </div>
         </div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
