@@ -1,24 +1,20 @@
 $(document).ready(function() {
     console.log('document ready........')
 
-    $('#download-cv').click(function() {
-      // Retrieve the selected value
-      var selectedValue = $('#design').val();
+    $('#download-cv').submit(function(event) {
+        // Prevent the form from submitting
+        event.preventDefault();
 
-      // Send the GET request
-      $.ajax({
-        url: '/create-cv',
-        type: 'GET',
-        data: { design: selectedValue },
-        success: function(response) {
-          console.log('GET request successful!');
-          console.log(response)
-          // Additional code or actions upon successful response
-        },
-        error: function(xhr, status, error) {
-          console.log('GET request error:', error);
-          // Additional error handling code
-        }
-      });
+        // Retrieve the selected value
+        var selectedValue = $('#design').val();
+
+        // Set the value of the hidden input field
+        $('#design-hidden-input').val(selectedValue);
+
+        console.log('form submitted.....');
+        console.log('Selected value:', selectedValue);
+
+        // Additional code or AJAX request can be added here
+        // to submit the form data or perform other actions
     });
-  });
+});

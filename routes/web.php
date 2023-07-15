@@ -82,7 +82,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //cv-editor
     route::get('cv-generator/edit-cv', [ProfileController::class, 'editCv'])->name('edit-cv');
-    
+
     //define settings route
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
 
