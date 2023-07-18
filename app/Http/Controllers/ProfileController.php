@@ -216,6 +216,6 @@ class ProfileController extends Controller
         // Save the PDF to the assets folder in the public directory
         $pdf->save(public_path('assets/cvs/' . $cv_file_name));
 
-        return view('cvgenerator.edit-cv', compact('cv_file_name'));
+        return view('cvgenerator.edit-cv', $data);
     }
 }
