@@ -158,7 +158,7 @@ class ProfileController extends Controller
     {
         $full_name = auth()->user()->profile->first_name . ' ' . auth()->user()->profile->last_name;
         $cv_file_name = $full_name . '-CV.pdf';
-        $path = public_path('assets/cvs' . $cv_file_name);
+        $path = public_path('assets/cvs/' . $cv_file_name);
 
         if (file_exists($path)) {
             return response()->download($path);
