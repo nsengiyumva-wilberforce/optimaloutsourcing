@@ -8,6 +8,7 @@
     <title>Optimal Outsourcing-CV Editor</title>
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
+
 <body>
     <div class="w-100 ms-2">
         <div class="toolbar card card-body">
@@ -20,9 +21,9 @@
                             Effect Color
                         </div>
                     </div>
-                    <select name="color" id="" class="form-select" aria-label="Select color">
+                   <select name="color" id="select-color" class="form-select" aria-label="Select color">
                         <option {{ $theme_color == 'black' ? 'selected' : '' }}>Black</option>
-                        <option value="blue" {{ $theme_color == 'blue' ? 'selected' : '' }}>Blue</option>
+                        <option value="blue" {{ $theme_color == 'blue' ? 'selected' : '' }}></option>
                         <option value="yellow" {{ $theme_color == 'yellow' ? 'selected' : '' }}>yellow</option>
                         <option value="orange" {{ $theme_color == 'orange' ? 'selected' : '' }}>orange</option>
                         <option value="green" {{ $theme_color == 'green' ? 'selected' : '' }}>green</option>
@@ -116,7 +117,8 @@
                 <select name="color" id="design" class="form-select" aria-label="Select font">
                     <option value="modern" {{ $design == 'modern' ? 'selected' : '' }}>modern</option>
                     <option value="classic" {{ $design == 'classic' ? 'selected' : '' }}>Classic</option>
-                    <option value="international" {{ $design == 'international' ? 'selected' : '' }}>International</option>
+                    <option value="international" {{ $design == 'international' ? 'selected' : '' }}>International
+                    </option>
                     <option value="plain" {{ $design == 'plain' ? 'selected' : '' }}>Plain</option>
                 </select>
 
@@ -138,7 +140,8 @@
 
             <div class="col-md-9 document_area card card-body pdf-body">
                 <div id="pdfCover"></div>
-                <iframe src="{{ asset('assets/cvs/'.$cv_file_name.'#toolbar=0') }}" frameborder="0" height="100%"></iframe>
+                <iframe src="{{ asset('assets/cvs/' . $cv_file_name . '#toolbar=0') }}" frameborder="0"
+                    height="100%"></iframe>
                 <div class="m-2">
                     <form action="/create-cv" id="download-cv">
                         <input type="hidden" name="design" id="design-hidden-input">

@@ -218,4 +218,56 @@ class ProfileController extends Controller
 
         return view('cvgenerator.edit-cv', $data);
     }
+
+    public function updateCV(Request $request)
+    {
+        $design = $request->input('design');
+        $effect_color = $request->input('effect_color');
+        //get all the profile info for the user
+        $profile = auth()->user()->profile;
+
+        //get all the skills in skills table
+        $skills = $profile->skills;
+
+        //get all the experiences for the user
+        $experiences = $profile->experiences;
+
+        //get all the trainings for the user
+        $trainings = $profile->trainings;
+
+        //get the profile photo
+        $profile_photo = $profile->profile_photo;
+
+        //generate the full file name
+        $full_name = auth()->user()->profile->first_name . ' ' . auth()->user()->profile->last_name;
+        $cv_file_name = $full_name . '-CV.pdf';
+
+        //get the cover photo
+        $cover_photo = $profile->cover_photo;
+        $data = [
+            'profile' => $profile,
+            'skills' => $skills,
+            'experiences' => $experiences,
+            'trainings' => $trainings,
+            'profile_photo' => $profile_photo,
+            'cover_photo' => $cover_photo,
+            'theme_color' => $effect_color,
+            'cv_file_name' => $cv_file_name,
+            'design' => $design
+        ];
+        if ($design == 'plain')
+            $pdf = Pdf::loadView('cvgenerator.cv', $data)->setOption(['defaultFont' => 'sans-serif']);
+
+        if ($design == 'classic')
+            $pdf = Pdf::loadView('cvgenerator.classic', $data)->setOption(['defaultFont' => 'sans-serif']);
+
+        if ($design == 'international')
+            $pdf = Pdf::loadView('cvgenerator.international', $data)->setOption(['defaultFont' => 'sans-serif']);
+
+
+        // Save the PDF to the assets folder in the public directory
+        $pdf->save(public_path('assets/cvs/' . $cv_file_name));
+
+        return 200;
+    }
 }

@@ -109,15 +109,18 @@
     $(window).on("load", function () {
         handlePreloader();
 
-        DecoupledEditor.create(document.querySelector("#pxp-company-job-description"))
-        .then((editor) => {
-            const toolbarContainer =
-                document.querySelector("#pxp-company-job-description-toolbar");
-            toolbarContainer.appendChild(editor.ui.view.toolbar.element);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+        DecoupledEditor.create(
+            document.querySelector("#pxp-company-job-description")
+        )
+            .then((editor) => {
+                const toolbarContainer = document.querySelector(
+                    "#pxp-company-job-description-toolbar"
+                );
+                toolbarContainer.appendChild(editor.ui.view.toolbar.element);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
 
         DecoupledEditor.create(document.querySelector("#editor"))
             .then((editor) => {
@@ -1102,32 +1105,31 @@
         updateTrainingHiddenField();
     });
 
-    $('#add-new-job').submit(function(event) {
-
+    $("#add-new-job").submit(function (event) {
         // Get the content of the div
-        var divContent = $('#pxp-company-job-description').html();
+        var divContent = $("#pxp-company-job-description").html();
 
         // Assign the div content to the hidden input field
-        $('#pxp-company-job-description-input').val(divContent);
+        $("#pxp-company-job-description-input").val(divContent);
 
         // Submit the form
         $(this).submit();
-      });
+    });
 
-      $('#download-cv').click(function() {
-        console.log('Button clicked!');
-        let design = $('#design').val()
+    $("#download-cv").click(function () {
+        console.log("Button clicked!");
+        let design = $("#design").val();
 
         $.ajax({
-            url: '/create-cv',
-            type: 'GET',
+            url: "/create-cv",
+            type: "GET",
             data: { design: design },
-            success: function(response){
-                console.log('GET request successful!')
+            success: function (response) {
+                console.log("GET request successful!");
             },
-            error: function(xhr, status, error) {
-                console.log('GET request error:', error)
-            }
-        })
-      });
+            error: function (xhr, status, error) {
+                console.log("GET request error:", error);
+            },
+        });
+    });
 })(jQuery);
