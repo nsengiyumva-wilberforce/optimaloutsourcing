@@ -32,7 +32,7 @@
             <div class="row">
                 <div class="col-lg-7 col-xl-8 col-xxl-9">
                     <div class="pxp-single-candidate-content">
-                        <h2>About Rebecca</h2>
+                        <h2>About {{ $candidate->profile->first_name }}</h2>
                         <p>{{ $candidate->profile->about_you }} </p>
 
                         <div class="mt-4 mt-lg-5">
@@ -106,7 +106,7 @@
                     </div>
 
                     <div class="pxp-single-candidate-side-panel mt-4 mt-lg-5">
-                        <h3>Contact Rebecca</h3>
+                        <h3>Contact {{$candidate->profile->first_name}}</h3>
                         <form class="mt-4">
                             <div class="mb-3">
                                 <label for="contact-candidate-name" class="form-label">Name</label>
