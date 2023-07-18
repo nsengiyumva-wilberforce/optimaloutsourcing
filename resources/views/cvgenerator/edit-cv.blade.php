@@ -114,10 +114,10 @@
 
                 <h4>Select the Design</h4>
                 <select name="color" id="design" class="form-select" aria-label="Select font">
-                    <option value="modern">modern</option>
-                    <option value="classic">Classic</option>
-                    <option value="international">International</option>
-                    <option value="plain" selected>Plain</option>
+                    <option value="modern" {{ $design == 'modern' ? 'selected' : '' }}>>modern</option>
+                    <option value="classic" {{ $design == 'classic' ? 'selected' : '' }}>>Classic</option>
+                    <option value="international" {{ $design == 'international' ? 'selected' : '' }}>>International</option>
+                    <option value="plain" {{ $design == 'plain' ? 'selected' : '' }}>>Plain</option>
                 </select>
 
                 <h4>Which work Experience(s) do you want to show?</h4>

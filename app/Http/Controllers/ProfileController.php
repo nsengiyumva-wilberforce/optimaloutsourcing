@@ -200,7 +200,8 @@ class ProfileController extends Controller
             'profile_photo' => $profile_photo,
             'cover_photo' => $cover_photo,
             'theme_color' => $effect_color,
-            'cv_file_name'=>$cv_file_name
+            'cv_file_name' => $cv_file_name,
+            'design' => $design
         ];
         if ($design == 'plain')
             $pdf = Pdf::loadView('cvgenerator.cv', $data)->setOption(['defaultFont' => 'sans-serif']);
