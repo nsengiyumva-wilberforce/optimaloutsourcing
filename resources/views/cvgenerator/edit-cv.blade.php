@@ -21,15 +21,15 @@
                         </div>
                     </div>
                     <select name="color" id="" class="form-select" aria-label="Select color">
-                        <option selected>Black</option>
-                        <option value="blue">Blue</option>
-                        <option value="yellow">yellow</option>
-                        <option value="orange">orange</option>
-                        <option value="green">green</option>
-                        <option value="purple">purple</option>
-                        <option value="grey">grey</option>
-                        <option value="violete">violet</option>
-                        <option value="indigo">indigo</option>
+                        <option {{ $theme_color == 'black' ? 'selected' : '' }}>Black</option>
+                        <option value="blue" {{ $theme_color == 'blue' ? 'selected' : '' }}>Blue</option>
+                        <option value="yellow" {{ $theme_color == 'yellow' ? 'selected' : '' }}>yellow</option>
+                        <option value="orange" {{ $theme_color == 'orange' ? 'selected' : '' }}>orange</option>
+                        <option value="green" {{ $theme_color == 'green' ? 'selected' : '' }}>green</option>
+                        <option value="purple" {{ $theme_color == 'purple' ? 'selected' : '' }}>purple</option>
+                        <option value="grey" {{ $theme_color == 'grey' ? 'selected' : '' }}>grey</option>
+                        <option value="violete" {{ $theme_color == 'violet' ? 'selected' : '' }}>violet</option>
+                        <option value="indigo" {{ $theme_color == 'indigo' ? 'selected' : '' }}>indigo</option>
                     </select>
                 </div>
 
