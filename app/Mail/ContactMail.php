@@ -30,6 +30,7 @@ class ContactMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
+            from: new Address('optimaloutsourcingcareers@gmail.com', 'Optimal Outsourcing Careers'),
             replyTo: [
                 new Address($this->data['email'], $this->data['name'])
             ],
