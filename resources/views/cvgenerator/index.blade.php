@@ -9,17 +9,17 @@
             </div>
             <div class="row">
                 <div class="col-md-3">
-                    <a href="/cv-generator/edit-cv">
+                    <a href="/cv-generator/edit-cv?design=plain&effect_color=blue">
                         <img src="{{ asset('assets/images/cv2.png') }}" alt="cv2 placeholder" class="img-fluid">
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <a href="/cv-generator/edit-cv">
+                    <a href="/cv-generator/edit-cv?design=international&effect_color=orange">
                         <img src="{{ asset('assets/images/cv3.png') }}" alt="cv3 placeholder" class="img-fluid">
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <a href="/cv-generator/edit-cv">
+                    <a href="/cv-generator/edit-cv?design=classic&effect_color=violet">
                         <img src="{{ asset('assets/images/cv4.png') }}" alt="cv4 placeholder" class="img-fluid">
                     </a>
                 </div>

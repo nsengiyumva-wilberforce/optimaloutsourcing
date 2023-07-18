@@ -138,7 +138,7 @@
 
             <div class="col-md-9 document_area card card-body pdf-body">
                 <div id="pdfCover"></div>
-                <iframe src="{{ asset('assets/cvs/test.pdf#toolbar=0') }}" frameborder="0" height="100%"></iframe>
+                <iframe src="{{ asset('assets/cvs/'.$cv_file_name.'#toolbar=0') }}" frameborder="0" height="100%"></iframe>
                 <div class="m-2">
                     <form action="/create-cv" id="download-cv">
                         <input type="hidden" name="design" id="design-hidden-input">

@@ -6,9 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $profile->first_name . ' ' . $profile->last_name }} - Curriculum Vitae</title>
     <style>
+        h3{
+            border-bottom: 5px solid {{$theme_color}};
+        }
+        h1{
+            color: {{$theme_color}}
+        }
         .profile_info {
             display: flex;
             flex-direction: row;
+            justify-content: space-around
         }
     </style>
 </head>
@@ -17,8 +24,11 @@
     <table>
         <tr colspan="2">
             <td class="profile_info">
-                <h1>{{ $profile->first_name . ' ' . $profile->last_name }}</h1>
-                <p>{{ $profile->location }}</p>
+                <div class="left_chamder">
+                    <h1>{{ $profile->first_name . ' ' . $profile->last_name }}</h1>
+                    <p class="loc">{{ $profile->location }}</p>
+                </div>
+
                 @if ($profile->profile_photo)
                     <img src="{{ asset('storage/' . $profile->profile_photo) }}" alt="Avatar"
                         class="rounded img-fluid w-25">
@@ -35,7 +45,7 @@
         </tr>
         <tr>
             <td>
-                <h5>INTRO</h5>
+                <h3>INTRO</h3>
                 <p>
                     {{ $profile->about_you }}
                 </p>
@@ -43,7 +53,7 @@
         </tr>
         <tr>
             <td>
-                <h5>WORK EXPERIENCE</h5>
+                <h3>WORK EXPERIENCE</h3>
                 @if ($experiences)
                     @foreach ($experiences as $experience)
                         <p>
@@ -60,7 +70,7 @@
         </tr>
         <tr>
             <td>
-                <h5>EDUCATION</h5>
+                <h3>EDUCATION</h3>
                 @if ($trainings)
                     @foreach ($trainings as $training)
                         <p>
@@ -78,7 +88,7 @@
         </tr>
         <tr>
             <td>
-                <h5>SKILLS</h5>
+                <h3>SKILLS</h3>
                 @if ($skills)
                     @foreach ($skills as $skill)
                         <p>
@@ -90,7 +100,7 @@
         </tr>
         <tr>
             <td>
-                <h5>CERTIFICATES</h5>
+                <h3>CERTIFICATES</h3>
                 <p>
                     <b>Certificate Name</b> | Issuing Organization | 2019
                 <ul>
@@ -124,7 +134,7 @@
         </tr>
         <tr>
             <td>
-                <h5>LANGUAGES</h5>
+                <h3>LANGUAGES</h3>
                 <p>
                     <b>Language Name</b> | Proficiency Level
                 <ul>
@@ -137,7 +147,7 @@
         </tr>
         <tr>
             <td>
-                <h5>INTERESTS</h5>
+                <h3>INTERESTS</h3>
                 <p>
                     <b>Interest Name</b>
                 <ul>
@@ -150,7 +160,7 @@
         </tr>
         <tr>
             <td>
-                <h5>REFERENCES</h5>
+                <h3>REFERENCES</h3>
                 <p>
                     <b>Reference Name</b> | Reference Title | Reference Company
                 <ul>
