@@ -39,9 +39,9 @@ class RegisterController extends Controller
             ]);
 
             event(new Registered($user));
+            Auth::login($user);
+            return redirect('/jobs/manage'); // Redirect to the desired page after successful registration
         }
-        Auth::login($user);
 
-        return redirect('/jobs/manage'); // Redirect to the desired page after successful registration
     }
 }

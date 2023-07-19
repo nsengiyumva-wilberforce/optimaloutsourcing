@@ -11,6 +11,7 @@ use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingsController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,8 +23,6 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Auth::routes(['verify' => true]);
-
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/jobs', [JobsController::class, 'index'])->name('jobs');
@@ -80,27 +79,27 @@ Route::post('/jobs/search', [JobsController::class, 'search'])->name('search');
 Route::post('/contact-us', [HomeController::class, 'submitContactForm'])->name('contact.submit');
 
 //only logged in users to access
-Route::group(['middleware' => 'auth', 'verified'], function () {
-    Route::post('/job/add', [JobsController::class, 'store'])->name('storeJob');
-    Route::get('/jobs/manage', [JobsController::class, 'manageJobs'])->name('manageJobs');
-    Route::get('/jobs/new', [JobsController::class, 'newJob'])->name('newJob');
-    Route::get('/jobs/application', [ApplicationController::class, 'index'])->name('application');
-    Route::get('jobs/apply/{id}', [ApplicationController::class, 'showapplicationForm'])->name('apply');
+Route::group(['middleware' => 'auth'], function () {
+    Route::post('/job/add', [JobsController::class, 'store'])->name('storeJob')->middleware('verified');
+    Route::get('/jobs/manage', [JobsController::class, 'manageJobs'])->name('manageJobs')->middleware('verified');
+    Route::get('/jobs/new', [JobsController::class, 'newJob'])->name('newJob')->middleware('verified');
+    Route::get('/jobs/application', [ApplicationController::class, 'index'])->name('application')->middleware('verified');
+    Route::get('jobs/apply/{id}', [ApplicationController::class, 'showapplicationForm'])->name('apply')->middleware('verified');
 
 
-    Route::get('/candidates/dashboard', [CandidatesController::class, 'candidateDashbaord'])->name('candidateDashbaord');
+    Route::get('/candidates/dashboard', [CandidatesController::class, 'candidateDashbaord'])->name('candidateDashbaord')->middleware('verified');
     //candidate details
-    Route::get('/candidate-details/{id}', [CandidatesController::class, 'candidateDetails'])->name('candidateDetails');
+    Route::get('/candidate-details/{id}', [CandidatesController::class, 'candidateDetails'])->name('candidateDetails')->middleware('verified');
 
     //show profile form
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile')->middleware('verified');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update')->middleware('verified');
 
     //create-cv
-    Route::get('/create-cv', [ProfileController::class, 'createCv'])->name('createCv');
+    Route::get('/create-cv', [ProfileController::class, 'createCv'])->name('createCv')->middleware('verified');
 
     //cv-editor
-    route::get('cv-generator/edit-cv', [ProfileController::class, 'editCv'])->name('edit-cv');
+    route::get('cv-generator/edit-cv', [ProfileController::class, 'editCv'])->name('edit-cv')->middleware('verified');
 
     //define settings route
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
