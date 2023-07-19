@@ -77,7 +77,7 @@
                                         </div>
                                     @endif
                                     <div class="pxp-candiadates-card-1-name">
-                                        {{ $candidate->first_name . $candidate->last_name }}</div>
+                                        {{ $candidate->first_name .' '. $candidate->last_name }}</div>
                                     <div class="pxp-candiadates-card-1-title">{{ $candidate->profile->title }}</div>
                                     <div class="pxp-candiadates-card-1-location"><span
                                             class="fa fa-globe"></span>{{ $candidate->location }}</div>
