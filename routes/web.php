@@ -97,6 +97,9 @@ Route::group(['middleware' => 'auth'], function () {
     //create-cv
     Route::get('/create-cv', [ProfileController::class, 'createCv'])->name('createCv')->middleware('verified');
 
+    //update-cv
+    Route::post('/update-cv', [ProfileController::class, 'updateCv'])->name('updateCv');
+
     //cv-editor
     route::get('cv-generator/edit-cv', [ProfileController::class, 'editCv'])->name('edit-cv')->middleware('verified');
 

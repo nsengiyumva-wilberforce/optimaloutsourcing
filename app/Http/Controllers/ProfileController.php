@@ -62,7 +62,9 @@ class ProfileController extends Controller
                 'end_date' => 'required',
                 'job_description' => 'required',
             ]);
-            if ($request->passes()) {
+            if ($request->fails()) {
+                return redirect()->back()->withErrors($request->errors());
+            } else {
                 //create a new experience object
                 $experiences[] = new \stdClass();
                 //add the experience to the array
@@ -71,8 +73,6 @@ class ProfileController extends Controller
                 $experiences[0]->start_date = $request->input('start_date');
                 $experiences[0]->end_date = $request->input('end_date');
                 $experiences[0]->job_description = $request->input('job_description');
-            } else {
-                return redirect()->back()->withErrors($request->errors());
             }
         } else {
             if ($experiences != null) {
@@ -96,7 +96,9 @@ class ProfileController extends Controller
                 'training_description' => 'required',
             ]);
             //check if validation passes
-            if ($request->passes()) {
+            if ($request->fails()) {
+                return redirect()->back()->withErrors($request->errors());
+            } else {
                 //create a new training object
                 $trainings[] = new \stdClass();
                 //add the training to the array
@@ -105,8 +107,6 @@ class ProfileController extends Controller
                 $trainings[0]->training_start_date = $request->input('training_start_date');
                 $trainings[0]->training_end_date = $request->input('training_end_date');
                 $trainings[0]->training_description = $request->input('training_description');
-            } else {
-                return redirect()->back()->withErrors($request->errors());
             }
         } else {
             if ($trainings != null) {
@@ -241,6 +241,10 @@ class ProfileController extends Controller
         if ($design == 'international')
             $pdf = Pdf::loadView('cvgenerator.international', $data)->setOption(['defaultFont' => 'sans-serif']);
 
+        //check if there is no $design
+        if ($design == null) {
+            $pdf = Pdf::loadView('cvgenerator.international', $data)->setOption(['defaultFont' => 'sans-serif']);
+        }
 
         // Save the PDF to the assets folder in the public directory
         $pdf->save(public_path('assets/cvs/' . $cv_file_name));
@@ -250,8 +254,12 @@ class ProfileController extends Controller
 
     public function updateCV(Request $request)
     {
-        $design = $request->input('design');
-        $effect_color = $request->input('effect_color');
+        $data = $request->all();
+
+        $design = $data['design'];
+        $effect_color = $data['effect_color'];
+
+        return $design;
         //get all the profile info for the user
         $profile = auth()->user()->profile;
 
@@ -290,9 +298,14 @@ class ProfileController extends Controller
         if ($design == 'classic')
             $pdf = Pdf::loadView('cvgenerator.classic', $data)->setOption(['defaultFont' => 'sans-serif']);
 
-        if ($design == 'international')
+        if ($design == 'international') {
             $pdf = Pdf::loadView('cvgenerator.international', $data)->setOption(['defaultFont' => 'sans-serif']);
+        }
 
+        //check if there is no $design
+        if ($design == null) {
+            $pdf = Pdf::loadView('cvgenerator.international', $data)->setOption(['defaultFont' => 'sans-serif']);
+        }
 
         // Save the PDF to the assets folder in the public directory
         $pdf->save(public_path('assets/cvs/' . $cv_file_name));

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Optimal Outsourcing-CV Editor</title>
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
@@ -21,11 +22,11 @@
                             Effect Color
                         </div>
                     </div>
-                   <select name="color" id="select-color" class="form-select" aria-label="Select color">
+                    <select name="color" id="select-color" class="form-select" aria-label="Select color">
                         <option {{ $theme_color == 'black' ? 'selected' : '' }}>Black</option>
                         <option value="blue" {{ $theme_color == 'blue' ? 'selected' : '' }}></option>
-                        <option value="yellow" {{ $theme_color == 'yellow' ? 'selected' : '' }}>yellow</option>
-                        <option value="orange" {{ $theme_color == 'orange' ? 'selected' : '' }}>orange</option>
+                        <option value="#FFFF00" {{ $theme_color == 'yellow' ? 'selected' : '' }}>yellow</option>
+                        <option value="#FFA500" {{ $theme_color == 'orange' ? 'selected' : '' }}>orange</option>
                         <option value="green" {{ $theme_color == 'green' ? 'selected' : '' }}>green</option>
                         <option value="purple" {{ $theme_color == 'purple' ? 'selected' : '' }}>purple</option>
                         <option value="grey" {{ $theme_color == 'grey' ? 'selected' : '' }}>grey</option>
@@ -114,7 +115,7 @@
                 </div>
 
                 <h4>Select the Design</h4>
-                <select name="color" id="design" class="form-select" aria-label="Select font">
+                <select name="color" id="design-style" class="form-select" aria-label="Select font">
                     <option value="modern" {{ $design == 'modern' ? 'selected' : '' }}>modern</option>
                     <option value="classic" {{ $design == 'classic' ? 'selected' : '' }}>Classic</option>
                     <option value="international" {{ $design == 'international' ? 'selected' : '' }}>International
@@ -135,7 +136,7 @@
                     <input type="checkbox" id="experience_3" class="form-check-input">
                     <label for="experience_3" class="form-check-label">Experience_3</label>
                 </div>
-                <a href="/create-cv" class="btn btn-primary">Apply Changes</a>
+                {{-- <a href="/create-cv" class="btn btn-primary">Apply Changes</a> --}}
             </div>
 
             <div class="col-md-9 document_area card card-body pdf-body">
@@ -145,7 +146,18 @@
                 <div class="m-2">
                     <form action="/create-cv" id="download-cv">
                         <input type="hidden" name="design" id="design-hidden-input">
+                        <input type="hidden" name="design" id="color-hidden-input">
                         <button class="btn btn-primary" type="submit">Download Your CV</button>
+                    </form>
+
+                    <form action="/create-cv" id="download-cv" id="update-form">
+                        <input type="hidden" name="design" id="design-hidden-input-update">
+                        <input type="hidden" name="design" id="color-hidden-input-update">
+                    </form>
+                    <form action="/update-cv" method="POST" id="update-cv">
+                        @csrf
+                        <input type="hidden" name="design" id="design-hidden-input-update">
+                        <input type="hidden" name="effect_color" id="color-hidden-input-update">
                     </form>
                 </div>
             </div>
@@ -155,8 +167,98 @@
     </div>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery-3.4.1.min.js') }}"></script>
-    <script src="{{ asset('assets/js/cv.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/cv.js') }}"></script> --}}
 
+    <script>
+        $(document).ready(function() {
+            $("#download-cv").submit(function(event) {
+                // Retrieve the selected value for design template
+                var selectedValue = $("#design-style").val();
+
+                //retrieve the selected value for color
+                var selectedColor = $("#select-color").val();
+
+                // Set the value of the hidden input field
+                $("#design-hidden-input").val(selectedValue);
+                console.log("design:", selectedValue);
+
+                // Set the value of the hidden input field
+                $("#color-hidden-input").val(selectedColor);
+                console.log("color:", selectedColor);
+
+                console.log("form submitted.....");
+                console.log("Selected value:", selectedValue);
+            });
+
+            $("#select-color").change(function() {
+                // Retrieve the selected value for design template
+                var designValue = $("#design-style").val();
+                console.log("design:", designValue);
+
+                //retrieve the selected value for color
+                var selectedColor = $("#select-color").val();
+
+                data = {
+                    "design": designValue,
+                    "effect_color": selectedColor
+                };
+
+                console.log(JSON.stringify(data));
+
+                //use ajax to submit the data
+                $.ajax({
+                    url: "{{ route('updateCv') }}",
+                    type: "POST",
+                    //stringfy the data before sending it to the server
+                    data: data,
+                    headers: {
+                        'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        // alert("success");
+                    },
+                    error: function(error) {
+                        console.log(error);
+                        // alert("error");
+                    }
+                });
+            });
+
+            $("#design-style").change(function() {
+                // Retrieve the selected value for design template
+                var designValue = $("#design-style").val();
+                console.log("design:", designValue);
+
+                //retrieve the selected value for color
+                var selectedColor = $("#select-color").val();
+
+                data = {
+                    "design": designValue,
+                    "effect_color": selectedColor
+                };
+
+                //use ajax to submit the data
+                $.ajax({
+                    url: "{{ route('updateCv') }}",
+                    type: "POST",
+                    //stringfy the data before sending it to the server
+                    data: JSON.stringify(data),
+                    headers: {
+                        'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        // alert("success");
+                    },
+                    error: function(error) {
+                        console.log(error);
+                        // alert("error");
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
