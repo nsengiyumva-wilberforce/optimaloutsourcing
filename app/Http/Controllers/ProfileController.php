@@ -247,12 +247,16 @@ class ProfileController extends Controller
 
     public function updateCV(Request $request)
     {
-        $data = $request->all();
+        // Get the JSON data from the request
+        $jsonData = $request->getContent();
 
+        // Decode the JSON string into a PHP array
+        $data = json_decode($jsonData, true);
+
+        // Using array notation
         $design = $data['design'];
         $effect_color = $data['effect_color'];
 
-        return $design;
         //get all the profile info for the user
         $profile = auth()->user()->profile;
 
@@ -285,21 +289,23 @@ class ProfileController extends Controller
             'cv_file_name' => $cv_file_name,
             'design' => $design
         ];
-        if ($design == 'plain')
+        if ($design === "plain")
             $pdf = Pdf::loadView('cvgenerator.cv', $data)->setOption(['defaultFont' => 'sans-serif']);
 
-        if ($design == 'classic')
+        if ($design === "classic")
             $pdf = Pdf::loadView('cvgenerator.classic', $data)->setOption(['defaultFont' => 'sans-serif']);
 
-        if ($design == 'international') {
+        if ($design === "international") {
             $pdf = Pdf::loadView('cvgenerator.international', $data)->setOption(['defaultFont' => 'sans-serif']);
         }
 
+        if ($design === "modern") {
+            $pdf = Pdf::loadView('cvgenerator.modern', $data)->setOption(['defaultFont' => 'sans-serif']);
+        }
         //check if there is no $design
         if ($design == null) {
             $pdf = Pdf::loadView('cvgenerator.international', $data)->setOption(['defaultFont' => 'sans-serif']);
         }
-
         // Save the PDF to the assets folder in the public directory
         $pdf->save(public_path('assets/cvs/' . $cv_file_name));
 

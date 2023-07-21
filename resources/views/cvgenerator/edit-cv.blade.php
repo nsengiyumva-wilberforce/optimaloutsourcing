@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Optimal Outsourcing-CV Editor</title>
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
@@ -116,10 +115,9 @@
 
                 <h4>Select the Design</h4>
                 <select name="color" id="design-style" class="form-select" aria-label="Select font">
+                    <option value="international" {{ $design == 'international' ? 'selected' : '' }}>International</option>
                     <option value="modern" {{ $design == 'modern' ? 'selected' : '' }}>modern</option>
                     <option value="classic" {{ $design == 'classic' ? 'selected' : '' }}>Classic</option>
-                    <option value="international" {{ $design == 'international' ? 'selected' : '' }}>International
-                    </option>
                     <option value="plain" {{ $design == 'plain' ? 'selected' : '' }}>Plain</option>
                 </select>
 
@@ -140,9 +138,8 @@
             </div>
 
             <div class="col-md-9 document_area card card-body pdf-body">
-                <div id="pdfCover"></div>
-                <iframe src="{{ asset('assets/cvs/' . $cv_file_name . '#toolbar=0') }}" frameborder="0"
-                    height="100%"></iframe>
+                <iframe id="cvIframe" src="{{ asset('assets/cvs/' . $cv_file_name . '#toolbar=0') }}"
+                    frameborder="0" height="100%"></iframe>
                 <div class="m-2">
                     <form action="/create-cv" id="download-cv">
                         <input type="hidden" name="design" id="design-hidden-input">
@@ -198,25 +195,27 @@
                 //retrieve the selected value for color
                 var selectedColor = $("#select-color").val();
 
-                data = {
+                console.log("csrf token:", "{{ csrf_token() }}");
+                var data = {
                     "design": designValue,
                     "effect_color": selectedColor
                 };
-
-                console.log(JSON.stringify(data));
 
                 //use ajax to submit the data
                 $.ajax({
                     url: "{{ route('updateCv') }}",
                     type: "POST",
                     //stringfy the data before sending it to the server
-                    data: data,
+                    data: JSON.stringify(data),
                     headers: {
                         'X-CSRF-TOKEN': "{{ csrf_token() }}"
                     },
                     success: function(response) {
                         console.log(response);
-                        // alert("success");
+                        //reload all iFrames
+                        $('iframe').each(function() {
+                            this.contentWindow.location.reload(true);
+                        });
                     },
                     error: function(error) {
                         console.log(error);
@@ -248,8 +247,11 @@
                         'X-CSRF-TOKEN': "{{ csrf_token() }}"
                     },
                     success: function(response) {
-                        console.log(response);
-                        // alert("success");
+                        console.log("success");
+                        //reload all iFrames
+                        $('iframe').each(function() {
+                            this.contentWindow.location.reload(true);
+                        });
                     },
                     error: function(error) {
                         console.log(error);

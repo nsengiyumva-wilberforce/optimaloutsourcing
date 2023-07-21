@@ -77,6 +77,9 @@ Route::post('/jobs/search', [JobsController::class, 'search'])->name('search');
 //contact us form
 Route::post('/contact-us', [HomeController::class, 'submitContactForm'])->name('contact.submit');
 
+//update-cv
+Route::post('/update-cv', [ProfileController::class, 'updateCv'])->name('updateCv');
+
 //only logged in users to access
 Route::group(['middleware' => 'auth'], function () {
     Route::post('/job/add', [JobsController::class, 'store'])->name('storeJob')->middleware('verified');
@@ -96,9 +99,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     //create-cv
     Route::get('/create-cv', [ProfileController::class, 'createCv'])->name('createCv')->middleware('verified');
-
-    //update-cv
-    Route::post('/update-cv', [ProfileController::class, 'updateCv'])->name('updateCv');
 
     //cv-editor
     route::get('cv-generator/edit-cv', [ProfileController::class, 'editCv'])->name('edit-cv')->middleware('verified');
