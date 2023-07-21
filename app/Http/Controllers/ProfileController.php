@@ -62,18 +62,15 @@ class ProfileController extends Controller
                 'end_date' => 'required',
                 'job_description' => 'required',
             ]);
-            if ($request->fails()) {
-                return redirect()->back()->withErrors($request->errors());
-            } else {
-                //create a new experience object
-                $experiences[] = new \stdClass();
-                //add the experience to the array
-                $experiences[0]->job_title = $request->input('job_title');
-                $experiences[0]->company_name = $request->input('company_name');
-                $experiences[0]->start_date = $request->input('start_date');
-                $experiences[0]->end_date = $request->input('end_date');
-                $experiences[0]->job_description = $request->input('job_description');
-            }
+
+            //create a new experience object
+            $experiences[] = new \stdClass();
+            //add the experience to the array
+            $experiences[0]->job_title = $request->input('job_title');
+            $experiences[0]->company_name = $request->input('company_name');
+            $experiences[0]->start_date = $request->input('start_date');
+            $experiences[0]->end_date = $request->input('end_date');
+            $experiences[0]->job_description = $request->input('job_description');
         } else {
             if ($experiences != null) {
                 $experienceIndex = count($experiences);
@@ -95,19 +92,15 @@ class ProfileController extends Controller
                 'training_end_date' => 'required',
                 'training_description' => 'required',
             ]);
-            //check if validation passes
-            if ($request->fails()) {
-                return redirect()->back()->withErrors($request->errors());
-            } else {
-                //create a new training object
-                $trainings[] = new \stdClass();
-                //add the training to the array
-                $trainings[0]->training_title = $request->input('training_title');
-                $trainings[0]->training_institution = $request->input('training_institution');
-                $trainings[0]->training_start_date = $request->input('training_start_date');
-                $trainings[0]->training_end_date = $request->input('training_end_date');
-                $trainings[0]->training_description = $request->input('training_description');
-            }
+
+            //create a new training object
+            $trainings[] = new \stdClass();
+            //add the training to the array
+            $trainings[0]->training_title = $request->input('training_title');
+            $trainings[0]->training_institution = $request->input('training_institution');
+            $trainings[0]->training_start_date = $request->input('training_start_date');
+            $trainings[0]->training_end_date = $request->input('training_end_date');
+            $trainings[0]->training_description = $request->input('training_description');
         } else {
             if ($trainings != null) {
                 $trainingIndex = count($trainings);
