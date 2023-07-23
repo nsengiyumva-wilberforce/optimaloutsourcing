@@ -18,7 +18,11 @@
         <title>Optimal Outsourcing</title>
     </head>
     <body>
-        <div class="pxp-preloader"><span>Loading...</span></div>
+        <div class="pxp-preloader">
+            <span>
+                {{-- add a spinner gif--}}
+                <img src="{{ asset('assets/images/loading.gif') }}" alt="logo">
+        </span></div>
 
         <header class="pxp-header fixed-top">
             <div class="pxp-container">
