@@ -12,37 +12,35 @@
         h1{
             color: {{$theme_color}}
         }
-        .profile_info {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around
-        }
     </style>
 </head>
 
 <body>
     <table>
-        <tr colspan="2">
-            <td class="profile_info">
-                <div class="left_chamder">
-                    <h1>{{ $profile->first_name . ' ' . $profile->last_name }}</h1>
-                    <p class="loc">{{ $profile->location }}</p>
-                </div>
-
+        <thead>
+            <th>
+                <h1>{{ $profile->first_name . ' ' . $profile->last_name }}</h1>
+                <p class="loc">{{ $profile->location }}</p>
+            </th>
+            <th>
                 @if ($profile->profile_photo)
-                    <img src="{{ asset('storage/' . $profile->profile_photo) }}" alt="Avatar"
-                        class="rounded img-fluid w-25">
-                @else
-                    <img src="{{ asset('assets/images/profile_avatar.png') }}" alt="Avatar"
-                        class="rounded img-fluid w-25">
-                @endif
+                <img src="{{ asset('storage/' . $profile->profile_photo) }}" alt="Avatar"
+                    class="rounded img-fluid w-25">
+            @else
+                <img src="{{ asset('assets/images/profile_avatar.png') }}" alt="Avatar"
+                    class="rounded img-fluid w-25">
+            @endif
+            </th>
+            <th>
                 <div class="info">
                     <p>{{ $profile->title }}</p>
                     <p>Phone: {{ $profile->phone_number }}</p>
                     <p>Email:{{ $profile->email }}</p>
                 </div>
-            </td>
-        </tr>
+            </th>
+        </thead>
+    </table>
+    <table>
         <tr>
             <td>
                 <h3>INTRO</h3>
