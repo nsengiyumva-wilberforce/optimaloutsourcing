@@ -139,7 +139,7 @@
 
             <div class="col-md-9 document_area card card-body pdf-body">
                 {{-- <iframe id="cvIframe" src="{{ asset('assets/cvs/' . $cv_file_name . '#toolbar=0') }}"></iframe> --}}
-                <canvas id="the-canvas"></canvas>
+                <canvas id="the-canvas" class="img-fluid"></canvas>
                 <div class="pdf-nav">
                     <button id="prev" class="btn btn-outline-dark m-1">Previous</button>
                     <button id="next" class="btn btn-outline-dark m-1">Next</button>
