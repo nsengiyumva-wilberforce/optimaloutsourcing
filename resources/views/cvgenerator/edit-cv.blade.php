@@ -13,15 +13,19 @@
 <body>
     <div class="w-100 ms-2">
         <div class="toolbar card card-body">
-            <h1 class="text-center">Optimal outsourcing CV Editor</h1>
+            <div class="d-flex flex-row justify-content-between">
+                <h1 class="text-center mr-auto">Optimal outsourcing CV Editor</h1>
+                <div>
+                    <a href="/" class="btn btn-outline-danger">Close</a>
+                </div>
+            </div>
         </div>
-
         <div class="side_bar_doc_area row">
             <div class="col-md-3 sidebar card card-body">
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col">
-                            Effect Color
+                            <h4>Effect Color</h4>
                         </div>
                     </div>
                     <select name="color" id="select-color" class="form-select" aria-label="Select color">
@@ -29,18 +33,18 @@
                         <option value="blue" {{ $theme_color == 'blue' ? 'selected' : '' }}></option>
                         <option value="#FFFF00" {{ $theme_color == 'yellow' ? 'selected' : '' }}>yellow</option>
                         <option value="#FFA500" {{ $theme_color == 'orange' ? 'selected' : '' }}>orange</option>
-                        <option value="green" {{ $theme_color == 'green' ? 'selected' : '' }}>green</option>
-                        <option value="purple" {{ $theme_color == 'purple' ? 'selected' : '' }}>purple</option>
-                        <option value="grey" {{ $theme_color == 'grey' ? 'selected' : '' }}>grey</option>
-                        <option value="violete" {{ $theme_color == 'violet' ? 'selected' : '' }}>violet</option>
-                        <option value="indigo" {{ $theme_color == 'indigo' ? 'selected' : '' }}>indigo</option>
+                        <option value="#008000" {{ $theme_color == 'green' ? 'selected' : '' }}>green</option>
+                        <option value="#800080" {{ $theme_color == 'purple' ? 'selected' : '' }}>purple</option>
+                        <option value="#808080" {{ $theme_color == 'grey' ? 'selected' : '' }}>grey</option>
+                        <option value="#7F00FF" {{ $theme_color == 'violete' ? 'selected' : '' }}>violete</option>
+                        <option value="#4B0082" {{ $theme_color == 'indigo' ? 'selected' : '' }}>indigo</option>
                     </select>
                 </div>
 
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col">
-                            Font Size
+                            <h4>Font Size</h4>
                         </div>
                     </div>
                     <input type="radio" name="font_size" class="form-check-input" id="small">
@@ -54,7 +58,7 @@
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col">
-                            Font Family
+                            <h4>Font Family</h4>
                         </div>
                     </div>
                     <select name="color" id="" class="form-select" aria-label="Select font">
@@ -141,6 +145,9 @@
                 {{-- <iframe id="cvIframe" src="{{ asset('assets/cvs/' . $cv_file_name . '#toolbar=0') }}"></iframe> --}}
                 <canvas id="the-canvas" class="img-fluid"></canvas>
                 <div class="pdf-nav">
+                    <a href="/profile" class="btn btn-outline-success m-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                        <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+                      </svg>update profile</a>
                     <button id="prev" class="btn btn-outline-dark m-1">Previous</button>
                     <button id="next" class="btn btn-outline-dark m-1">Next</button>
                     &nbsp; &nbsp;
