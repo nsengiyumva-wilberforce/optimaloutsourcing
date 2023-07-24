@@ -20,7 +20,10 @@
 </head>
 
 <body style="background-color: var(--pxpMainColorLight);">
-    <div class="pxp-preloader"><span>Loading...</span></div>
+    <div class="pxp-preloader"><span>
+        <img src="{{ asset('assets/images/loading.gif') }}" alt="logo">
+        </span>
+    </div>
 
     <div class="pxp-dashboard-side-panel d-none d-lg-block">
         <div class="pxp-logo">
@@ -30,8 +33,8 @@
         <nav class="mt-3 mt-lg-4 d-flex justify-content-between flex-column pb-100">
             <div class="pxp-dashboard-side-label">Admin tools</div>
             <ul class="list-unstyled">
-                <li class="{{ request()->is('') ? 'pxp-active' : '' }}"><a
-                        href="{{ route('home') }}"><span class="fa fa-home"></span>Home</a>
+                <li class="{{ request()->is('') ? 'pxp-active' : '' }}"><a href="{{ route('home') }}"><span
+                            class="fa fa-home"></span>Home</a>
                 </li>
                 <li class="{{ request()->is('profile') ? 'pxp-active' : '' }}"><a href="{{ route('profile') }}"><span
                             class="fa fa-pencil"></span>Edit Profile</a></li>
@@ -101,7 +104,7 @@
                             <ul class="navbar-nav justify-content-end flex-grow-1">
                                 <li class="pxp-dropdown-header">Admin tools</li>
                                 <li class="nav-item"><a href="{{ route('home') }}"><span
-                                    class="fa fa-home"></span>Home</a></li>
+                                            class="fa fa-home"></span>Home</a></li>
                                 <li class="nav-item"><a href="{{ route('profile') }}"><span
                                             class="fa fa-pencil"></span>Edit Profile</a></li>
                                 @if (auth()->user()->role === 'employer' || auth()->user()->role === 'admin')

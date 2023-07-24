@@ -183,7 +183,7 @@ class ProfileController extends Controller
         $path = public_path('assets/cvs/' . $cv_file_name);
 
         if (file_exists($path)) {
-            return response()->download($path);
+            return response()->json(['file_url' => asset('assets/cvs/' . $cv_file_name)]);
         } else {
             abort(404, 'File not found.');
         }

@@ -1,0 +1,16 @@
+canvas
+{
+    border: 1px solid #000;
+    background-color: #fff;
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 0 10px #000;
+}
+
+.pdf-nav{
+    margin: 0 auto;
+}
+.hidden-area
+{
+    margin: 0 auto;
+}
