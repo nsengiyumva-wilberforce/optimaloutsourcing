@@ -189,10 +189,12 @@ class ProfileController extends Controller
         }
     }
 
-    public function editCv(Request $request)
+    public function editCv(Request $request, string $template)
     {
-        $design = $request->input('design');
+        $design = $request->input('design') ? $request->input('design') : $template;
         $effect_color = $request->input('effect_color');
+        $font_size = $request->input('font_size')? $request->input('font_size') : 'normal';
+        $font_family = $request->input('font_family')? $request->input('font_family') : 'times new roman';
         //get all the profile info for the user
         $profile = auth()->user()->profile;
 
@@ -223,20 +225,31 @@ class ProfileController extends Controller
             'cover_photo' => $cover_photo,
             'theme_color' => $effect_color,
             'cv_file_name' => $cv_file_name,
-            'design' => $design
+            'design' => $design,
+            'font_size' => $font_size,
+            'font_family' => $font_family
         ];
         if ($design == 'plain')
-            $pdf = Pdf::loadView('cvgenerator.cv', $data)->setOption(['defaultFont' => 'sans-serif']);
+            $pdf = Pdf::loadView('cvgenerator.cv', $data);
 
         if ($design == 'classic')
-            $pdf = Pdf::loadView('cvgenerator.classic', $data)->setOption(['defaultFont' => 'sans-serif']);
+            $pdf = Pdf::loadView('cvgenerator.classic', $data);
 
         if ($design == 'international')
-            $pdf = Pdf::loadView('cvgenerator.international', $data)->setOption(['defaultFont' => 'sans-serif']);
+            $pdf = Pdf::loadView('cvgenerator.international', $data);
+
+        if ($design == 'modern')
+            $pdf = Pdf::loadView('cvgenerator.modern', $data);
+
 
         //check if there is no $design
         if ($design == null) {
-            $pdf = Pdf::loadView('cvgenerator.international', $data)->setOption(['defaultFont' => 'sans-serif']);
+            $pdf = Pdf::loadView('cvgenerator.international', $data);
+        }
+
+        //check if $pdf is not set
+        if (!isset($pdf)) {
+            $pdf = Pdf::loadView('cvgenerator.international', $data);
         }
 
         // Save the PDF to the assets folder in the public directory
@@ -256,6 +269,8 @@ class ProfileController extends Controller
         // Using array notation
         $design = $data['design'];
         $effect_color = $data['effect_color'];
+        $font_family = $data['font_family'];
+        $font_size = $data['font_size'];
 
         //get all the profile info for the user
         $profile = auth()->user()->profile;
@@ -287,24 +302,31 @@ class ProfileController extends Controller
             'cover_photo' => $cover_photo,
             'theme_color' => $effect_color,
             'cv_file_name' => $cv_file_name,
-            'design' => $design
+            'design' => $design,
+            'font_size'=> $font_size,
+            'font_family'=>$font_family
         ];
         if ($design === "plain")
-            $pdf = Pdf::loadView('cvgenerator.cv', $data)->setOption(['defaultFont' => 'sans-serif']);
+            $pdf = Pdf::loadView('cvgenerator.cv', $data);
 
         if ($design === "classic")
-            $pdf = Pdf::loadView('cvgenerator.classic', $data)->setOption(['defaultFont' => 'sans-serif']);
+            $pdf = Pdf::loadView('cvgenerator.classic', $data);
 
         if ($design === "international") {
-            $pdf = Pdf::loadView('cvgenerator.international', $data)->setOption(['defaultFont' => 'sans-serif']);
+            $pdf = Pdf::loadView('cvgenerator.international', $data);
         }
 
         if ($design === "modern") {
-            $pdf = Pdf::loadView('cvgenerator.modern', $data)->setOption(['defaultFont' => 'sans-serif']);
+            $pdf = Pdf::loadView('cvgenerator.modern', $data);
         }
         //check if there is no $design
         if ($design == null) {
-            $pdf = Pdf::loadView('cvgenerator.international', $data)->setOption(['defaultFont' => 'sans-serif']);
+            $pdf = Pdf::loadView('cvgenerator.international', $data);
+        }
+
+        //check if $pdf is not set
+        if (!isset($pdf)) {
+            $pdf = Pdf::loadView('cvgenerator.international', $data);
         }
         // Save the PDF to the assets folder in the public directory
         $pdf->save(public_path('assets/cvs/' . $cv_file_name));

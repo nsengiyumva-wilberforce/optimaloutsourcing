@@ -8,60 +8,23 @@
                     potential with our free resume templates and easy-to-use design editor</p>
             </div>
             <div class="row">
-                <div class="col-md-3">
-                    <a href="/cv-generator/edit-cv">
-                        <img src="{{ asset('assets/images/cv2.png') }}" alt="cv2 placeholder" class="img-fluid">
+                <div class="col-md-3 card card-body m-1 shadow w-25">
+                    <a href="/cv-generator/edit-cv/international">
+                        <img src="{{ asset('assets/images/international_template.png') }}" alt="cv2 placeholder" class="img-fluid">
                     </a>
+                    <h3>International</h3>
                 </div>
-                <div class="col-md-3">
-                    <a href="/cv-generator/edit-cv">
-                        <img src="{{ asset('assets/images/cv3.png') }}" alt="cv3 placeholder" class="img-fluid">
+                <div class="col-md-3 card card-body m-1 shadow w-25">
+                    <a href="/cv-generator/edit-cv/modern">
+                        <img src="{{ asset('assets/images/modern_template.png') }}" alt="cv3 placeholder" class="img-fluid">
                     </a>
+                    <h3>Modern</h3>
                 </div>
-                <div class="col-md-3">
-                    <a href="/cv-generator/edit-cv">
-                        <img src="{{ asset('assets/images/cv4.png') }}" alt="cv4 placeholder" class="img-fluid">
+                <div class="col-md-3 card card-body m-1 shadow w-25">
+                    <a href="/cv-generator/edit-cv/classic">
+                        <img src="{{ asset('assets/images/classic_template.png') }}" alt="cv4 placeholder" class="img-fluid">
                     </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="/cv-generator/edit-cv">
-                        <img src="{{ asset('assets/images/cv5.png') }}" alt="cv5 placeholder" class="img-fluid">
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="/cv-generator/edit-cv">
-                        <img src="{{ asset('assets/images/cv6.png') }}" alt="cv6 placeholder" class="img-fluid">
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="/cv-generator/edit-cv">
-                        <img src="{{ asset('assets/images/cv7.png') }}" alt="cv7 placeholder" class="img-fluid">
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="/cv-generator/edit-cv">
-                        <img src="{{ asset('assets/images/cv3.png') }}" alt="cv3 placeholder" class="img-fluid">
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="/cv-generator/edit-cv">
-                        <img src="{{ asset('assets/images/cv4.png') }}" alt="cv4 placeholder" class="img-fluid">
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="/cv-generator/edit-cv">
-                        <img src="{{ asset('assets/images/cv5.png') }}" alt="cv5 placeholder" class="img-fluid">
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="/cv-generator/edit-cv">
-                        <img src="{{ asset('assets/images/cv6.png') }}" alt="cv6 placeholder" class="img-fluid">
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="/cv-generator/edit-cv">
-                        <img src="{{ asset('assets/images/cv7.png') }}" alt="cv7 placeholder" class="img-fluid">
-                    </a>
+                    <h3>Classic</h3>
                 </div>
             </div>
         </div>

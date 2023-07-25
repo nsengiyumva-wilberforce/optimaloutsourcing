@@ -5,6 +5,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ $profile->first_name . ' ' . $profile->last_name }} - Curriculum Vitae</title>
+    <style>
+        body {
+            font-family: {{ $font_family }};
+        }
+
+        .tag_info p {
+            margin: 5px 0 0 0;
+            border-bottom: 5px dotted {{ $theme_color }};
+        }
+    </style>
 </head>
 
 <body>
@@ -12,9 +22,15 @@
         <tbody>
             <tr>
                 <td rowspan="6" style="vertical-align: top;">
-                    <img src="profile.png" alt="profile photo" />
-                    <div>
-                        <h1>{{ $profile->first_name . ' ' . $profile->last_name }}</h1>
+                    @if ($profile->profile_photo)
+                        <img src="{{ asset('storage/' . $profile->profile_photo) }}" alt="Avatar"
+                            class="rounded img-fluid" height="10%">
+                    @else
+                        <img src="{{ asset('assets/images/modern.png') }}" alt="Avatar" class="rounded img-fluid"
+                            height="10%">
+                    @endif
+                    <div class="tag_info">
+                        <h1>Pengu Pengu</h1>
                         <p>{{ $profile->title }}</p>
                         <p>Phone: {{ $profile->phone_number }}</p>
                         <p>Email:{{ $profile->email }}</p>

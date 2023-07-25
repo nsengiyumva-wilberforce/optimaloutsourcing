@@ -47,11 +47,14 @@
                             <h4>Font Size</h4>
                         </div>
                     </div>
-                    <input type="radio" name="font_size" class="form-check-input" id="small">
+                    <input type="radio" name="font_size" class="form-check-input" id="small" value="small"
+                        {{ $font_size == 'small' ? 'checked' : '' }}>
                     <label for="small" class="form-check-label">Small</label>
-                    <input type="radio" name="font_size" class="form-check-input" id="normal">
+                    <input type="radio" name="font_size" class="form-check-input" id="normal"
+                        {{ $font_size == 'normal' ? 'checked' : '' }} value="normal">
                     <label for="normal" class="form-check-label">Normal</label>
-                    <input type="radio" name="font_size" class="form-check-input" id="large">
+                    <input type="radio" name="font_size" class="form-check-input" id="large"
+                        {{ $font_size == 'large' ? 'checked' : '' }} value="large">
                     <label for="normal" class="form-check-label">Large</label>
                 </div>
 
@@ -61,12 +64,16 @@
                             <h4>Font Family</h4>
                         </div>
                     </div>
-                    <select name="color" id="" class="form-select" aria-label="Select font">
-                        <option value="times" selected>Traditional:Times</option>
-                        <option value="helvatica">Classic:Helvatica</option>
-                        <option value="baskerville">Elegant:Baskerville</option>
-                        <option value="poppins">Modern:Poppins</option>
-                        <option value="rockwell">Bold:Rockwell</option>
+                    <select name="color" id="select-family" class="form-select" aria-label="Select font">
+                        <option value="times" {{ $font_family == 'times New Roman' ? 'checked' : '' }}>
+                            Traditional:Times</option>
+                        <option value="Helvetica" {{ $font_family == 'Helvetica' ? 'checked' : '' }}>Classic:Helvatica
+                        </option>
+                        <option value="Baskervville" {{ $font_family == 'Baskervville' ? 'checked' : '' }}>
+                            Elegant:Baskerville</option>
+                        <option value="poppins" {{ $font_family == 'popins' ? 'checked' : '' }}>Modern:Poppins</option>
+                        <option value="rockwell" {{ $font_family == 'rockwell' ? 'checked' : '' }}>Bold:Rockwell
+                        </option>
                     </select>
                 </div>
 
@@ -145,9 +152,12 @@
                 {{-- <iframe id="cvIframe" src="{{ asset('assets/cvs/' . $cv_file_name . '#toolbar=0') }}"></iframe> --}}
                 <canvas id="the-canvas" class="img-fluid"></canvas>
                 <div class="pdf-nav">
-                    <a href="/profile" class="btn btn-outline-success m-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
-                        <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
-                      </svg>update profile</a>
+                    <a href="/profile" class="btn btn-outline-success m-1"><svg xmlns="http://www.w3.org/2000/svg"
+                            width="16" height="16" fill="currentColor" class="bi bi-pen"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z" />
+                        </svg>update profile</a>
                     <button id="prev" class="btn btn-outline-dark m-1">Previous</button>
                     <button id="next" class="btn btn-outline-dark m-1">Next</button>
                     &nbsp; &nbsp;
@@ -164,6 +174,8 @@
                         @csrf
                         <input type="hidden" name="design" id="design-hidden-input-update">
                         <input type="hidden" name="effect_color" id="color-hidden-input-update">
+                        <input type="hidden" name="font_family" id="font-family-hidden-input-update">
+                        <input type="hidden" name="font_size" id="font-size-hidden-input-update">
                     </form>
                 </div>
             </div>
@@ -189,6 +201,14 @@
                 //retrieve the selected value for color
                 var selectedColor = $("#select-color").val();
 
+                //retrieve the selected value for font family
+                var fontFamily = $("#select-family").val();
+                console.log("font family:", fontFamily)
+
+                //retrieve the selected value for font size
+                var fontSize = $('input[name="font_size"]:checked').val();
+                console.log("font size:", fontSize)
+
                 // Set the value of the hidden input field
                 $("#design-hidden-input").val(selectedValue);
                 console.log("design:", selectedValue);
@@ -196,6 +216,12 @@
                 // Set the value of the hidden input field
                 $("#color-hidden-input").val(selectedColor);
                 console.log("color:", selectedColor);
+
+                //set the hidden input field
+                $('#font-family-hidden-input-update').val(fontFamily)
+
+                //set the hidden input field
+                $('#font-size-hidden-input-update').val(fontSize)
 
                 console.log("form submitted.....");
                 console.log("Selected value:", selectedValue);
@@ -208,11 +234,20 @@
 
                 //retrieve the selected value for color
                 var selectedColor = $("#select-color").val();
+                console.log("color:", selectedColor)
 
-                console.log("csrf token:", "{{ csrf_token() }}");
-                var data = {
+                //retrieve the selected font family
+                var fontFamily = $("#select-family").val();
+                console.log("font family:", fontFamily)
+
+                var fontSize = $('input[name="font_size"]:checked').val();
+                console.log("font size:", fontSize)
+
+                data = {
                     "design": designValue,
-                    "effect_color": selectedColor
+                    "effect_color": selectedColor,
+                    "font_family": fontFamily,
+                    "font_size": fontSize
                 };
 
                 //use ajax to submit the data
@@ -226,7 +261,6 @@
                     },
                     success: function(response) {
                         console.log(response);
-                        //reload all iFrames
                         reloadPDF()
                     },
                     error: function(error) {
@@ -243,10 +277,20 @@
 
                 //retrieve the selected value for color
                 var selectedColor = $("#select-color").val();
+                console.log("color:", selectedColor)
+
+                //retrieve the selected font family
+                var fontFamily = $("#select-family").val();
+                console.log("font family:", fontFamily)
+
+                var fontSize = $('input[name="font_size"]:checked').val();
+                console.log("font size:", fontSize)
 
                 data = {
                     "design": designValue,
-                    "effect_color": selectedColor
+                    "effect_color": selectedColor,
+                    "font_family": fontFamily,
+                    "font_size": fontSize
                 };
 
                 //use ajax to submit the data
@@ -260,16 +304,99 @@
                     },
                     success: function(response) {
                         console.log("success");
-                        //reload all iFrames
-                        $('iframe').each(function() {
-                            this.contentWindow.location.reload(true);
-                        });
+                        reloadPDF()
                     },
                     error: function(error) {
                         console.log(error);
                         // alert("error");
                     }
                 });
+            });
+
+            $("#select-family").change(function() {
+                // Retrieve the selected value for design template
+                var designValue = $("#design-style").val();
+                console.log("design:", designValue);
+
+                //retrieve the selected value for color
+                var selectedColor = $("#select-color").val();
+                console.log("color:", selectedColor)
+
+                //retrieve the selected font family
+                var fontFamily = $("#select-family").val();
+                console.log("font family:", fontFamily)
+
+                var fontSize = $('input[name="font_size"]:checked').val();
+                console.log("font size:", fontSize)
+
+                data = {
+                    "design": designValue,
+                    "effect_color": selectedColor,
+                    "font_family": fontFamily,
+                    "font_size": fontSize
+                };
+
+                //use ajax to submit the data
+                $.ajax({
+                    url: "{{ route('updateCv') }}",
+                    type: "POST",
+                    //stringfy the data before sending it to the server
+                    data: JSON.stringify(data),
+                    headers: {
+                        'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        console.log("success");
+                        reloadPDF()
+                    },
+                    error: function(error) {
+                        console.log(error);
+                        // alert("error");
+                    }
+                });
+            });
+
+            $('input[name="font_size"]').change(function() {
+                // Retrieve the selected value for design template
+                var designValue = $("#design-style").val();
+                console.log("design:", designValue);
+
+                //retrieve the selected value for color
+                var selectedColor = $("#select-color").val();
+                console.log("color:", selectedColor)
+
+                //retrieve the selected font family
+                var fontFamily = $("#select-family").val();
+                console.log("font family:", fontFamily)
+
+                var fontSize = $('input[name="font_size"]:checked').val();
+                console.log("font size:", fontSize)
+
+                data = {
+                    "design": designValue,
+                    "effect_color": selectedColor,
+                    "font_family": fontFamily,
+                    "font_size": fontSize
+                };
+                //use ajax to submit the data
+                $.ajax({
+                    url: "{{ route('updateCv') }}",
+                    type: "POST",
+                    //stringfy the data before sending it to the server
+                    data: JSON.stringify(data),
+                    headers: {
+                        'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        console.log("success");
+                        reloadPDF()
+                    },
+                    error: function(error) {
+                        console.log(error);
+                        // alert("error");
+                    }
+                });
+
             });
 
             $('#download-cv').click(function() {

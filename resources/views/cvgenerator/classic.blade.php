@@ -18,12 +18,12 @@
         <tr colspan="2">
             <td class="profile_info">
                 @if ($profile->profile_photo)
-                    <img src="{{ asset('storage/' . $profile->profile_photo) }}" alt="Avatar"
-                        class="rounded img-fluid w-25">
-                @else
-                    <img src="{{ asset('assets/images/profile_avatar.jpg') }}" alt="Avatar"
-                        class="rounded img-fluid w-25">
-                @endif
+                <img src="{{ asset('storage/' . $profile->profile_photo) }}" alt="Avatar"
+                    class="rounded img-fluid" height="10%">
+            @else
+                <img src="{{ asset('assets/images/international.png') }}" alt="Avatar"
+                    class="rounded img-fluid" height="10%">
+            @endif
                 <div class="info">
                     <h1>{{ $profile->first_name . ' ' . $profile->last_name }}</h1>
                     <p>{{ $profile->title }}</p>

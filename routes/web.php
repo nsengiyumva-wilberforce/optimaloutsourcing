@@ -101,7 +101,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/create-cv', [ProfileController::class, 'createCv'])->name('createCv')->middleware('verified');
 
     //cv-editor
-    route::get('cv-generator/edit-cv', [ProfileController::class, 'editCv'])->name('edit-cv')->middleware('verified');
+    route::get('cv-generator/edit-cv/{template}', [ProfileController::class, 'editCv'])->name('edit-cv')->middleware('verified');
 
     //define settings route
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings');

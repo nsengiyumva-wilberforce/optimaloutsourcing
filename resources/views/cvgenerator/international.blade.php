@@ -19,16 +19,16 @@
     <table>
         <thead>
             <th>
-                <h1>{{ $profile->first_name . ' ' . $profile->last_name }}</h1>
+                <h1>John Tyler</h1>
                 <p class="loc">{{ $profile->location }}</p>
             </th>
             <th>
                 @if ($profile->profile_photo)
                 <img src="{{ asset('storage/' . $profile->profile_photo) }}" alt="Avatar"
-                    class="rounded img-fluid w-25">
+                    class="rounded img-fluid" height="10%">
             @else
-                <img src="{{ asset('assets/images/profile_avatar.png') }}" alt="Avatar"
-                    class="rounded img-fluid w-25">
+                <img src="{{ asset('assets/images/international.png') }}" alt="Avatar"
+                    class="rounded img-fluid" height="10%">
             @endif
             </th>
             <th>
