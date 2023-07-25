@@ -71,7 +71,8 @@
                         </option>
                         <option value="Baskervville" {{ $font_family == 'Baskervville' ? 'checked' : '' }}>
                             Elegant:Baskerville</option>
-                        <option value="Poppins" {{ $font_family == 'Poppins' ? 'checked' : '' }}>Modern:Poppins</option>
+                        <option value="Poppins" {{ $font_family == 'Poppins' ? 'checked' : '' }}>Modern:Poppins
+                        </option>
                         <option value="Rockwell" {{ $font_family == 'Rockwell' ? 'checked' : '' }}>Bold:Rockwell
                         </option>
                     </select>
@@ -133,18 +134,15 @@
                 </select>
 
                 <h4>Which work Experience(s) do you want to show?</h4>
-                <div class="form-check">
-                    <input type="checkbox" id="experience_1" class="form-check-input">
-                    <label for="experience_1" class="form-check-label">Experience_1</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" id="experience_2" class="form-check-input">
-                    <label for="experience_2" class="form-check-label">Experience_2</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" id="experience_3" class="form-check-input">
-                    <label for="experience_3" class="form-check-label">Experience_3</label>
-                </div>
+                @if ($experiences)
+                    @foreach ($experiences as $experience)
+                        <div class="form-check">
+                            <input type="checkbox" id="{{ $experience->experience_id }}" class="form-check-input" name="experience">
+                            <label for="{{ $experience->experience_id }}"
+                                class="form-check-label">{{ $experience->job_title }}</label>
+                        </div>
+                    @endforeach
+                @endif
                 {{-- <a href="/create-cv" class="btn btn-primary">Apply Changes</a> --}}
             </div>
 

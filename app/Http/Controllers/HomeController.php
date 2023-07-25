@@ -19,6 +19,11 @@ class HomeController extends Controller
         return view('index', compact('jobs', 'employmentTypes'));
     }
 
+    public function count_down()
+    {
+        return view('count-down');
+    }
+
     //add about us page
     public function about_us()
     {

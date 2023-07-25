@@ -62,7 +62,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xxl-4">
+               <div class="col-xxl-4">
                     <div class="form-label">&nbsp;</div>
                     <div class="pxp-candidate-photo mb-3">
                         <input type="file" name="profile_photo" id="pxp-candidate-photo-choose-file" accept="image/*">
@@ -179,7 +179,7 @@
                                 <div class="alert alert-danger">
                                     <p>{{ $errors->first('start_date') }}</p>
                                 </div>
-                                @endif
+                            @endif
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -253,35 +253,37 @@
                             <label for="pxp-candidate-edu-title" class="form-label">Title</label>
                             <input type="text" name="training_title" id="pxp-candidate-edu-title"
                                 class="form-control" placeholder="E.g. Architecure" value="{{ old('training_title') }}">
-                                @if ($errors->has('training_title'))
+                            @if ($errors->has('training_title'))
                                 <div class="alert alert-danger">
                                     <p>{{ $errors->first('training_title') }}</p>
                                 </div>
-                                    @endif
+                            @endif
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="mb-3">
                             <label for="pxp-candidate-edu-school" class="form-label">School</label>
                             <input type="text" name="training_institution" id="pxp-candidate-edu-school"
-                                class="form-control" placeholder="School name" value="{{ old('training_institution') }}">
-                                @if ($errors->has('training_institution'))
+                                class="form-control" placeholder="School name"
+                                value="{{ old('training_institution') }}">
+                            @if ($errors->has('training_institution'))
                                 <div class="alert alert-danger">
                                     <p>{{ $errors->first('training_institution') }}</p>
                                 </div>
-                                    @endif
+                            @endif
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="mb-3">
                             <label for="pxp-candidate-edu-start-time" class="form-label">Start Date</label>
                             <input type="date" name="training_start_date" id="pxp-candidate-edu-start-time"
-                                class="form-control" placeholder="E.g. 2005 - 2013" value="{{ old('training_start_date') }}">
-                                @if ($errors->has('training_start_date'))
+                                class="form-control" placeholder="E.g. 2005 - 2013"
+                                value="{{ old('training_start_date') }}">
+                            @if ($errors->has('training_start_date'))
                                 <div class="alert alert-danger">
                                     <p>{{ $errors->first('training_start_date') }}</p>
                                 </div>
-                                    @endif
+                            @endif
 
                         </div>
                     </div>
@@ -289,12 +291,13 @@
                         <div class="mb-3">
                             <label for="pxp-candidate-edu-end-time" class="form-label">End Date</label>
                             <input type="date" name="training_end_date" id="pxp-candidate-edu-end-time"
-                                class="form-control" placeholder="E.g. 2005 - 2013" value="{{ old('training_end_date') }}">
-                                @if ($errors->has('training_end_date'))
+                                class="form-control" placeholder="E.g. 2005 - 2013"
+                                value="{{ old('training_end_date') }}">
+                            @if ($errors->has('training_end_date'))
                                 <div class="alert alert-danger">
                                     <p>{{ $errors->first('training_end_date') }}</p>
                                 </div>
-                                    @endif
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -302,14 +305,112 @@
                     <label for="pxp-candidate-edu-about" class="form-label">Description</label>
                     <textarea class="form-control pxp-smaller" name="training_description" id="pxp-candidate-edu-about"
                         placeholder="Type a short description here...">{{ old('training_description') }}</textarea>
-                        @if ($errors->has('training_description'))
+                    @if ($errors->has('training_description'))
                         <div class="alert alert-danger">
                             <p>{{ $errors->first('training_description') }}</p>
                         </div>
-                            @endif
+                    @endif
                 </div>
                 <input type="hidden" name="trainings" id="trainings-hidden-field">
                 <button class="btn rounded-pill pxp-subsection-cta" id="add-edu-btn">Add Education</button>
+            </div>
+
+            <div class="mt-4 mt-lg-5">
+                <h2>Language Skills</h2>
+                <div class="row mt-3 mt-lg-4">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="language" class="form-label">Language</label>
+                            <input type="text" name="language" id="language" class="form-control"
+                                placeholder="E.g. English" value="{{ old('language') }}">
+                            @if ($errors->has('language'))
+                                <div class="alert alert-danger">
+                                    <p>{{ $errors->first('language') }}</p>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="spoken_language_level" class="form-label">Spoken language level</label>
+                            <select id="spoken_language_level" name="spoken_language_level" class="form-select">
+                                    <option value="none">None</option>
+                                    <option value="basic">Basic</option>
+                                    <option value="fluent">Fluent</option>
+                                    <option value="native">Native</option>
+                            </select>
+                            @if ($errors->has('spoken_language_level'))
+                                <div class="alert alert-danger">
+                                    <p>{{ $errors->first('spoken_language_level') }}</p>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="written_language_level" class="form-label">Written language level</label>
+                            <select id="written_language_level" name="written_language_level" class="form-select">
+                                    <option value="none">None</option>
+                                    <option value="basic">Basic</option>
+                                    <option value="fluent">Fluent</option>
+                                    <option value="native">Native</option>
+                            </select>
+                            @if ($errors->has('written_language_level'))
+                                <div class="alert alert-danger">
+                                    <p>{{ $errors->first('written_language_level') }}</p>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" name="languages" id="trainings-hidden-field">
+                <button class="btn rounded-pill pxp-subsection-cta" id="add-edu-btn">Add Language</button>
+            </div>
+
+            <div class="mt-4 mt-lg-5">
+                <h2>Certificates</h2>
+                <div class="row mt-3 mt-lg-4">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="certificate_name" class="form-label">Certificate Name</label>
+                            <select id="certificate_name" name="certificate_name" class="form-select">
+                                    <option>Select Certificate</option>
+                                    <option value="basic">Certificate inFrench Language</option>
+                                    <option value="fluent">Certified Ethical Hacker (CEH)</option>
+                                    <option value="native">Certified Fraud Examiner</option>
+                            </select>
+                            @if ($errors->has('certificate_name'))
+                                <div class="alert alert-danger">
+                                    <p>{{ $errors->first('certificate_name') }}</p>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="date_of_certification" class="form-label">When you got certificate?</label>
+                            <input type="date" name="date_of_certification" id="date_of_certification" placeholder="Select Month" class="form-control">
+                            @if ($errors->has('date_of_certification'))
+                                <div class="alert alert-danger">
+                                    <p>{{ $errors->first('date_of_certification') }}</p>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="certificate_attachment" class="form-label">Have Attachment for Certificate? Great?</label>
+                            <input type="file" name="certificate_attachment" id="certificate_attachment" class="form-control">
+                            @if ($errors->has('certificate_attachment'))
+                                <div class="alert alert-danger">
+                                    <p>{{ $errors->first('certificate_attachment') }}</p>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" name="languages" id="trainings-hidden-field">
+                <button class="btn rounded-pill pxp-subsection-cta" id="add-edu-btn">Add Certificate</button>
             </div>
 
             <div class="mt-4 mt-lg-5">
