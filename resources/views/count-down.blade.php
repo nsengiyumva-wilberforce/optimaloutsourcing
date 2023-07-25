@@ -95,10 +95,10 @@
             </div>
         </header>
 
-        <main class="px-3">
-            <p>coming in:</p>
+        <main class="" style="background-image: url({{ asset('assets/images/soon.jpg')}}); height: 100vh">
+            <h2 class="mb-5">coming in:</h2>
             <!-- Display the countdown timer in an element -->
-            <h1 id="demo"></h1>
+            <h1 id="demo" class="m-5"></h1>
         </main>
 
         <footer class="mt-auto text-white-50">
