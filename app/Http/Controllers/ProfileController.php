@@ -193,8 +193,8 @@ class ProfileController extends Controller
     {
         $design = $request->input('design') ? $request->input('design') : $template;
         $effect_color = $request->input('effect_color');
-        $font_size = $request->input('font_size')? $request->input('font_size') : 'normal';
-        $font_family = $request->input('font_family')? $request->input('font_family') : 'times new roman';
+        $font_size = $request->input('font_size') ? $request->input('font_size') : 'normal';
+        $font_family = $request->input('font_family') ? $request->input('font_family') : 'times new roman';
         //get all the profile info for the user
         $profile = auth()->user()->profile;
 
@@ -251,6 +251,21 @@ class ProfileController extends Controller
         if (!isset($pdf)) {
             $pdf = Pdf::loadView('cvgenerator.international', $data);
         }
+        $pdf->output();
+        $canvas = $pdf->getDomPDF()->getCanvas();
+        $height = $canvas->get_height();
+        $width = $canvas->get_width();
+        $canvas->set_opacity(.2, "Multiply");
+        $canvas->page_text(
+            $width / 5, $height / 2,
+            'Optimal Outsourcing',
+            null,
+            50,
+            array(0, 0, 0),
+            2,
+            2,
+            -45
+        );
 
         // Save the PDF to the assets folder in the public directory
         $pdf->save(public_path('assets/cvs/' . $cv_file_name));
@@ -303,8 +318,8 @@ class ProfileController extends Controller
             'theme_color' => $effect_color,
             'cv_file_name' => $cv_file_name,
             'design' => $design,
-            'font_size'=> $font_size,
-            'font_family'=>$font_family
+            'font_size' => $font_size,
+            'font_family' => $font_family
         ];
         if ($design === "plain")
             $pdf = Pdf::loadView('cvgenerator.cv', $data);
@@ -328,6 +343,21 @@ class ProfileController extends Controller
         if (!isset($pdf)) {
             $pdf = Pdf::loadView('cvgenerator.international', $data);
         }
+        $pdf->output();
+        $canvas = $pdf->getDomPDF()->getCanvas();
+        $height = $canvas->get_height();
+        $width = $canvas->get_width();
+        $canvas->set_opacity(.2, "Multiply");
+        $canvas->page_text(
+            $width / 5, $height / 2,
+            'Optimal Outsourcing',
+            null,
+            50,
+            array(0, 0, 0),
+            2,
+            2,
+            -45
+        );
         // Save the PDF to the assets folder in the public directory
         $pdf->save(public_path('assets/cvs/' . $cv_file_name));
 
