@@ -27,8 +27,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/jobs', [JobsController::class, 'index'])->name('jobs');
 
-Route::get('/candidates', [CandidatesController::class, 'index'])->name('candidates');
-
 Route::get('/companies', [CompaniesController::class, 'index'])->name('companies');
 
 //route for cv generator
@@ -92,6 +90,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/candidates/dashboard', [CandidatesController::class, 'candidateDashbaord'])->name('candidateDashbaord')->middleware('verified');
     //candidate details
     Route::get('/candidate-details/{id}', [CandidatesController::class, 'candidateDetails'])->name('candidateDetails')->middleware('verified');
+    //candidates
+    Route::get('/candidates', [CandidatesController::class, 'index'])->name('candidates');
+
 
     //show profile form
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile')->middleware('verified');
