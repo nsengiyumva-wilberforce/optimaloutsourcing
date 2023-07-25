@@ -1,142 +1,172 @@
 <!DOCTYPE html>
-<html lang="en" class="h-100">
+<html lang="en">
 
+<!-- Mirrored from www.madebydesignesia.com/themes/eventbiz/index.html by HTTraQt Website Copier/1.x [Karbofos 2012-2017] Lw2, 25 Jul 2023 11:50:10 GMT -->
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
-    <meta name="generator" content="Hugo 0.84.0" />
+    <meta charset="utf-8">
     <title>Optimal Outsourcing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Eventbiz is event and conference website template">
+    <meta name="keywords" content="camp, conference, conference theme, event, event schedule, event website, event wordpress theme, exhibition, expo">
+    <meta name="author" content="">
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/" />
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
+    <!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<![endif]-->
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
+    <!-- CSS Files
+    ================================================== -->
+    <link rel="stylesheet" href="{{asset('assets/count-down/css/bootstrap.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/count-down/css/animate.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/count-down/css/owl.carousel.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/count-down/css/magnific-popup.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/count-down/css/jquery.countdown.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/count-down/css/style.css')}}" type="text/css">
 
-        /*
- * Globals
- */
+    <!-- background -->
+    <link rel="stylesheet" href="{{asset('assets/count-down/css/bg.css')}}" type="text/css">
 
-        /* Custom default button */
-        .btn-secondary,
-        .btn-secondary:hover,
-        .btn-secondary:focus {
-            color: #333;
-            text-shadow: none;
-            /* Prevent inheritance from `body` */
-        }
-
-        /*
- * Base structure
- */
-
-        body {
-            text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
-            box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
-        }
-
-        .cover-container {
-            max-width: 42em;
-        }
-
-        /*
- * Header
- */
-
-        .nav-masthead .nav-link {
-            padding: 0.25rem 0;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.5);
-            background-color: transparent;
-            border-bottom: 0.25rem solid transparent;
-        }
-
-        .nav-masthead .nav-link:hover,
-        .nav-masthead .nav-link:focus {
-            border-bottom-color: rgba(255, 255, 255, 0.25);
-        }
-
-        .nav-masthead .nav-link+.nav-link {
-            margin-left: 1rem;
-        }
-
-        .nav-masthead .active {
-            color: #fff;
-            border-bottom-color: #fff;
-        }
-    </style>
+	<!-- color -->
+    <link rel="stylesheet" href="{{asset('assets/count-down/css/color.css')}}" type="text/css">
 </head>
 
-<body class="d-flex h-100 text-center text-white bg-primary">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header class="mb-auto">
-            <div>
-                <h3 class="float-md-start mb-0">Optimal Outsourcing</h3>
-                <nav class="nav nav-masthead justify-content-center float-md-end">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    <a class="nav-link" href="#">About Us</a>
-                    <a class="nav-link" href="#">Contact</a>
-                </nav>
+<body id="homepage">
+
+    <div id="wrapper">
+
+        <!-- header begin -->
+        <header>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- logo begin -->
+                        <div id="logo">
+                            <a href="index.html">
+                                <img class="logo" src="images/logo-light.png" alt="">
+                                <img class="logo-2" src="images/logo-dark.png" alt="">
+                            </a>
+                        </div>
+                        <!-- logo close -->
+
+                        <!-- small button begin -->
+                        <span id="menu-btn"></span>
+                        <!-- small button close -->
+
+                        <!-- mainmenu begin -->
+                        <nav>
+                            <ul id="mainmenu">
+                                <li><a class="active" href="#top">Home</a>
+								</li>
+                                <li><a href="#section-speakers">About Us</a></li>
+                                <li><a href="#section-schedules">Contact Us</a></li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                    <!-- mainmenu close -->
+                </div>
             </div>
         </header>
+        <!-- header close -->
 
-        <main class="" style="background-image: url({{ asset('assets/images/soon.jpg')}}); height: 100vh">
-            <h2 class="mb-5">coming in:</h2>
-            <!-- Display the countdown timer in an element -->
-            <h1 id="demo" class="m-5"></h1>
-        </main>
+        <!-- content begin -->
+        <div id="content" class="no-bottom no-top">
+			<div id="top"></div>
 
-        <footer class="mt-auto text-white-50">
-            <p>
-            </p>
+            <!-- section begin -->
+            <section id="section-intro" class="full-height relative owl-slide-wrapper no-top no-bottom text-light" data-stellar-background-ratio=".2">
+                <div class="overlay-bg">
+
+                    <div class="owl-slider-nav">
+                        <div class="next"></div>
+                        <div class="prev"></div>
+                    </div>
+
+                    <div id="custom-owl-slider" class="owl-slide" data-scroll-speed="2">
+                        <div class="item">
+                            <img src="{{asset('assets/count-down/images/slider/1.jpg')}}" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="{{asset('assets/count-down/images/slider/2.jpg')}}" alt="">
+                        </div>
+                    </div>
+
+                    <div class="center-y fadeScroll relative" data-scroll-speed="4">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="defaultCountdown" class="countdown-s1"></div>
+                                    <div class="spacer-single"></div>
+                                    <h1 class="big">Website Under Development <span class="id-color">2023</span></h1>
+                                    <div class="spacer-single"></div>
+                                    <div class="subtitle s2"><span><i class="fa fa-calendar-o id-color"></i>Email: hello@optimaloutsourcing.co.ug</span><span><i class="fa fa-map-marker id-color"></i>Phone number: +256 200 940 010</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <!-- section close -->
+        </div>
+        <!-- content close -->
+        <!-- footer begin -->
+        <footer>
+            <div class="container text-center text-light">
+                {{-- <div class="row">
+                    <div class="col-md-12">
+                        <div class="social-icons big">
+                            <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
+                            <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
+                            <a href="#"><i class="fa fa-rss fa-lg"></i></a>
+                            <a href="#"><i class="fa fa-google-plus fa-lg"></i></a>
+                            <a href="#"><i class="fa fa-skype fa-lg"></i></a>
+                            <a href="#"><i class="fa fa-dribbble fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div> --}}
+            </div>
+
+            <div class="subfooter">
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{-- &copy; Copyright 2023 - Eventbiz by Designesia --}}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </footer>
+        <!-- footer close -->
+
+        <a href="#" id="back-to-top"></a>
+        <div id="preloader">
+            <div class="preloader1"></div>
+        </div>
+
     </div>
 
-    <script>
-        // Set the date we're counting down to
-        var countDownDate = new Date("August 9, 2023 15:37:25").getTime();
+    <!-- Javascript Files
+    ================================================== -->
+    <script src="{{('assets/count-down/js/jquery.min.js')}}"></script>
+    <script src="{{asset('assets/count-down/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/count-down/js/jquery.isotope.min.js')}}"></script>
+    <script src="{{asset('assets/count-down/js/easing.js')}}"></script>
+    <script src="{{asset('assets/count-down/js/owl.carousel.js')}}"></script>
+    <script src="{{asset('assets/count-down/js/jquery.countTo.js')}}"></script>
+    <script src="{{asset('assets/count-down/js/wow.min.js')}}"></script>
+    <script src="{{asset('assets/count-down/js/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{asset('assets/count-down/js/enquire.min.js')}}"></script>
+    <script src="{{asset('assets/count-down/js/jquery.stellar.min.js')}}"></script>
+    <script src="{{asset('assets/count-down/js/jquery.plugin.js')}}"></script>
+    <script src="{{asset('assets/count-down/js/jquery.countdown.js')}}"></script>
+    <script src="{{asset('assets/count-down/js/countdown-custom.js')}}"></script>
+    <script src="../../../external.html?link=https://maps.googleapis.com/maps/api/js?key=AIzaSyAc5d1RS_0yWJ1Hyw2hGWfbRZ9KKaxFAZo"></script>
+    <script src="{{asset('assets/count-down/js/map.js')}}"></script>
+    <script src="{{asset('assets/count-down/js/designesia.js')}}"></script>
 
-        // Update the count down every 1 second
-        var x = setInterval(function() {
-
-            // Get today's date and time
-            var now = new Date().getTime();
-
-            // Find the distance between now and the count down date
-            var distance = countDownDate - now;
-
-            // Time calculations for days, hours, minutes and seconds
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Display the result in the element with id="demo"
-            document.getElementById("demo").innerHTML = days + "d " + hours + "h " +
-                minutes + "m " + seconds + "s ";
-
-            // If the count down is finished, write some text
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("demo").innerHTML = "EXPIRED";
-            }
-        }, 1000);
-    </script>
 </body>
 
+<!-- Mirrored from www.madebydesignesia.com/themes/eventbiz/index.html by HTTraQt Website Copier/1.x [Karbofos 2012-2017] Lw2, 25 Jul 2023 11:51:06 GMT -->
 </html>
