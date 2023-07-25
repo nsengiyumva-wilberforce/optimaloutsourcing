@@ -71,8 +71,8 @@
                         </option>
                         <option value="Baskervville" {{ $font_family == 'Baskervville' ? 'checked' : '' }}>
                             Elegant:Baskerville</option>
-                        <option value="poppins" {{ $font_family == 'popins' ? 'checked' : '' }}>Modern:Poppins</option>
-                        <option value="rockwell" {{ $font_family == 'rockwell' ? 'checked' : '' }}>Bold:Rockwell
+                        <option value="Poppins" {{ $font_family == 'Poppins' ? 'checked' : '' }}>Modern:Poppins</option>
+                        <option value="Rockwell" {{ $font_family == 'Rockwell' ? 'checked' : '' }}>Bold:Rockwell
                         </option>
                     </select>
                 </div>

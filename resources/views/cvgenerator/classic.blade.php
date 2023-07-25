@@ -6,6 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $profile->first_name . ' ' . $profile->last_name }} - Curriculum Vitae</title>
     <style>
+        @font-face {
+            font-family: 'Baskervville';
+            font-style: normal;
+            font-weight: 400;
+            src: url({{ asset('assets/fonts/Baskervville-Regular.ttf') }});
+        }
+
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 700;
+            src: url({{ asset('assets/fonts/Poppins-Regular.ttf') }});
+        }
+
+        @font-face {
+            font-family: 'Rockwell';
+            font-style: normal;
+            font-weight: 0;
+            src: url({{ asset('assets/fonts/Rockwell-Bold.ttf') }});
+        }
+
+        body {
+            font-size: 14px;
+            font-family: {{ $font_family }};
+        }
+
+        .tag_info p {
+            margin: 5px 0 0 0;
+            border-bottom: 5px dotted {{ $theme_color }};
+        }
+
         .profile_info {
             display: flex;
             flex-direction: row;
@@ -18,12 +49,12 @@
         <tr colspan="2">
             <td class="profile_info">
                 @if ($profile->profile_photo)
-                <img src="{{ asset('storage/' . $profile->profile_photo) }}" alt="Avatar"
-                    class="rounded img-fluid" height="10%">
-            @else
-                <img src="{{ asset('assets/images/international.png') }}" alt="Avatar"
-                    class="rounded img-fluid" height="10%">
-            @endif
+                    <img src="{{ asset('storage/' . $profile->profile_photo) }}" alt="Avatar" class="rounded img-fluid"
+                        height="10%">
+                @else
+                    <img src="{{ asset('assets/images/international.png') }}" alt="Avatar" class="rounded img-fluid"
+                        height="10%">
+                @endif
                 <div class="info">
                     <h1>{{ $profile->first_name . ' ' . $profile->last_name }}</h1>
                     <p>{{ $profile->title }}</p>

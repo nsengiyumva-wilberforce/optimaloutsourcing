@@ -358,6 +358,8 @@ class ProfileController extends Controller
             2,
             -45
         );
+
+        //set the custom font family
         // Save the PDF to the assets folder in the public directory
         $pdf->save(public_path('assets/cvs/' . $cv_file_name));
 

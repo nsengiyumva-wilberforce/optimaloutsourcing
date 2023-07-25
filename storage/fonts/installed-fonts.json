@@ -1,0 +1,15 @@
+{
+    "roboto": {
+        "normal": "roboto_normal_61fdd893b1cb895834fa703acc13390a"
+    },
+    "baskervville": {
+        "normal": "baskervville_normal_61fdd893b1cb895834fa703acc13390a"
+    },
+    "poppins": {
+        "bold": "poppins_bold_40c8645c9d66510cce8574593a28d81d"
+    },
+    "rockwell": {
+        "normal": "C:\\xampp\\htdocs\\optimaloutsourcing\\storage\\fonts\/rockwell_normal_38895e8247a14975ec10ed9beab70090",
+        "100": "rockwell_100_38895e8247a14975ec10ed9beab70090"
+    }
+}

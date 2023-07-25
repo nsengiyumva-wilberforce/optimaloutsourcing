@@ -6,7 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ $profile->first_name . ' ' . $profile->last_name }} - Curriculum Vitae</title>
     <style>
+        @font-face {
+            font-family: 'Baskervville';
+            font-style: normal;
+            font-weight: 400;
+            src: url({{ asset('assets/fonts/Baskervville-Regular.ttf') }});
+        }
+
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 700;
+            src: url({{ asset('assets/fonts/Poppins-Regular.ttf') }});
+        }
+
+        @font-face {
+            font-family: 'Rockwell';
+            font-style: normal;
+            font-weight: 0;
+            src: url({{ asset('assets/fonts/Rockwell-Bold.ttf') }});
+        }
         body {
+            font-size: 14px;
             font-family: {{ $font_family }};
         }
 
@@ -30,7 +51,7 @@
                             height="10%">
                     @endif
                     <div class="tag_info">
-                        <h1>Pengu Pengu</h1>
+                        <h1>{{ $profile->first_name . ' ' . $profile->last_name }}</h1>
                         <p>{{ $profile->title }}</p>
                         <p>Phone: {{ $profile->phone_number }}</p>
                         <p>Email:{{ $profile->email }}</p>
