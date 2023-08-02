@@ -11,5 +11,8 @@
     "rockwell": {
         "normal": "C:\\xampp\\htdocs\\optimaloutsourcing\\storage\\fonts\/rockwell_normal_38895e8247a14975ec10ed9beab70090",
         "100": "rockwell_100_38895e8247a14975ec10ed9beab70090"
+    },
+    "fontawesome": {
+        "normal": "fontawesome_normal_0d054c01a20249458ebc59d71623830f"
     }
 }

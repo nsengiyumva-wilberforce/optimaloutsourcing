@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Skill;
 use Barryvdh\DomPDF\Facade\Pdf;
+;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -251,21 +253,21 @@ class ProfileController extends Controller
         if (!isset($pdf)) {
             $pdf = Pdf::loadView('cvgenerator.international', $data);
         }
-        $pdf->output();
-        $canvas = $pdf->getDomPDF()->getCanvas();
-        $height = $canvas->get_height();
-        $width = $canvas->get_width();
-        $canvas->set_opacity(.2, "Multiply");
-        $canvas->page_text(
-            $width / 5, $height / 2,
-            'Optimal Outsourcing',
-            null,
-            50,
-            array(0, 0, 0),
-            2,
-            2,
-            -45
-        );
+        // $pdf->output();
+        // $canvas = $pdf->getDomPDF()->getCanvas();
+        // $height = $canvas->get_height();
+        // $width = $canvas->get_width();
+        // $canvas->set_opacity(.2, "Multiply");
+        // $canvas->page_text(
+        //     $width / 5, $height / 2,
+        //     'Optimal Outsourcing',
+        //     null,
+        //     50,
+        //     array(0, 0, 0),
+        //     2,
+        //     2,
+        //     -45
+        // );
 
         // Save the PDF to the assets folder in the public directory
         $pdf->save(public_path('assets/cvs/' . $cv_file_name));
@@ -343,21 +345,21 @@ class ProfileController extends Controller
         if (!isset($pdf)) {
             $pdf = Pdf::loadView('cvgenerator.international', $data);
         }
-        $pdf->output();
-        $canvas = $pdf->getDomPDF()->getCanvas();
-        $height = $canvas->get_height();
-        $width = $canvas->get_width();
-        $canvas->set_opacity(.2, "Multiply");
-        $canvas->page_text(
-            $width / 5, $height / 2,
-            'Optimal Outsourcing',
-            null,
-            50,
-            array(0, 0, 0),
-            2,
-            2,
-            -45
-        );
+        // $pdf->output();
+        // $canvas = $pdf->getDomPDF()->getCanvas();
+        // $height = $canvas->get_height();
+        // $width = $canvas->get_width();
+        // $canvas->set_opacity(.2, "Multiply");
+        // $canvas->page_text(
+        //     $width / 5, $height / 2,
+        //     'Optimal Outsourcing',
+        //     null,
+        //     50,
+        //     array(0, 0, 0),
+        //     2,
+        //     2,
+        //     -45
+        // );
 
         //set the custom font family
         // Save the PDF to the assets folder in the public directory
