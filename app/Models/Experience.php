@@ -28,7 +28,7 @@ class Experience extends Model
     /**
      *The profiles that belong to the experience.
      */
-    public function profile(): BelongsTo
+    public function profile()
     {
         return $this->belongsTo(Profile::class, 'profile_id', 'profile_id');
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Skill;
 use Barryvdh\DomPDF\Facade\Pdf;
+
 ;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -32,9 +33,18 @@ class ProfileController extends Controller
         //get the profile photo
         $profile_photo = $profile->profile_photo;
 
+        //get the languages for the user
+        $languages = $profile->languages;
+
+        //get certificates for the user
+        $certificates = $profile->certificates;
+
+        //get references for the user
+        $references = $profile->references;
+
         //get the cover photo
         $cover_photo = $profile->cover_photo;
-        return view('profile.index', compact('profile', 'skills', 'experiences', 'trainings', 'profile_photo', 'cover_photo', 'user_skills'));
+        return view('profile.index', compact('profile', 'skills', 'experiences', 'trainings', 'profile_photo', 'cover_photo', 'user_skills', 'languages', 'certificates', 'references'));
     }
 
     public function update(Request $request)
@@ -47,8 +57,22 @@ class ProfileController extends Controller
         $experiences = json_decode($request->input('experiences'));
         //get traingings from the request
         $trainings = json_decode($request->input('trainings'));
+
+        //get languages from the request
+        $languages = json_decode($request->input('languages'));
+
+        //get certificates from the request
+        $certificates = json_decode($request->input('certificates'));
+
+        //get references from the request
+        $references = json_decode($request->input('references'));
+
+        //get authenticated user
         $user = auth()->user();
+
+        //get the profile of the authenticated user
         $profile = $user->profile;
+
         //attach the skills to the profile
         if (count($skills) > 0 && $skills[0] != "") {
             $profile->skills()->sync($skills);
@@ -74,7 +98,7 @@ class ProfileController extends Controller
             $experiences[0]->end_date = $request->input('end_date');
             $experiences[0]->job_description = $request->input('job_description');
         } else {
-            if ($experiences != null) {
+            if ($experiences != null && $request->input('job_title') != null) {
                 $experienceIndex = count($experiences);
                 $experiences[$experienceIndex] = new \stdClass();
                 $experiences[$experienceIndex]->job_title = $request->input('job_title');
@@ -104,7 +128,7 @@ class ProfileController extends Controller
             $trainings[0]->training_end_date = $request->input('training_end_date');
             $trainings[0]->training_description = $request->input('training_description');
         } else {
-            if ($trainings != null) {
+            if ($trainings != null && $request->input('training_title') != null) {
                 $trainingIndex = count($trainings);
                 $trainings[$trainingIndex] = new \stdClass();
                 $trainings[$trainingIndex]->training_title = $request->input('training_title');
@@ -114,6 +138,85 @@ class ProfileController extends Controller
                 $trainings[$trainingIndex]->training_description = $request->input('training_description');
             }
         }
+        if ($request->input('language') && $languages == null) {
+            //validate the request
+            $request->validate([
+                'language' => 'required',
+                'spoken_language_level' => 'required',
+                'written_language_level' => 'required',
+            ]);
+
+            //create a new language object
+            $languages[] = new \stdClass();
+            //add the language to the array
+            $languages[0]->language = $request->input('language');
+            $languages[0]->spoken_language_level = $request->input('spoken_language_level');
+            $languages[0]->written_language_level = $request->input('written_language_level');
+        } else {
+
+            if ($languages != null && $request->input('language') != null) {
+                $languageIndex = count($languages);
+                $languages[$languageIndex] = new \stdClass();
+                $languages[$languageIndex]->language = $request->input('language');
+                $languages[$languageIndex]->spoken_language_level = $request->input('spoken_language_level');
+                $languages[$languageIndex]->written_language_level = $request->input('written_language_level');
+            }
+        }
+
+        if ($request->input('full_name') && $references == null) {
+            //validate the request
+            $request->validate([
+                'full_name' => 'required',
+                'title_and_organization' => 'required',
+                'email' => 'required',
+                'phone_number' => 'required',
+                'relationship' => 'required',
+            ]);
+
+            //create a new reference object
+            $references[] = new \stdClass();
+            //add the reference to the array
+            $references[0]->full_name = $request->input('full_name');
+            $references[0]->title_and_organization = $request->input('title_and_organization');
+            $references[0]->email = $request->input('email');
+            $references[0]->phone_number = $request->input('phone_number');
+            $references[0]->relationship = $request->input('relationship');
+        } else {
+            if ($references != null && $request->input('full_name') != null) {
+                $referenceIndex = count($references);
+                $references[$referenceIndex] = new \stdClass();
+                $references[$referenceIndex]->full_name = $request->input('full_name');
+                $references[$referenceIndex]->title_and_organization = $request->input('title_and_organization');
+                $references[$referenceIndex]->email = $request->input('email');
+                $references[$referenceIndex]->phone_number = $request->input('phone_number');
+                $references[$referenceIndex]->relationship = $request->input('relationship');
+            }
+        }
+
+        if ($request->input('certificate_name') && $request->input('date_of_certification')  && $certificates == null) {
+            //validate the request
+            $request->validate([
+                'certificate_name' => 'required',
+                'date_of_certification' => 'required',
+                'certificate_attachment' => 'required',
+            ]);
+
+            //create a new reference object
+            $certificates[] = new \stdClass();
+            //add the reference to the array
+            //get the cover image
+            if ($request->hasFile('certificate_attachment')) {
+                $file = $request->file('certificate_attachment');
+                // Perform necessary validations or file processing
+                $path = $file->store('certificate_attachments', 'public');
+
+                //save the image path in the database
+                $certificates[0]->certificate_attachment = $path;
+            }
+            $certificates[0]->certificate_name = $request->input('certificate_name');
+            $certificates[0]->date_of_certification = $request->input('date_of_certification');
+        }
+
 
         //insert experiences into the database
         if ($experiences) {
@@ -137,6 +240,39 @@ class ProfileController extends Controller
                     'training_start_date' => $training->training_start_date,
                     'training_end_date' => $training->training_end_date,
                     'training_description' => $training->training_description,
+                ]);
+            }
+        }
+        //insert languages into the database
+        if ($languages) {
+            foreach ($languages as $language) {
+                $profile->languages()->create([
+                    'language' => $language->language,
+                    'spoken_language_level' => $language->spoken_language_level,
+                    'written_language_level' => $language->written_language_level,
+                ]);
+            }
+        }
+        //insert references into the database
+        if ($references) {
+            foreach ($references as $reference) {
+                $profile->references()->create([
+                    'full_name' => $reference->full_name,
+                    'title_and_organization' => $reference->title_and_organization,
+                    'email' => $reference->email,
+                    'phone_number' => $reference->phone_number,
+                    'relationship' => $reference->relationship,
+                ]);
+            }
+        }
+
+        //insert certificates into the database
+        if ($certificates) {
+            foreach ($certificates as $certificate) {
+                $profile->certificates()->create([
+                    'certificate_name' => $certificate->certificate_name,
+                    'date_of_certification' => $certificate->date_of_certification,
+                    'certificate_attachment' => $certificate->certificate_attachment,
                 ]);
             }
         }
@@ -209,13 +345,21 @@ class ProfileController extends Controller
         //get all the trainings for the user
         $trainings = $profile->trainings;
 
+        //get all the languages for the user
+        $languages = $profile->languages;
+
+        //get all the references for the user
+        $references = $profile->references;
+
+        //get all the certificates for the user
+        $certificates = $profile->certificates;
+
         //get the profile photo
         $profile_photo = $profile->profile_photo;
 
         //generate the full file name
         $full_name = auth()->user()->profile->first_name . ' ' . auth()->user()->profile->last_name;
         $cv_file_name = $full_name . '-CV.pdf';
-
         //get the cover photo
         $cover_photo = $profile->cover_photo;
         $data = [
@@ -223,6 +367,9 @@ class ProfileController extends Controller
             'skills' => $skills,
             'experiences' => $experiences,
             'trainings' => $trainings,
+            'languages' => $languages,
+            'references' => $references,
+            'certificates' => $certificates,
             'profile_photo' => $profile_photo,
             'cover_photo' => $cover_photo,
             'theme_color' => $effect_color,
@@ -253,21 +400,6 @@ class ProfileController extends Controller
         if (!isset($pdf)) {
             $pdf = Pdf::loadView('cvgenerator.international', $data);
         }
-        // $pdf->output();
-        // $canvas = $pdf->getDomPDF()->getCanvas();
-        // $height = $canvas->get_height();
-        // $width = $canvas->get_width();
-        // $canvas->set_opacity(.2, "Multiply");
-        // $canvas->page_text(
-        //     $width / 5, $height / 2,
-        //     'Optimal Outsourcing',
-        //     null,
-        //     50,
-        //     array(0, 0, 0),
-        //     2,
-        //     2,
-        //     -45
-        // );
 
         // Save the PDF to the assets folder in the public directory
         $pdf->save(public_path('assets/cvs/' . $cv_file_name));
@@ -301,6 +433,15 @@ class ProfileController extends Controller
         //get all the trainings for the user
         $trainings = $profile->trainings;
 
+        //get all the languages for the user
+        $languages = $profile->languages;
+
+        //get all the references for the user
+        $references = $profile->references;
+
+        //get all the certificates for the user
+        $certificates = $profile->certificates;
+
         //get the profile photo
         $profile_photo = $profile->profile_photo;
 
@@ -315,6 +456,9 @@ class ProfileController extends Controller
             'skills' => $skills,
             'experiences' => $experiences,
             'trainings' => $trainings,
+            'languages' => $languages,
+            'references' => $references,
+            'certificates' => $certificates,
             'profile_photo' => $profile_photo,
             'cover_photo' => $cover_photo,
             'theme_color' => $effect_color,
@@ -345,23 +489,6 @@ class ProfileController extends Controller
         if (!isset($pdf)) {
             $pdf = Pdf::loadView('cvgenerator.international', $data);
         }
-        // $pdf->output();
-        // $canvas = $pdf->getDomPDF()->getCanvas();
-        // $height = $canvas->get_height();
-        // $width = $canvas->get_width();
-        // $canvas->set_opacity(.2, "Multiply");
-        // $canvas->page_text(
-        //     $width / 5, $height / 2,
-        //     'Optimal Outsourcing',
-        //     null,
-        //     50,
-        //     array(0, 0, 0),
-        //     2,
-        //     2,
-        //     -45
-        // );
-
-        //set the custom font family
         // Save the PDF to the assets folder in the public directory
         $pdf->save(public_path('assets/cvs/' . $cv_file_name));
 

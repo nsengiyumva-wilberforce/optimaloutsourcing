@@ -77,6 +77,9 @@
             float: right;
             margin: -6%
         }
+        .side_bar{
+            border-left: 2px solid {{ $theme_color }};
+        }
     </style>
 </head>
 
@@ -108,28 +111,31 @@
 
             <div>
                 <h5><span class="fa fa-briefcase"></span>&nbsp;&nbsp;&nbsp;&nbsp;WORK EXPERIENCE</h5>
+                <div class="side_bar">
                 @if ($experiences)
                     @foreach ($experiences as $experience)
-                        <p>
+                        <p style="padding-left: 5px">
                             <b>{{ $experience->job_title }}</b> | {{ $experience->company_name }} |
                             {{ date('Y', strtotime($experience->start_date)) }} -
                             {{ date('Y', strtotime($experience->training_end_date)) }}
-                        <ul type="none">
+                        <ul type="none" style="padding-left: 5px">
                             <li>{{ $experience->job_description }}</li>
                         </ul>
                         </p>
                     @endforeach
                 @endif
             </div>
+            </div>
             <div>
                 <h5><span class="fa fa-graduation-cap"></span>&nbsp;&nbsp;&nbsp;&nbsp;EDUCATION</h5>
+                <div class="side_bar">
                 @if ($trainings)
                     @foreach ($trainings as $training)
-                        <p>
+                        <p style="padding-left: 5px">
                             <b>{{ $training->training_title }}</b> | {{ $training->training_institution }} |
                             {{ date('Y', strtotime($training->training_start_date)) }} -
                             {{ date('Y', strtotime($training->training_end_date)) }}
-                        <ul type="none">
+                        <ul type="none" style="padding-left: 5px">
                             <li>{{ $training->training_description }}
                             </li>
                         </ul>
@@ -137,38 +143,64 @@
                     @endforeach
                 @endif
             </div>
+            </div>
             <div>
                 <h5><span class="fa fa-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;SKILLS</h5>
+                <div class="side_bar">
                 @if ($skills)
                     @foreach ($skills as $skill)
-                        <p>
+                        <p style="padding-left: 5px">
                             <b>{{ $skill->skill_name }}</b>
                         </p>
                     @endforeach
                 @endif
             </div>
-            <div>
-                <h5><span class="fa fa-graduation-cap"></span>&nbsp;&nbsp;&nbsp;&nbsp;HOBBIES</h5>
-                <p>
-                    Programming Projects: Engage in personal coding projects to explore new technologies, build
-                    software applications, or contribute to open-source projects. It's a great way to enhance your
-                    programming skills and expand your portfolio.
-                </p>
-                <p>
-                    Game Development: Create your own video games or contribute to game modding communities. This
-                    hobby allows you to combine your coding expertise with creativity and problem-solving skills.
-                </p>
             </div>
             <div>
-                <h5>
-                    REFERENCES
-                </h5>
-                <p>
-                    <!-- Add requests please -->
-                    <b>John Doe</b> | Software Engineer | Company Name |
-                    <a href="mailto:johndoe@gmail.com">johndoe@gmail.com</a>
-
-                </p>
+                <h5><span class="fa fa-graduation-cap"></span>&nbsp;&nbsp;&nbsp;&nbsp;LANGUAGE SKILLS</h5>
+                <div class="side_bar">
+                @if ($languages)
+                <p style="padding-left: 5px"><span style="margin-right: 10px;font-weight:bold;">Language</span><span style="margin-right: 10px;font-weight:bold;">Spoken</span><span>Written</span></p>
+                    @foreach ($languages as $language)
+                        <p style="padding-left: 5px">
+                            <span style="margin-right: 10px;font-weight:bold;">{{ $language->language }}</span>  <span style="margin-right: 10px;">{{ $language->spoken_language_level }}</span>  <span>{{ $language->written_language_level }}</span>
+                        </p>
+                    @endforeach
+                @endif
+            </div>
+            </div>
+            <div>
+                <h5><span class="fa fa-certificate"></span>&nbsp;&nbsp;&nbsp;&nbsp;CERTIFICATES</h5>
+                <div class="side_bar">
+                @if ($certificates)
+                    @foreach ($certificates as $certificate)
+                        <p style="padding-left: 5px">
+                            <b>{{ $certificate->certificate_name }}</b>
+                        </p>
+                    @endforeach
+                @endif
+            </div>
+            </div>
+            <div>
+                <h5><span class="fa fa-share-alt"></span>&nbsp;&nbsp;&nbsp;&nbsp;REFERENCES</h5>
+                <div class="side_bar">
+                @if ($references)
+                    @foreach ($references as $reference)
+                        <div style="padding-left: 5px">
+                            <p>
+                                <b>{{ $reference->full_name }}</b>
+                            </p>
+                            <p>
+                                {{ $reference->title_and_organization }}
+                            </p>
+                            <p>
+                                <b>{{ $reference->phone_number }}</b>
+                            </p>
+                            <p>
+                                <b>{{ $reference->email }}</b>
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>

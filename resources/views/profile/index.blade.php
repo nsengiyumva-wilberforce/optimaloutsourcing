@@ -62,7 +62,7 @@
                         </div>
                     </div>
                 </div>
-               <div class="col-xxl-4">
+                <div class="col-xxl-4">
                     <div class="form-label">&nbsp;</div>
                     <div class="pxp-candidate-photo mb-3">
                         <input type="file" name="profile_photo" id="pxp-candidate-photo-choose-file" accept="image/*">
@@ -317,6 +317,40 @@
 
             <div class="mt-4 mt-lg-5">
                 <h2>Language Skills</h2>
+                <div class="table-responsive">
+                    <table class="table align-middle" id="language-table">
+                        <tbody>
+                            @if ($languages)
+                                @foreach ($languages as $language)
+                                    <tr data-id="{{ $language->language_id }}">
+                                        <td style="width: 30%;">
+                                            <div class="pxp-candidate-dashboard-experience-title">
+                                                {{ $language->language }}</div>
+                                        </td>
+                                        <td style="width: 25%;">
+                                            <div class="pxp-candidate-dashboard-experience-company">
+                                                {{ $language->spoken_language_level }}</div>
+                                        </td>
+                                        <td style="width: 25%;">
+                                            <div class="pxp-candidate-dashboard-experience-time">
+                                                {{ $language->written_language_level }}</div>
+                                        </td>
+                                        <td>
+                                            <div class="pxp-dashboard-table-options">
+                                                <ul class="list-unstyled">
+                                                    <li><button title="Edit" class="edit-btn"><span
+                                                                class="fa fa-pencil"></span></button></li>
+                                                    <li><button title="Delete" class="delete-btn"><span
+                                                                class="fa fa-trash-o"></span></button></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endif
+                        </tbody>
+                    </table>
+                </div>
                 <div class="row mt-3 mt-lg-4">
                     <div class="col-md-4">
                         <div class="mb-3">
@@ -332,12 +366,12 @@
                     </div>
                     <div class="col-md-4">
                         <div class="mb-3">
-                            <label for="spoken_language_level" class="form-label">Spoken language level</label>
-                            <select id="spoken_language_level" name="spoken_language_level" class="form-select">
-                                    <option value="none">None</option>
-                                    <option value="basic">Basic</option>
-                                    <option value="fluent">Fluent</option>
-                                    <option value="native">Native</option>
+                            <label for="spoken-language-level" class="form-label">Spoken language level</label>
+                            <select id="spoken-language-level" name="spoken_language_level" class="form-select">
+                                <option value="none">None</option>
+                                <option value="basic">Basic</option>
+                                <option value="fluent">Fluent</option>
+                                <option value="native">Native</option>
                             </select>
                             @if ($errors->has('spoken_language_level'))
                                 <div class="alert alert-danger">
@@ -348,12 +382,12 @@
                     </div>
                     <div class="col-md-4">
                         <div class="mb-3">
-                            <label for="written_language_level" class="form-label">Written language level</label>
-                            <select id="written_language_level" name="written_language_level" class="form-select">
-                                    <option value="none">None</option>
-                                    <option value="basic">Basic</option>
-                                    <option value="fluent">Fluent</option>
-                                    <option value="native">Native</option>
+                            <label for="written-language-level" class="form-label">Written language level</label>
+                            <select id="written-language-level" name="written_language_level" class="form-select">
+                                <option value="none">None</option>
+                                <option value="basic">Basic</option>
+                                <option value="fluent">Fluent</option>
+                                <option value="native">Native</option>
                             </select>
                             @if ($errors->has('written_language_level'))
                                 <div class="alert alert-danger">
@@ -363,21 +397,51 @@
                         </div>
                     </div>
                 </div>
-                <input type="hidden" name="languages" id="trainings-hidden-field">
-                <button class="btn rounded-pill pxp-subsection-cta" id="add-edu-btn">Add Language</button>
+                <input type="hidden" name="languages" id="languages-hidden-field">
+                <button class="btn rounded-pill pxp-subsection-cta" id="add-lang-btn">Add Language</button>
             </div>
 
             <div class="mt-4 mt-lg-5">
                 <h2>Certificates</h2>
+                <div class="table-responsive">
+                    <table class="table align-middle" id="certificate-table">
+                        <tbody>
+                            @if ($certificates)
+                                @foreach ($certificates as $certificate)
+                                    <tr data-id="{{ $certificate->certificate_id }}">
+                                        <td style="width: 30%;">
+                                            <div class="pxp-candidate-dashboard-experience-title">
+                                                {{ $certificate->certificate_name }}</div>
+                                        </td>
+                                        <td style="width: 25%;">
+                                            <div class="pxp-candidate-dashboard-experience-company">
+                                                {{ $certificate->date_of_certification }}</div>
+                                        </td>
+                                        <td>
+                                            <div class="pxp-dashboard-table-options">
+                                                <ul class="list-unstyled">
+                                                    <li><button title="Edit" class="edit-btn"><span
+                                                                class="fa fa-pencil"></span></button></li>
+                                                    <li><button title="Delete" class="delete-btn"><span
+                                                                class="fa fa-trash-o"></span></button></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endif
+                        </tbody>
+                    </table>
+                </div>
                 <div class="row mt-3 mt-lg-4">
                     <div class="col-md-4">
                         <div class="mb-3">
-                            <label for="certificate_name" class="form-label">Certificate Name</label>
-                            <select id="certificate_name" name="certificate_name" class="form-select">
-                                    <option>Select Certificate</option>
-                                    <option value="basic">Certificate inFrench Language</option>
-                                    <option value="fluent">Certified Ethical Hacker (CEH)</option>
-                                    <option value="native">Certified Fraud Examiner</option>
+                            <label for="certificate-name" class="form-label">Certificate Name</label>
+                            <select id="certificate-name" name="certificate_name" class="form-select">
+                                <option>Select Certificate</option>
+                                <option value="Certificate in French">Certificate in French Language</option>
+                                <option value="Certified Ethical Hacker">Certified Ethical Hacker (CEH)</option>
+                                <option value="Certified Fraud Examiner">Certified Fraud Examiner</option>
                             </select>
                             @if ($errors->has('certificate_name'))
                                 <div class="alert alert-danger">
@@ -388,8 +452,9 @@
                     </div>
                     <div class="col-md-4">
                         <div class="mb-3">
-                            <label for="date_of_certification" class="form-label">When you got certificate?</label>
-                            <input type="date" name="date_of_certification" id="date_of_certification" placeholder="Select Month" class="form-control">
+                            <label for="date-of-certification" class="form-label">When you got certificate?</label>
+                            <input type="date" name="date_of_certification" id="date-of-certification"
+                                placeholder="Select Month" class="form-control">
                             @if ($errors->has('date_of_certification'))
                                 <div class="alert alert-danger">
                                     <p>{{ $errors->first('date_of_certification') }}</p>
@@ -399,8 +464,10 @@
                     </div>
                     <div class="col-md-4">
                         <div class="mb-3">
-                            <label for="certificate_attachment" class="form-label">Have Attachment for Certificate? Great?</label>
-                            <input type="file" name="certificate_attachment" id="certificate_attachment" class="form-control">
+                            <label for="certificate-attachment" class="form-label">Have Attachment for Certificate?
+                                Great?</label>
+                            <input type="file" name="certificate_attachment" id="certificate-attachment"
+                                class="form-control">
                             @if ($errors->has('certificate_attachment'))
                                 <div class="alert alert-danger">
                                     <p>{{ $errors->first('certificate_attachment') }}</p>
@@ -409,8 +476,110 @@
                         </div>
                     </div>
                 </div>
-                <input type="hidden" name="languages" id="trainings-hidden-field">
+                <input type="hidden" name="certificates" id="certificates-hidden-field">
                 <button class="btn rounded-pill pxp-subsection-cta" id="add-edu-btn">Add Certificate</button>
+            </div>
+
+            <div class="mt-4 mt-lg-5">
+                <h2>References</h2>
+                <div class="table-responsive">
+                    <table class="table align-middle" id="reference-table">
+                        <tbody>
+                            @if ($references)
+                                @foreach ($references as $reference)
+                                    <tr data-id="{{ $reference->reference_id }}">
+                                        <td style="width: 30%;">
+                                            <div class="pxp-candidate-dashboard-experience-title">
+                                                {{ $reference->full_name }}</div>
+                                        </td>
+                                        <td style="width: 25%;">
+                                            <div class="pxp-candidate-dashboard-experience-company">
+                                                {{ $reference->email }}</div>
+                                        </td>
+                                        <td style="width: 25%;">
+                                            <div class="pxp-candidate-dashboard-experience-time">
+                                                {{ $reference->phone_number }}</div>
+                                        </td>
+                                        <td>
+                                            <div class="pxp-dashboard-table-options">
+                                                <ul class="list-unstyled">
+                                                    <li><button title="Edit" class="edit-btn"><span
+                                                                class="fa fa-pencil"></span></button></li>
+                                                    <li><button title="Delete" class="delete-btn"><span
+                                                                class="fa fa-trash-o"></span></button></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endif
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row mt-3 mt-lg-4">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="full-name" class="form-label">Full Name</label>
+                            <input type="text" name="full_name" id="full-name" class="form-control"
+                                value="{{ old('full_name') }}">
+                            @if ($errors->has('full_name'))
+                                <div class="alert alert-danger">
+                                    <p>{{ $errors->first('full_name') }}</p>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="title-and-organization" class="form-label">Title and Organization</label>
+                            <input type="text" name="title_and_organization" id="title-and-organization"
+                                class="form-control" value="{{ old('title_and_organization') }}">
+                            @if ($errors->has('title_and_organization'))
+                                <div class="alert alert-danger">
+                                    <p>{{ $errors->first('title_and_organization') }}</p>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" name="email" id="email" class="form-control"
+                                value="{{ old('email') }}">
+                            @if ($errors->has('email'))
+                                <div class="alert alert-danger">
+                                    <p>{{ $errors->first('email') }}</p>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="phone-number" class="form-label">Phone Number</label>
+                            <input type="text" name="phone_number" id="phone-number" class="form-control"
+                                value="{{ old('phone_number') }}">
+                            @if ($errors->has('phone_number'))
+                                <div class="alert alert-danger">
+                                    <p>{{ $errors->first('phone_number') }}</p>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="relationship" class="form-label">Your relation to the person</label>
+                            <input type="text" name="relationship" id="relationship" class="form-control"
+                                value="{{ old('relationship') }}">
+                            @if ($errors->has('relationship'))
+                                <div class="alert alert-danger">
+                                    <p>{{ $errors->first('relationship') }}</p>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" name="references" id="references-hidden-field">
+                <button class="btn rounded-pill pxp-subsection-cta" id="add-ref-btn">Add Reference</button>
             </div>
 
             <div class="mt-4 mt-lg-5">

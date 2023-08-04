@@ -1105,6 +1105,271 @@
         updateTrainingHiddenField();
     });
 
+    // Global array to store languages
+    let languagesArray = [];
+
+    // Add event listener to the "Add Language" button
+    $("#add-lang-btn").click(addLanguageRow);
+
+    // Function to add a new experience row
+    function addLanguageRow(event) {
+        event.preventDefault();
+        const language = $("#language").val();
+        const spoken_language_level = $("#spoken-language-level").val()
+        const written_language_level = $("#written-language-level").val()
+
+        console.log(
+            language,
+            spoken_language_level,
+            written_language_level
+        );
+        // Push thelanguage as an object into the array
+        languagesArray.push({
+            language: language,
+            spoken_language_level: spoken_language_level,
+            written_language_level: written_language_level,
+        });
+
+        const newRow = $("<tr>");
+        newRow.append(
+            $("<td>").html(
+                '<div class="pxp-candidate-dashboard-experience-title">' +
+                    language +
+                    "</div>"
+            )
+        );
+        newRow.append(
+            $("<td>").html(
+                '<div class="pxp-candidate-dashboard-experience-company">' +
+                    spoken_language_level +
+                    "</div>"
+            )
+        );
+        newRow.append(
+            $("<td>").html(
+                '<div class="pxp-candidate-dashboard-experience-time">' +
+                    written_language_level +
+                    "</div>"
+            )
+        );
+        newRow.append(
+            $("<td>").html(
+                '<div class="pxp-dashboard-table-options">' +
+                    '<ul class="list-unstyled">' +
+                    '<li><button title="Edit" class="edit-btn"><span class="fa fa-pencil"></span></button></li>' +
+                    '<li><button title="Delete" class="delete-btn"><span class="fa fa-trash-o"></span></button></li>' +
+                    "</ul></div>"
+            )
+        );
+
+        $("#language-table tbody").append(newRow);
+
+        // Clear input values
+        $("#language").val("");
+        $("#spoken-language-level").val("");
+        $("#written-language-level").val("");
+
+        // Update the hidden field value
+        updateLanguageHiddenField();
+    }
+
+    // Function to update the hidden field value with the languages array
+    function updateLanguageHiddenField() {
+        $("#languages-hidden-field").val(JSON.stringify(languagesArray));
+    }
+
+    // Event delegation to handle delete button click
+    $("#language-table tbody").on("click", ".delete-btn", function (event) {
+        event.preventDefault();
+        const rowIndex = $(this).closest("tr").index();
+        languagesArray.splice(rowIndex, 1); // Remove the corresponding element from the languages array
+
+        $(this).closest("tr").remove(); // Remove the row from the table
+
+        // Update the hidden field value
+        updateLanguageHiddenField();
+    });
+
+    // Event delegation to handle edit button click
+    $("#language-table tbody").on("click", ".edit-btn", function (event) {
+        event.preventDefault();
+        const rowIndex = $(this).closest("tr").index();
+        console.log(languagesArray)
+        const language = languagesArray[rowIndex];
+        console.log(rowIndex);
+
+        // Fill the form fields with the language details for editing
+        $("#language").val(language.language);
+        $("#spoken-language-level").val(language.spoken_language_level);
+        $("#written-language-level").val(language.written_language_level);
+
+        // Remove the corresponding row from the table
+        $(this).closest("tr").remove();
+
+        // Remove the experience from the array
+        languagesArray.splice(rowIndex, 1);
+
+        // Update the hidden field value
+        updateLanguageHiddenField();
+    });
+
+    var selectedSkills = []; // Array to store the selected skill values
+
+    $("#skillsSelect").on("change", function () {
+        var selectedSkill = $(this).val();
+        var selectedSkillText = $("#skillsSelect option:selected").text();
+
+        if (selectedSkill !== "") {
+            // Check if the skill is already in the list
+            var existingSkill = $(
+                "#selectedSkillsList li:contains(" + selectedSkillText + ")"
+            );
+            if (existingSkill.length === 0) {
+                // Add the selected skill to the top of the list
+                $("#selectedSkillsList").prepend(
+                    "<li>" +
+                        selectedSkillText +
+                        '<span class="fa fa-trash-o"></span></li>'
+                );
+                selectedSkills.push(selectedSkill); // Add the selected skill to the array
+                updateSelectedSkillsInput(); // Update the hidden input field
+            }
+        }
+    });
+
+    $(document).on(
+        "click",
+        ".pxp-candidate-dashboard-skills li .fa-trash-o",
+        function () {
+            var removedSkill = $(this).parent("li").text().trim();
+            $(this).parent("li").remove();
+            selectedSkills = selectedSkills.filter(function (skill) {
+                return skill !== removedSkill; // Remove the skill from the array
+            });
+            updateSelectedSkillsInput(); // Update the hidden input field
+        }
+    );
+
+    function updateSelectedSkillsInput() {
+        var selectedSkillsInput = $("#selectedSkillsInput");
+        selectedSkillsInput.val(selectedSkills.join(",")); // Update the hidden input value with selected skills
+    }
+
+    // Global array to store experiences
+    let referencesArray = [];
+
+    // Add event listener to the "Add Experience" button
+    $("#add-ref-btn").click(addReferenceRow);
+
+    // Function to add a new experience row
+    function addReferenceRow(event) {
+        event.preventDefault();
+        const full_name = $("#full-name").val();
+        const title_and_organization = $("#title-and-organization").val();
+        const email = $("#email").val();
+        const phone_number = $("#phone-number").val();
+        const relationship = $("#relationship").val();
+
+        console.log(
+            full_name,
+            title_and_organization,
+            email,
+            phone_number,
+        );
+        // Push the reference as an object into the array
+        referencesArray.push({
+            full_name: full_name,
+            title_and_organization: title_and_organization,
+            email: email,
+            phone_number: phone_number,
+            relationship: relationship,
+        });
+
+        const newRow = $("<tr>");
+        newRow.append(
+            $("<td>").html(
+                '<div class="pxp-candidate-dashboard-experience-title">' +
+                    full_name +
+                    "</div>"
+            )
+        );
+        newRow.append(
+            $("<td>").html(
+                '<div class="pxp-candidate-dashboard-experience-company">' +
+                    email +
+                    "</div>"
+            )
+        );
+        newRow.append(
+            $("<td>").html(
+                '<div class="pxp-candidate-dashboard-experience-time">' +
+                    phone_number +
+                    "</div>"
+            )
+        );
+        newRow.append(
+            $("<td>").html(
+                '<div class="pxp-dashboard-table-options">' +
+                    '<ul class="list-unstyled">' +
+                    '<li><button title="Edit" class="edit-btn"><span class="fa fa-pencil"></span></button></li>' +
+                    '<li><button title="Delete" class="delete-btn"><span class="fa fa-trash-o"></span></button></li>' +
+                    "</ul></div>"
+            )
+        );
+
+        $("#reference-table tbody").append(newRow);
+
+        // Clear input values
+        $("#full-name").val("");
+        $("#title-and-organization").val("");
+        $("#email").val("");
+        $("#phone-number").val("");
+        $("#relationship").val("");
+
+        // Update the hidden field value
+        updateReferenceHiddenField();
+    }
+
+    // Function to update the hidden field value with the references array
+    function updateReferenceHiddenField() {
+        $("#references-hidden-field").val(JSON.stringify(referencesArray));
+    }
+
+    // Event delegation to handle delete button click
+    $("#reference-table tbody").on("click", ".delete-btn", function (event) {
+        event.preventDefault();
+        const rowIndex = $(this).closest("tr").index();
+        referencesArray.splice(rowIndex, 1); // Remove the corresponding element from the references array
+
+        $(this).closest("tr").remove(); // Remove the row from the table
+
+        // Update the hidden field value
+        updateReferenceHiddenField();
+    });
+
+    // Event delegation to handle edit button click
+    $("#reference-table tbody").on("click", ".edit-btn", function (event) {
+        event.preventDefault();
+        const rowIndex = $(this).closest("tr").index();
+        const reference = referencesArray[rowIndex];
+
+        // Fill the form fields with the reference details for editing
+        $("#full-name").val(reference.full_name);
+        $("#title-and-organization").val(reference.title_and_organization);
+        $("#email").val(reference.email);
+        $("#phone-number").val(reference.phone_number);
+        $("#relationship").val(reference.relationship);
+
+        // Remove the corresponding row from the table
+        $(this).closest("tr").remove();
+
+        // Remove the reference from the array
+        referencesArray.splice(rowIndex, 1);
+
+        // Update the hidden field value
+        updateReferenceHiddenField();
+    });
+
     $("#add-new-job").submit(function (event) {
         // Get the content of the div
         var divContent = $("#pxp-company-job-description").html();

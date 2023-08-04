@@ -66,6 +66,37 @@ class Profile extends Model
     }
 
     /**
+     * The languages that belong to the profile.
+     */
+    public function languages(): HasMany
+    {
+        return $this->hasMany(Language::class, 'profile_id', 'profile_id');
+    }
+
+    /**
+     * The references that belong to the profile.
+     */
+    public function references(): HasMany
+    {
+        return $this->hasMany(Reference::class, 'profile_id', 'profile_id');
+    }
+
+    /*
+    * The references that belong to the profile.
+    */
+    public function educations(): HasMany
+    {
+        return $this->hasMany(Education::class, 'profile_id', 'profile_id');
+    }
+
+    /**
+     * The certificates that belong to the profile.
+     */
+    public function certificates(): HasMany
+    {
+        return $this->hasMany(Certificate::class, 'profile_id', 'profile_id');
+    }
+    /**
      * custom id generation
      */
     protected static function booted()
