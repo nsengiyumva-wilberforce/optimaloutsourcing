@@ -4,6 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <title>{{ $profile->first_name . ' ' . $profile->last_name }} - Curriculum Vitae</title>
     <style>
         @font-face {
@@ -32,164 +33,196 @@
             font-family: {{ $font_family }};
         }
 
-        .tag_info p {
-            margin: 5px 0 0 0;
-            border-bottom: 5px dotted {{ $theme_color }};
+        .profile_info, .addr_info{
+            text-align: center;
         }
 
-        .profile_info {
-            display: flex;
-            flex-direction: row;
+        .profile_info{
+            border : 5px solid {{ $theme_color }};
+        }
+
+        .left_chamber {
+            width: 40%;
+            float: left;
+        }
+
+        .right_chamber {
+            width: 55%;
+            float: right;
+        }
+
+        div {
+            text-align: justify;
+            page-break-inside: auto;
+        }
+
+        table {
+            page-break-inside: auto;
+        }
+
+
+        .fa {
+            display: inline;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 1;
+            font-family: FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            color: {{ $theme_color }};
+        }
+
+        .watermark {
+            float: right;
+            margin: -6%
+        }
+
+        .side_bar {
+            border-left: 2px solid {{ $theme_color }};
         }
     </style>
 </head>
 
 <body>
-    <table>
-        <tr colspan="2">
-            <td class="profile_info">
-                @if ($profile->profile_photo)
-                    <img src="{{ asset('storage/' . $profile->profile_photo) }}" alt="Avatar" class="rounded img-fluid"
-                        height="10%">
-                @else
-                    <img src="{{ asset('assets/images/international.png') }}" alt="Avatar" class="rounded img-fluid"
-                        height="10%">
-                @endif
-                <div class="info">
-                    <h1>{{ $profile->first_name . ' ' . $profile->last_name }}</h1>
-                    <p>{{ $profile->title }}</p>
-                    <p>Location: {{ $profile->location }}</p>
-                    <p>Phone: {{ $profile->phone_number }}</p>
-                    <p>Email:{{ $profile->email }}</p>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h5>INTRO</h5>
-                <p>
-                    {{ $profile->about_you }}
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h5>WORK EXPERIENCE</h5>
-                @if ($experiences)
-                    @foreach ($experiences as $experience)
+    <img src="{{ asset('assets/images/logo.png') }}" alt="water marking logo" class="watermark">
+    <div class="profile_info">
+        @if ($profile->profile_photo)
+            <img src="{{ asset('storage/' . $profile->profile_photo) }}" alt="Avatar" class="rounded img-fluid"
+                height="10%">
+        @else
+            <img src="{{ asset('assets/images/international.png') }}" alt="Avatar" class="rounded img-fluid"
+                height="10%">
+        @endif
+        @if ($contact_details)
+        <div class="addr_info">
+            <h1>{{ $profile->first_name . ' ' . $profile->last_name }}</h1>
+            <p>{{ $profile->title }}</p>
+            <p>Phone: {{ $profile->phone_number }}</p>
+            <p>Email:{{ $profile->email }}</p>
+        </div>
+    @endif
+    </div>
+    @if ($intro)
+    <div>
+        <h5><span class="fa fa-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;INTRO</h5>
+        <p>
+            {{ $profile->about_you }}
+        </p>
+    </div>
+@endif    @if ($work_experience)
+    <div>
+        <h5><span class="fa fa-briefcase"></span>&nbsp;&nbsp;&nbsp;&nbsp;WORK EXPERIENCE</h5>
+        <div class="side_bar">
+            @if ($experiences)
+                @foreach ($experiences as $experience)
+                    <p style="padding-left: 5px">
+                        <b>{{ $experience->job_title }}</b> | {{ $experience->company_name }} |
+                        {{ date('Y', strtotime($experience->start_date)) }} -
+                        {{ date('Y', strtotime($experience->training_end_date)) }}
+                    <ul type="none" style="padding-left: 5px">
+                        <li>{{ $experience->job_description }}</li>
+                    </ul>
+                    </p>
+                @endforeach
+            @endif
+        </div>
+    </div>
+@endif
+@if ($education)
+    <div>
+        <h5><span class="fa fa-graduation-cap"></span>&nbsp;&nbsp;&nbsp;&nbsp;EDUCATION</h5>
+        <div class="side_bar">
+            @if ($trainings)
+                @foreach ($trainings as $training)
+                    <p style="padding-left: 5px">
+                        <b>{{ $training->training_title }}</b> | {{ $training->training_institution }} |
+                        {{ date('Y', strtotime($training->training_start_date)) }} -
+                        {{ date('Y', strtotime($training->training_end_date)) }}
+                    <ul type="none" style="padding-left: 5px">
+                        <li>{{ $training->training_description }}
+                        </li>
+                    </ul>
+                    </p>
+                @endforeach
+            @endif
+        </div>
+    </div>
+@endif
+@if ($professional_skills)
+    <div>
+        <h5><span class="fa fa-user"></span>&nbsp;&nbsp;&nbsp;&nbsp;SKILLS</h5>
+        <div class="side_bar">
+            @if ($skills)
+                @foreach ($skills as $skill)
+                    <p style="padding-left: 5px">
+                        <b>{{ $skill->skill_name }}</b>
+                    </p>
+                @endforeach
+            @endif
+        </div>
+    </div>
+@endif
+@if ($professional_languages)
+    <div>
+        <h5><span class="fa fa-graduation-cap"></span>&nbsp;&nbsp;&nbsp;&nbsp;LANGUAGE SKILLS</h5>
+        <div class="side_bar">
+            @if ($languages)
+                <p style="padding-left: 5px"><span
+                        style="margin-right: 10px;font-weight:bold;">Language</span><span
+                        style="margin-right: 10px;font-weight:bold;">Spoken</span><span>Written</span></p>
+                @foreach ($languages as $language)
+                    <p style="padding-left: 5px">
+                        <span style="margin-right: 10px;font-weight:bold;">{{ $language->language }}</span>
+                        <span style="margin-right: 10px;">{{ $language->spoken_language_level }}</span>
+                        <span>{{ $language->written_language_level }}</span>
+                    </p>
+                @endforeach
+            @endif
+        </div>
+    </div>
+@endif
+@if ($professional_certificates)
+    <div>
+        <h5><span class="fa fa-certificate"></span>&nbsp;&nbsp;&nbsp;&nbsp;CERTIFICATES</h5>
+        <div class="side_bar">
+            @if ($certificates)
+                @foreach ($certificates as $certificate)
+                    <p style="padding-left: 5px">
+                        <b>{{ $certificate->certificate_name }}</b>
+                    </p>
+                @endforeach
+            @endif
+        </div>
+    </div>
+@endif
+@if ($professional_references)
+    <div>
+        <h5><span class="fa fa-share-alt"></span>&nbsp;&nbsp;&nbsp;&nbsp;REFERENCES</h5>
+        <div class="side_bar">
+            @if ($references)
+                @foreach ($references as $reference)
+                    <div style="padding-left: 5px">
                         <p>
-                            <b>{{ $experience->job_title }}</b> | {{ $experience->company_name }} |
-                            {{ date('Y', strtotime($experience->start_date)) }} -
-                            {{ date('Y', strtotime($experience->training_start_date)) }}
-                        <ul>
-                            <li>{{ $experience->job_description }}</li>
-                        </ul>
+                            <b>{{ $reference->full_name }}</b>
                         </p>
-                    @endforeach
-                @endif
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h5>EDUCATION</h5>
-                @if ($trainings)
-                    @foreach ($trainings as $training)
                         <p>
-                            <b>{{ $training->training_title }}</b> | {{ $training->training_institution }} |
-                            {{ date('Y', strtotime($training->training_start_date)) }} -
-                            {{ date('Y', strtotime($training->training_start_date)) }}
-                        <ul>
-                            <li>{{ $training->training_description }}
-                            </li>
-                        </ul>
+                            {{ $reference->title_and_organization }}
                         </p>
-                    @endforeach
-                @endif
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h5>SKILLS</h5>
-                @if ($skills)
-                    @foreach ($skills as $skill)
                         <p>
-                            <b>{{ $skill->skill_name }}</b>
+                            <b>{{ $reference->phone_number }}</b>
                         </p>
-                    @endforeach
-                @endif
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h5>CERTIFICATES</h5>
-                <p>
-                    <b>Certificate Name</b> | Issuing Organization | 2019
-                <ul>
-                    <li>Relevant Coursework: Data Structures and Algorithms, Software Engineering, Database
-                        Management Systems, Operating Systems, Computer Networks, Web Development, Mobile
-                        Application Development, Machine Learning, Artificial Intelligence, Computer Vision,
-                        Natural Language Processing, Big Data Analytics, Cloud Computing, Software Testing and
-                        Quality Assurance, Software Project Management, Software Security, Computer Graphics,
-                        Computer Architecture, Embedded Systems, Internet of Things, Blockchain Technology,
-                        Quantum Computing, Cryptography, Parallel Computing, Computer Vision, Robotics, Virtual
-                        Reality, Augmented Reality, Human-Computer Interaction, Game Development, Computer
-                        Animation, Computer Forensics, Computer Vision, Computer-Aided Design, Computer-Aided
-                        Manufacturing, Computer-Aided Engineering, Computer-Aided Software Engineering, Computer
-                        Aided Software Testing, Computer-Aided Software Maintenance, Computer-Aided Software
-                        Configuration Management, Computer-Aided Software Quality Assurance, Computer-Aided
-                        Software Project Management, Computer-Aided Software Security, Computer-Aided Software
-                        Testing, Computer-Aided Software Maintenance, Computer-Aided Software Configuration
-                        Management, Computer-Aided Software Quality Assurance, Computer-Aided Software Project
-                        Management, Computer-Aided Software Security, Computer-Aided Software Testing, Computer-
-                        Aided Software Maintenance, Computer-Aided Software Configuration Management, Computer-
-                        Aided Software Quality Assurance, Computer-Aided Software Project Management, Computer-
-                        Aided Software Security, Computer-Aided Software Testing, Computer-Aided Software
-                        Maintenance, Computer-Aided Software Configuration Management, Computer-Aided Software
-                        Quality Assurance, Computer-Aided Software Project Management, Computer-Aided Software
-                        Security, Computer-Aided Software Testing, Computer-Aided Software Maintenance,
-                        Computer-Aided Software Configuration Management, Computer-Aided Software Quality
-                    </li>
-                </ul>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h5>LANGUAGES</h5>
-                <p>
-                    <b>Language Name</b> | Proficiency Level
-                <ul>
-                    <!-- add languages like English, french -->
-                    <li>English | Native</li>
-                    <li>French | Intermediate</li>
-                </ul>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h5>INTERESTS</h5>
-                <p>
-                    <b>Interest Name</b>
-                <ul>
-                    <!-- add interests like reading, writing -->
-                    <li>Reading</li>
-                    <li>Writing</li>
-                </ul>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h5>REFERENCES</h5>
-                <p>
-                    <b>Reference Name</b> | Reference Title | Reference Company
-                <ul>
-                    <li>Reference Description</li>
-                </ul>
-                </p>
-            </td>
-    </table>
+                        <p>
+                            <b>{{ $reference->email }}</b>
+                    </div>
+                @endforeach
+            @endif
+        </div>
+    </div>
+@endif
 </body>
 
 </html>

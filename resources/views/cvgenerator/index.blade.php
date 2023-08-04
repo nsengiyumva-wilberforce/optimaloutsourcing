@@ -21,7 +21,7 @@
                     <h3>Modern</h3>
                 </div>
                 <div class="col-md-3 card card-body m-1 shadow col-sm-12">
-                    <a href="/cv-generator/edit-cv/modern">
+                    <a href="/cv-generator/edit-cv/classic">
                         <img src="{{ asset('assets/images/classic_template.png') }}" alt="cv4 placeholder" class="img-fluid">
                     </a>
                     <h3>Classic</h3>
