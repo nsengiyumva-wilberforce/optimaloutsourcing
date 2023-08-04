@@ -80,47 +80,48 @@
 
                 <h4>What information do you want to show?</h4>
                 <div class="form-check">
-                    <input type="checkbox" name="cv_info" id="contact_details" class="form-check-input">
+                    <input type="checkbox" name="cv_info" id="contact-details" class="form-check-input" value="true"
+                        checked>
                     <label for="contact_details" class="form-check-label">Contact Details</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" name="cv_info" id="intro" class="form-check-input">
+                    <input type="checkbox" name="cv_info" id="intro" class="form-check-input" vale="true"
+                        checked>
                     <label for="intro" class="form-check-label">Intro</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" name="cv_info" id="work_experience" class="form-check-input">
+                    <input type="checkbox" name="cv_info" id="work-experience" class="form-check-input" value="true"
+                        checked>
                     <label for="work_experience" class="form-check-label">Work Experience</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" name="cv_info" id="education" class="form-check-input">
+                    <input type="checkbox" name="cv_info" id="education" class="form-check-input" value="true"
+                        checked>
                     <label for="education" class="form-check-label">Education</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" name="cv_info" id="skills" class="form-check-input">
+                    <input type="checkbox" name="cv_info" id="skills" class="form-check-input" value="true"
+                        checked>
                     <label for="skills" class="form-check-label">Skills</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" name="cv_info" id="languages" class="form-check-input">
+                    <input type="checkbox" name="cv_info" id="languages" class="form-check-input" value="true"
+                        checked>
                     <label for="languages" class="form-check-label">Languages</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" name="cv_info" id="certificates" class="form-check-input">
+                    <input type="checkbox" name="cv_info" id="certificates" class="form-check-input" value="true"
+                        checked>
                     <label for="certificates" class="form-check-label">Certificates</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" name="cv_info" id="associations" class="form-check-input">
+                    <input type="checkbox" name="cv_info" id="associations" class="form-check-input" value="true"
+                        checked>
                     <label for="associations" class="form-check-label">Associations</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" name="cv_info" id="hobbies" class="form-check-input">
-                    <label for="hobbies" class="form-check-label">Hobbies</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" name="cv_info" id="links" class="form-check-input">
-                    <label for="links" class="form-check-label">Links</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" name="cv_info" id="references" class="form-check-input">
+                    <input type="checkbox" name="cv_info" id="references" class="form-check-input" value="true"
+                        checked>
                     <label for="references" class="form-check-label">References</label>
                 </div>
 
@@ -132,17 +133,6 @@
                     <option value="classic" {{ $design == 'classic' ? 'selected' : '' }}>Classic</option>
                     <option value="plain" {{ $design == 'plain' ? 'selected' : '' }}>Plain</option>
                 </select>
-
-                <h4>Which work Experience(s) do you want to show?</h4>
-                @if ($experiences)
-                    @foreach ($experiences as $experience)
-                        <div class="form-check">
-                            <input type="checkbox" id="{{ $experience->experience_id }}" class="form-check-input" name="experience">
-                            <label for="{{ $experience->experience_id }}"
-                                class="form-check-label">{{ $experience->job_title }}</label>
-                        </div>
-                    @endforeach
-                @endif
                 {{-- <a href="/create-cv" class="btn btn-primary">Apply Changes</a> --}}
             </div>
 
@@ -241,11 +231,44 @@
                 var fontSize = $('input[name="font_size"]:checked').val();
                 console.log("font size:", fontSize)
 
+                //get contact details check box value
+                var contactDetails = $('#contact-details').val();
+
+                //get intro check box value
+                var intro = $('#intro').val();
+
+                //get education check box value
+                var education = $('#education').val();
+
+                //get work experience check box value
+                var work_experience = $('#work-experience').val();
+
+                //get skills check box value
+                var professional_skills = $('#skills').val();
+
+                //get languages check box value
+                var professional_languages = $('#languages').val();
+
+                //get certifications check box value
+                var professional_certificates = $('#certificates').val();
+
+                //get references check box value
+                var professional_references = $('#references').val();
+
+
                 data = {
                     "design": designValue,
                     "effect_color": selectedColor,
                     "font_family": fontFamily,
-                    "font_size": fontSize
+                    "font_size": fontSize,
+                    "contact_details": contactDetails,
+                    "intro": intro,
+                    "education": education,
+                    "work_experience": work_experience,
+                    "professional_skills": professional_skills,
+                    "professional_languages": professional_languages,
+                    "professional_certificates": professional_certificates,
+                    "professional_references": professional_references
                 };
 
                 //use ajax to submit the data
@@ -284,11 +307,44 @@
                 var fontSize = $('input[name="font_size"]:checked').val();
                 console.log("font size:", fontSize)
 
+                //get contact details check box value
+                var contactDetails = $('#contact-details').val();
+
+                //get intro check box value
+                var intro = $('#intro').val();
+
+                //get education check box value
+                var education = $('#education').val();
+
+                //get work experience check box value
+                var work_experience = $('#work-experience').val();
+
+                //get skills check box value
+                var professional_skills = $('#skills').val();
+
+                //get languages check box value
+                var professional_languages = $('#languages').val();
+
+                //get certifications check box value
+                var professional_certificates = $('#certificates').val();
+
+                //get references check box value
+                var professional_references = $('#references').val();
+
+
                 data = {
                     "design": designValue,
                     "effect_color": selectedColor,
                     "font_family": fontFamily,
-                    "font_size": fontSize
+                    "font_size": fontSize,
+                    "contact_details": contactDetails,
+                    "intro": intro,
+                    "education": education,
+                    "work_experience": work_experience,
+                    "professional_skills": professional_skills,
+                    "professional_languages": professional_languages,
+                    "professional_certificates": professional_certificates,
+                    "professional_references": professional_references
                 };
 
                 //use ajax to submit the data
@@ -327,11 +383,44 @@
                 var fontSize = $('input[name="font_size"]:checked').val();
                 console.log("font size:", fontSize)
 
+                //get contact details check box value
+                var contactDetails = $('#contact-details').val();
+
+                //get intro check box value
+                var intro = $('#intro').val();
+
+                //get education check box value
+                var education = $('#education').val();
+
+                //get work experience check box value
+                var work_experience = $('#work-experience').val();
+
+                //get skills check box value
+                var professional_skills = $('#skills').val();
+
+                //get languages check box value
+                var professional_languages = $('#languages').val();
+
+                //get certifications check box value
+                var professional_certificates = $('#certificates').val();
+
+                //get references check box value
+                var professional_references = $('#references').val();
+
+
                 data = {
                     "design": designValue,
                     "effect_color": selectedColor,
                     "font_family": fontFamily,
-                    "font_size": fontSize
+                    "font_size": fontSize,
+                    "contact_details": contactDetails,
+                    "intro": intro,
+                    "education": education,
+                    "work_experience": work_experience,
+                    "professional_skills": professional_skills,
+                    "professional_languages": professional_languages,
+                    "professional_certificates": professional_certificates,
+                    "professional_references": professional_references
                 };
 
                 //use ajax to submit the data
@@ -370,11 +459,44 @@
                 var fontSize = $('input[name="font_size"]:checked').val();
                 console.log("font size:", fontSize)
 
+                //get contact details check box value
+                var contactDetails = $('#contact-details').val();
+
+                //get intro check box value
+                var intro = $('#intro').val();
+
+                //get education check box value
+                var education = $('#education').val();
+
+                //get work experience check box value
+                var work_experience = $('#work-experience').val();
+
+                //get skills check box value
+                var professional_skills = $('#skills').val();
+
+                //get languages check box value
+                var professional_languages = $('#languages').val();
+
+                //get certifications check box value
+                var professional_certificates = $('#certificates').val();
+
+                //get references check box value
+                var professional_references = $('#references').val();
+
+
                 data = {
                     "design": designValue,
                     "effect_color": selectedColor,
                     "font_family": fontFamily,
-                    "font_size": fontSize
+                    "font_size": fontSize,
+                    "contact_details": contactDetails,
+                    "intro": intro,
+                    "education": education,
+                    "work_experience": work_experience,
+                    "professional_skills": professional_skills,
+                    "professional_languages": professional_languages,
+                    "professional_certificates": professional_certificates,
+                    "professional_references": professional_references
                 };
                 //use ajax to submit the data
                 $.ajax({
@@ -396,6 +518,678 @@
                 });
 
             });
+
+            $('#contact-details').change(function() {
+                // Check if the checkbox is checked or not
+                if ($(this).prop('checked')) {
+                    //set the value of the checkbox to true
+                    $('#contact-details').val(1)
+                } else {
+                    //set the value of the checkbox to false
+                    $('#contact-details').val(0)
+                }
+                // Retrieve the selected value for design template
+                var designValue = $("#design-style").val();
+                console.log("design:", designValue);
+
+                //retrieve the selected value for color
+                var selectedColor = $("#select-color").val();
+                console.log("color:", selectedColor)
+
+                //retrieve the selected font family
+                var fontFamily = $("#select-family").val();
+                console.log("font family:", fontFamily)
+
+                var fontSize = $('input[name="font_size"]:checked').val();
+                console.log("font size:", fontSize)
+                //get contact details check box value
+                var contactDetails = $('#contact-details').val();
+
+                //get intro check box value
+                var intro = $('#intro').val();
+
+                //get education check box value
+                var education = $('#education').val();
+
+                //get work experience check box value
+                var work_experience = $('#work-experience').val();
+
+                //get skills check box value
+                var professional_skills = $('#skills').val();
+
+                //get languages check box value
+                var professional_languages = $('#languages').val();
+
+                //get certifications check box value
+                var professional_certificates = $('#certificates').val();
+
+                //get references check box value
+                var professional_references = $('#references').val();
+
+
+                data = {
+                    "design": designValue,
+                    "effect_color": selectedColor,
+                    "font_family": fontFamily,
+                    "font_size": fontSize,
+                    "contact_details": contactDetails,
+                    "intro": intro,
+                    "education": education,
+                    "work_experience": work_experience,
+                    "professional_skills": professional_skills,
+                    "professional_languages": professional_languages,
+                    "professional_certificates": professional_certificates,
+                    "professional_references": professional_references
+                };
+
+                //use ajax to submit the data
+                $.ajax({
+                    url: "{{ route('updateCv') }}",
+                    type: "POST",
+                    //stringfy the data before sending it to the server
+                    data: JSON.stringify(data),
+                    headers: {
+                        'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        console.log("success");
+                        reloadPDF()
+                    },
+                    error: function(error) {
+                        console.log(error);
+                        // alert("error");
+                    }
+                });
+            })
+
+            $('#intro').change(function() {
+                // Check if the checkbox is checked or not
+                if ($(this).prop('checked')) {
+                    //set the value of the checkbox to true
+                    $('#intro').val(1)
+                } else {
+                    //set the value of the checkbox to false
+                    $('#intro').val(0)
+                }
+                // Retrieve the selected value for design template
+                var designValue = $("#design-style").val();
+                console.log("design:", designValue);
+
+                //retrieve the selected value for color
+                var selectedColor = $("#select-color").val();
+                console.log("color:", selectedColor)
+
+                //retrieve the selected font family
+                var fontFamily = $("#select-family").val();
+                console.log("font family:", fontFamily)
+
+                var fontSize = $('input[name="font_size"]:checked').val();
+                console.log("font size:", fontSize)
+                //get contact details check box value
+                var contactDetails = $('#contact-details').val();
+
+                //get intro check box value
+                var intro = $('#intro').val();
+
+                //get education check box value
+                var education = $('#education').val();
+
+                //get work experience check box value
+                var work_experience = $('#work-experience').val();
+
+                //get skills check box value
+                var professional_skills = $('#skills').val();
+
+                //get languages check box value
+                var professional_languages = $('#languages').val();
+
+                //get certifications check box value
+                var professional_certificates = $('#certificates').val();
+
+                //get references check box value
+                var professional_references = $('#references').val();
+
+
+                data = {
+                    "design": designValue,
+                    "effect_color": selectedColor,
+                    "font_family": fontFamily,
+                    "font_size": fontSize,
+                    "contact_details": contactDetails,
+                    "intro": intro,
+                    "education": education,
+                    "work_experience": work_experience,
+                    "professional_skills": professional_skills,
+                    "professional_languages": professional_languages,
+                    "professional_certificates": professional_certificates,
+                    "professional_references": professional_references
+                };
+
+                //use ajax to submit the data
+                $.ajax({
+                    url: "{{ route('updateCv') }}",
+                    type: "POST",
+                    //stringfy the data before sending it to the server
+                    data: JSON.stringify(data),
+                    headers: {
+                        'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        console.log("success");
+                        reloadPDF()
+                    },
+                    error: function(error) {
+                        console.log(error);
+                        // alert("error");
+                    }
+                });
+            })
+
+            $('#work-experience').change(function() {
+                // Check if the checkbox is checked or not
+                if ($(this).prop('checked')) {
+                    //set the value of the checkbox to true
+                    $('#work-experience').val(1)
+                } else {
+                    //set the value of the checkbox to false
+                    $('#work-experience').val(0)
+                }
+                // Retrieve the selected value for design template
+                var designValue = $("#design-style").val();
+                console.log("design:", designValue);
+
+                //retrieve the selected value for color
+                var selectedColor = $("#select-color").val();
+                console.log("color:", selectedColor)
+
+                //retrieve the selected font family
+                var fontFamily = $("#select-family").val();
+                console.log("font family:", fontFamily)
+
+                var fontSize = $('input[name="font_size"]:checked').val();
+                console.log("font size:", fontSize)
+                //get contact details check box value
+                var contactDetails = $('#contact-details').val();
+
+                //get intro check box value
+                var intro = $('#intro').val();
+
+                //get education check box value
+                var education = $('#education').val();
+
+                //get work experience check box value
+                var work_experience = $('#work-experience').val();
+
+                //get skills check box value
+                var professional_skills = $('#skills').val();
+
+                //get languages check box value
+                var professional_languages = $('#languages').val();
+
+                //get certifications check box value
+                var professional_certificates = $('#certificates').val();
+
+                //get references check box value
+                var professional_references = $('#references').val();
+
+
+                data = {
+                    "design": designValue,
+                    "effect_color": selectedColor,
+                    "font_family": fontFamily,
+                    "font_size": fontSize,
+                    "contact_details": contactDetails,
+                    "intro": intro,
+                    "education": education,
+                    "work_experience": work_experience,
+                    "professional_skills": professional_skills,
+                    "professional_languages": professional_languages,
+                    "professional_certificates": professional_certificates,
+                    "professional_references": professional_references
+                };
+
+                //use ajax to submit the data
+                $.ajax({
+                    url: "{{ route('updateCv') }}",
+                    type: "POST",
+                    //stringfy the data before sending it to the server
+                    data: JSON.stringify(data),
+                    headers: {
+                        'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        console.log("success");
+                        reloadPDF()
+                    },
+                    error: function(error) {
+                        console.log(error);
+                        // alert("error");
+                    }
+                });
+            })
+
+            $('#education').change(function() {
+                // Check if the checkbox is checked or not
+                if ($(this).prop('checked')) {
+                    //set the value of the checkbox to true
+                    $('#education').val(1)
+                } else {
+                    //set the value of the checkbox to false
+                    $('#education').val(0)
+                }
+                // Retrieve the selected value for design template
+                var designValue = $("#design-style").val();
+                console.log("design:", designValue);
+
+                //retrieve the selected value for color
+                var selectedColor = $("#select-color").val();
+                console.log("color:", selectedColor)
+
+                //retrieve the selected font family
+                var fontFamily = $("#select-family").val();
+                console.log("font family:", fontFamily)
+
+                var fontSize = $('input[name="font_size"]:checked').val();
+                console.log("font size:", fontSize)
+                //get contact details check box value
+                var contactDetails = $('#contact-details').val();
+
+                //get intro check box value
+                var intro = $('#intro').val();
+
+                //get education check box value
+                var education = $('#education').val();
+
+                //get work experience check box value
+                var work_experience = $('#work-experience').val();
+
+                //get skills check box value
+                var professional_skills = $('#skills').val();
+
+                //get languages check box value
+                var professional_languages = $('#languages').val();
+
+                //get certifications check box value
+                var professional_certificates = $('#certificates').val();
+
+                //get references check box value
+                var professional_references = $('#references').val();
+
+
+                data = {
+                    "design": designValue,
+                    "effect_color": selectedColor,
+                    "font_family": fontFamily,
+                    "font_size": fontSize,
+                    "contact_details": contactDetails,
+                    "intro": intro,
+                    "education": education,
+                    "work_experience": work_experience,
+                    "professional_skills": professional_skills,
+                    "professional_languages": professional_languages,
+                    "professional_certificates": professional_certificates,
+                    "professional_references": professional_references
+                };
+
+                //use ajax to submit the data
+                $.ajax({
+                    url: "{{ route('updateCv') }}",
+                    type: "POST",
+                    //stringfy the data before sending it to the server
+                    data: JSON.stringify(data),
+                    headers: {
+                        'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        console.log("success");
+                        reloadPDF()
+                    },
+                    error: function(error) {
+                        console.log(error);
+                        // alert("error");
+                    }
+                });
+            })
+
+            $('#skills').change(function() {
+                // Check if the checkbox is checked or not
+                if ($(this).prop('checked')) {
+                    //set the value of the checkbox to true
+                    $('#skills').val(1)
+                } else {
+                    //set the value of the checkbox to false
+                    $('#skills').val(0)
+                }
+                // Retrieve the selected value for design template
+                var designValue = $("#design-style").val();
+                console.log("design:", designValue);
+
+                //retrieve the selected value for color
+                var selectedColor = $("#select-color").val();
+                console.log("color:", selectedColor)
+
+                //retrieve the selected font family
+                var fontFamily = $("#select-family").val();
+                console.log("font family:", fontFamily)
+
+                var fontSize = $('input[name="font_size"]:checked').val();
+                console.log("font size:", fontSize)
+                //get contact details check box value
+                var contactDetails = $('#contact-details').val();
+
+                //get intro check box value
+                var intro = $('#intro').val();
+
+                //get education check box value
+                var education = $('#education').val();
+
+                //get work experience check box value
+                var work_experience = $('#work-experience').val();
+
+                //get skills check box value
+                var professional_skills = $('#skills').val();
+
+                //get languages check box value
+                var professional_languages = $('#languages').val();
+
+                //get certifications check box value
+                var professional_certificates = $('#certificates').val();
+
+                //get references check box value
+                var professional_references = $('#references').val();
+
+
+                data = {
+                    "design": designValue,
+                    "effect_color": selectedColor,
+                    "font_family": fontFamily,
+                    "font_size": fontSize,
+                    "contact_details": contactDetails,
+                    "intro": intro,
+                    "education": education,
+                    "work_experience": work_experience,
+                    "professional_skills": professional_skills,
+                    "professional_languages": professional_languages,
+                    "professional_certificates": professional_certificates,
+                    "professional_references": professional_references
+                };
+
+                //use ajax to submit the data
+                $.ajax({
+                    url: "{{ route('updateCv') }}",
+                    type: "POST",
+                    //stringfy the data before sending it to the server
+                    data: JSON.stringify(data),
+                    headers: {
+                        'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        console.log("success");
+                        reloadPDF()
+                    },
+                    error: function(error) {
+                        console.log(error);
+                        // alert("error");
+                    }
+                });
+            })
+
+            $('#languages').change(function() {
+                // Check if the checkbox is checked or not
+                if ($(this).prop('checked')) {
+                    //set the value of the checkbox to true
+                    $('#languages').val(1)
+                } else {
+                    //set the value of the checkbox to false
+                    $('#languages').val(0)
+                }
+                // Retrieve the selected value for design template
+                var designValue = $("#design-style").val();
+                console.log("design:", designValue);
+
+                //retrieve the selected value for color
+                var selectedColor = $("#select-color").val();
+                console.log("color:", selectedColor)
+
+                //retrieve the selected font family
+                var fontFamily = $("#select-family").val();
+                console.log("font family:", fontFamily)
+
+                var fontSize = $('input[name="font_size"]:checked').val();
+                console.log("font size:", fontSize)
+                //get contact details check box value
+                var contactDetails = $('#contact-details').val();
+
+                //get intro check box value
+                var intro = $('#intro').val();
+
+                //get education check box value
+                var education = $('#education').val();
+
+                //get work experience check box value
+                var work_experience = $('#work-experience').val();
+
+                //get skills check box value
+                var professional_skills = $('#skills').val();
+
+                //get languages check box value
+                var professional_languages = $('#languages').val();
+
+                //get certifications check box value
+                var professional_certificates = $('#certificates').val();
+
+                //get references check box value
+                var professional_references = $('#references').val();
+
+
+                data = {
+                    "design": designValue,
+                    "effect_color": selectedColor,
+                    "font_family": fontFamily,
+                    "font_size": fontSize,
+                    "contact_details": contactDetails,
+                    "intro": intro,
+                    "education": education,
+                    "work_experience": work_experience,
+                    "professional_skills": professional_skills,
+                    "professional_languages": professional_languages,
+                    "professional_certificates": professional_certificates,
+                    "professional_references": professional_references
+                };
+
+                //use ajax to submit the data
+                $.ajax({
+                    url: "{{ route('updateCv') }}",
+                    type: "POST",
+                    //stringfy the data before sending it to the server
+                    data: JSON.stringify(data),
+                    headers: {
+                        'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        console.log("success");
+                        reloadPDF()
+                    },
+                    error: function(error) {
+                        console.log(error);
+                        // alert("error");
+                    }
+                });
+            })
+
+            $('#certificates').change(function() {
+                // Check if the checkbox is checked or not
+                if ($(this).prop('checked')) {
+                    //set the value of the checkbox to true
+                    $('#certificates').val(1)
+                } else {
+                    //set the value of the checkbox to false
+                    $('#certificates').val(0)
+                }
+                // Retrieve the selected value for design template
+                var designValue = $("#design-style").val();
+                console.log("design:", designValue);
+
+                //retrieve the selected value for color
+                var selectedColor = $("#select-color").val();
+                console.log("color:", selectedColor)
+
+                //retrieve the selected font family
+                var fontFamily = $("#select-family").val();
+                console.log("font family:", fontFamily)
+
+                var fontSize = $('input[name="font_size"]:checked').val();
+                console.log("font size:", fontSize)
+                //get contact details check box value
+                var contactDetails = $('#contact-details').val();
+
+                //get intro check box value
+                var intro = $('#intro').val();
+
+                //get education check box value
+                var education = $('#education').val();
+
+                //get work experience check box value
+                var work_experience = $('#work-experience').val();
+
+                //get skills check box value
+                var professional_skills = $('#skills').val();
+
+                //get languages check box value
+                var professional_languages = $('#languages').val();
+
+                //get certifications check box value
+                var professional_certificates = $('#certificates').val();
+
+                //get references check box value
+                var professional_references = $('#references').val();
+
+
+                data = {
+                    "design": designValue,
+                    "effect_color": selectedColor,
+                    "font_family": fontFamily,
+                    "font_size": fontSize,
+                    "contact_details": contactDetails,
+                    "intro": intro,
+                    "education": education,
+                    "work_experience": work_experience,
+                    "professional_skills": professional_skills,
+                    "professional_languages": professional_languages,
+                    "professional_certificates": professional_certificates,
+                    "professional_references": professional_references
+                };
+
+                //use ajax to submit the data
+                $.ajax({
+                    url: "{{ route('updateCv') }}",
+                    type: "POST",
+                    //stringfy the data before sending it to the server
+                    data: JSON.stringify(data),
+                    headers: {
+                        'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        console.log("success");
+                        reloadPDF()
+                    },
+                    error: function(error) {
+                        console.log(error);
+                        // alert("error");
+                    }
+                });
+            })
+
+            $('#references').change(function() {
+                // Check if the checkbox is checked or not
+                if ($(this).prop('checked')) {
+                    //set the value of the checkbox to true
+                    $('#references').val(1)
+                } else {
+                    //set the value of the checkbox to false
+                    $('#references').val(0)
+                }
+                // Retrieve the selected value for design template
+                var designValue = $("#design-style").val();
+                console.log("design:", designValue);
+
+                //retrieve the selected value for color
+                var selectedColor = $("#select-color").val();
+                console.log("color:", selectedColor)
+
+                //retrieve the selected font family
+                var fontFamily = $("#select-family").val();
+                console.log("font family:", fontFamily)
+
+                var fontSize = $('input[name="font_size"]:checked').val();
+                console.log("font size:", fontSize)
+                //get contact details check box value
+                var contactDetails = $('#contact-details').val();
+
+                //get intro check box value
+                var intro = $('#intro').val();
+
+                //get education check box value
+                var education = $('#education').val();
+
+                //get work experience check box value
+                var work_experience = $('#work-experience').val();
+
+                //get skills check box value
+                var professional_skills = $('#skills').val();
+
+                //get languages check box value
+                var professional_languages = $('#languages').val();
+
+                //get certifications check box value
+                var professional_certificates = $('#certificates').val();
+
+                //get references check box value
+                var professional_references = $('#references').val();
+
+
+                data = {
+                    "design": designValue,
+                    "effect_color": selectedColor,
+                    "font_family": fontFamily,
+                    "font_size": fontSize,
+                    "contact_details": contactDetails,
+                    "intro": intro,
+                    "education": education,
+                    "work_experience": work_experience,
+                    "professional_skills": professional_skills,
+                    "professional_languages": professional_languages,
+                    "professional_certificates": professional_certificates,
+                    "professional_references": professional_references
+                };
+
+                //use ajax to submit the data
+                $.ajax({
+                    url: "{{ route('updateCv') }}",
+                    type: "POST",
+                    //stringfy the data before sending it to the server
+                    data: JSON.stringify(data),
+                    headers: {
+                        'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        console.log("success");
+                        reloadPDF()
+                    },
+                    error: function(error) {
+                        console.log(error);
+                        // alert("error");
+                    }
+                });
+            })
 
             $('#download-cv').click(function() {
                 $.ajax({
@@ -533,6 +1327,10 @@
                 });
             }
         });
+
+        function showExperience(checkbox) {
+            var experience_id = $(checkbox).data('experience-id');
+        }
     </script>
 </body>
 

@@ -357,6 +357,30 @@ class ProfileController extends Controller
         //get the profile photo
         $profile_photo = $profile->profile_photo;
 
+        //contact details
+        $contact_details = true;
+
+        //intro
+        $intro = true;
+
+        //work_experience
+        $work_experience = true;
+
+        //education
+        $education = true;
+
+        //skills
+        $professional_skills = true;
+
+        //languages
+        $professional_languages = true;
+
+        //references
+        $professional_references = true;
+
+        //certificates
+        $professional_certificates = true;
+
         //generate the full file name
         $full_name = auth()->user()->profile->first_name . ' ' . auth()->user()->profile->last_name;
         $cv_file_name = $full_name . '-CV.pdf';
@@ -376,7 +400,15 @@ class ProfileController extends Controller
             'cv_file_name' => $cv_file_name,
             'design' => $design,
             'font_size' => $font_size,
-            'font_family' => $font_family
+            'font_family' => $font_family,
+            'contact_details' => $contact_details,
+            'intro' => $intro,
+            'work_experience' => $work_experience,
+            'education' => $education,
+            'professional_skills' => $professional_skills,
+            'professional_languages' => $professional_languages,
+            'professional_references' => $professional_references,
+            'professional_certificates' => $professional_certificates,
         ];
         if ($design == 'plain')
             $pdf = Pdf::loadView('cvgenerator.cv', $data);
@@ -417,9 +449,27 @@ class ProfileController extends Controller
 
         // Using array notation
         $design = $data['design'];
+
         $effect_color = $data['effect_color'];
+
         $font_family = $data['font_family'];
+
         $font_size = $data['font_size'];
+
+        $contact_details = $data['contact_details'];
+
+        $intro = $data['intro'];
+
+        $work_experience = $data['work_experience'];
+
+        $education = $data['education'];
+
+        $professional_skills = $data['professional_skills'];
+
+        $professional_languages = $data['professional_languages'];
+
+        $professional_certificate = $data['professional_certificates'];
+        $professional_references = $data['professional_references'];
 
         //get all the profile info for the user
         $profile = auth()->user()->profile;
@@ -465,8 +515,17 @@ class ProfileController extends Controller
             'cv_file_name' => $cv_file_name,
             'design' => $design,
             'font_size' => $font_size,
-            'font_family' => $font_family
+            'font_family' => $font_family,
+            'contact_details' => $contact_details,
+            'intro' => $intro,
+            'work_experience' => $work_experience,
+            'education' => $education,
+            'professional_skills' => $professional_skills,
+            'professional_languages' => $professional_languages,
+            'professional_certificates' => $professional_certificate,
+            'professional_references' => $professional_references,
         ];
+
         if ($design === "plain")
             $pdf = Pdf::loadView('cvgenerator.cv', $data);
 
